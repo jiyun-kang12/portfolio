@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko-KR">
 <head>
   <meta charset="utf-8">
   <title>DevFolio Bootstrap Template</title>
@@ -13,6 +13,10 @@
 
   <!-- Bootstrap CSS File -->
   <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@700&display=swap" rel="stylesheet">
+
 
   <!-- Libraries CSS Files -->
   <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -34,10 +38,10 @@
 
 <body id="page-top">
 
-  <!--/ Nav Star /-->
+  <!--/ 메뉴 상단 바/-->
   <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll" href="#page-top">DevFolio</a>
+      <a class="navbar-brand js-scroll" href="#page-top">Jiyun's DevFolio</a>
       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
         aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span></span>
@@ -50,19 +54,16 @@
             <a class="nav-link js-scroll active" href="#home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll" href="#about">About</a>
+            <a class="nav-link js-scroll active" href="#portfolio">Portfolio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll" href="#service">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll" href="#work">Work</a>
+            <a class="nav-link js-scroll" href="#portfolio-grid">Paper Review</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll" href="#blog">Blog</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll" href="#contact">Contact</a>
+            <a class="nav-link js-scroll" href="#about">About</a>
           </li>
         </ul>
       </div>
@@ -70,15 +71,15 @@
   </nav>
   <!--/ Nav End /-->
 
-  <!--/ Intro Skew Star /-->
-  <div id="home" class="intro route bg-image" style="background-image: url(img/intro-bg.jpg)">
+   <!--/ Intro Skew Star /-->
+  <div id="home" class="intro route bg-image" style="background-image: url(img/background2.gif)">
     <div class="overlay-itro"></div>
     <div class="intro-content display-table">
       <div class="table-cell">
         <div class="container">
           <!--<p class="display-6 color-d">Hello, world!</p>-->
-          <h1 class="intro-title mb-4">I am Morgan Freeman</h1>
-          <p class="intro-subtitle"><span class="text-slider-items">CEO DevFolio,Web Developer,Web Designer,Frontend Developer,Graphic Designer</span><strong class="text-slider"></strong></p>
+          <h1 class="intro-title mb-4">JIYUN KANG</h1>
+          <p class="intro-subtitle"><span class="text-slider-items">Developer Portfolio, AI Engineer</span><strong class="text-slider"></strong></p>
           <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
         </div>
       </div>
@@ -86,259 +87,132 @@
   </div>
   <!--/ Intro Skew End /-->
 
-  <section id="about" class="about-mf sect-pt4 route">
+  <section id="portfolio" class="portfolio-hero route">
     <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="box-shadow-full">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="row">
-                  <div class="col-sm-6 col-md-5">
-                    <div class="about-img">
-                      <img src="img/testimonial-2.jpg" class="img-fluid rounded b-shadow-a" alt="">
-                    </div>
-                  </div>
-                  <div class="col-sm-6 col-md-7">
-                    <div class="about-info">
-                      <p><span class="title-s">Name: </span> <span>Morgan Freeman</span></p>
-                      <p><span class="title-s">Profile: </span> <span>full stack developer</span></p>
-                      <p><span class="title-s">Email: </span> <span>contact@example.com</span></p>
-                      <p><span class="title-s">Phone: </span> <span>(617) 557-0089</span></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="skill-mf">
-                  <p class="title-s">Skill</p>
-                  <span>HTML</span> <span class="pull-right">85%</span>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
-                  <span>CSS3</span> <span class="pull-right">75%</span>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
-                  <span>PHP</span> <span class="pull-right">50%</span>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
-                  <span>JAVASCRIPT</span> <span class="pull-right">90%</span>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="about-me pt-4 pt-md-0">
-                  <div class="title-box-2">
-                    <h5 class="title-left">
-                      About me
-                    </h5>
-                  </div>
-                  <p class="lead">
-                    Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur arcu erat, accumsan id
-                    imperdiet et, porttitor
-                    at sem. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Nulla
-                    porttitor accumsan tincidunt.
-                  </p>
-                  <p class="lead">
-                    Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vivamus suscipit tortor eget felis
-                    porttitor volutpat. Vestibulum
-                    ac diam sit amet quam vehicula elementum sed sit amet dui. porttitor at sem.
-                  </p>
-                  <p class="lead">
-                    Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
-                    Nulla porttitor accumsan
-                    tincidunt. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!--/ Section Services Star /-->
-  <section id="service" class="services-mf route">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="title-box text-center">
-            <h3 class="title-a">
-              Services
-            </h3>
-            <p class="subtitle-a">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            </p>
-            <div class="line-mf"></div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="service-box">
-            <div class="service-ico">
-              <span class="ico-circle"><i class="ion-monitor"></i></span>
-            </div>
-            <div class="service-content">
-              <h2 class="s-title">Web Design</h2>
-              <p class="s-description text-center">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
-                provident vitae! Magni
-                tempora perferendis eum non provident.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-box">
-            <div class="service-ico">
-              <span class="ico-circle"><i class="ion-code-working"></i></span>
-            </div>
-            <div class="service-content">
-              <h2 class="s-title">Web Development</h2>
-              <p class="s-description text-center">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
-                provident vitae! Magni
-                tempora perferendis eum non provident.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-box">
-            <div class="service-ico">
-              <span class="ico-circle"><i class="ion-camera"></i></span>
-            </div>
-            <div class="service-content">
-              <h2 class="s-title">Photography</h2>
-              <p class="s-description text-center">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
-                provident vitae! Magni
-                tempora perferendis eum non provident.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-box">
-            <div class="service-ico">
-              <span class="ico-circle"><i class="ion-android-phone-portrait"></i></span>
-            </div>
-            <div class="service-content">
-              <h2 class="s-title">Responsive Design</h2>
-              <p class="s-description text-center">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
-                provident vitae! Magni
-                tempora perferendis eum non provident.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-box">
-            <div class="service-ico">
-              <span class="ico-circle"><i class="ion-paintbrush"></i></span>
-            </div>
-            <div class="service-content">
-              <h2 class="s-title">Graphic Design</h2>
-              <p class="s-description text-center">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
-                provident vitae! Magni
-                tempora perferendis eum non provident.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-box">
-            <div class="service-ico">
-              <span class="ico-circle"><i class="ion-stats-bars"></i></span>
-            </div>
-            <div class="service-content">
-              <h2 class="s-title">Marketing Services</h2>
-              <p class="s-description text-center">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
-                provident vitae! Magni
-                tempora perferendis eum non provident.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--/ Section Services End /-->
-
-  <div class="section-counter paralax-mf bg-image" style="background-image: url(img/counters-bg.jpg)">
-    <div class="overlay-mf"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-3 col-lg-3">
-          <div class="counter-box">
-            <div class="counter-ico">
-              <span class="ico-circle"><i class="ion-checkmark-round"></i></span>
-            </div>
-            <div class="counter-num">
-              <p class="counter">450</p>
-              <span class="counter-text">WORKS COMPLETED</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3 col-lg-3">
-          <div class="counter-box pt-4 pt-md-0">
-            <div class="counter-ico">
-              <span class="ico-circle"><i class="ion-ios-calendar-outline"></i></span>
-            </div>
-            <div class="counter-num">
-              <p class="counter">15</p>
-              <span class="counter-text">YEARS OF EXPERIENCE</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3 col-lg-3">
-          <div class="counter-box pt-4 pt-md-0">
-            <div class="counter-ico">
-              <span class="ico-circle"><i class="ion-ios-people"></i></span>
-            </div>
-            <div class="counter-num">
-              <p class="counter">550</p>
-              <span class="counter-text">TOTAL CLIENTS</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3 col-lg-3">
-          <div class="counter-box pt-4 pt-md-0">
-            <div class="counter-ico">
-              <span class="ico-circle"><i class="ion-ribbon-a"></i></span>
-            </div>
-            <div class="counter-num">
-              <p class="counter">36</p>
-              <span class="counter-text">AWARD WON</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!--/ Section Portfolio Star /-->
-  <section id="work" class="portfolio-mf sect-pt4 route">
-    <div class="container">
-      <div class="row">
+      <div class="row align-items-center">
         <div class="col-sm-12">
           <div class="title-box text-center">
             <h3 class="title-a">
               Portfolio
             </h3>
             <p class="subtitle-a">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            주요 프로젝트 소개
+            </p>
+            <div class="line-mf"></div>
+          </div>
+        </div>
+      <div class="row align-items-center portfolio-entry">
+        <div class="col-xl-3 col-lg-4">
+          <p class="hero-label">Image generation<br> + LLM Finetuning</p>
+          <h1 class="hero-title">자동차 디자인<br> 프로토타입<br> 이미지 생성 플랫폼</h1>
+          <ul class="hero-highlights">
+            <li>프롬프트만으로 다양한 디자인 시안/시각화/<br> 3D·4D 모델 생성 지원</li>
+            <li>브랜드 아이덴티티/트렌드/피드백 등<br> 기업 맥락을 반영한 텍스트·이미지 생성</li>
+            <li>데이터와 모델을 클라우드 외부가 아닌 내부<br> 서버(온프레미스 환경)에서 직접 배포하여 운영</li>
+            <li>Human in the loop 방식 구조로 <br> 주요 의사결정 지점에서<br> 사용자가 직접 개입할 수 있도록 설계</li>
+          </ul>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn js-scroll px-4" href="project1.html" role="button">View Projects</a>
+            <a class="btn btn-primary btn js-scroll px-4" href="https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN13-FINAL-3TEAM" target="_blank" rel="noopener noreferrer" role="button">GitHub</a>
+          </div>
+        </div>
+        <div class="col-xl-7 col-lg-7">
+          <div class="hero-preview">
+            <img src="img/project1_video.gif" class="hero-img hero-img-large" alt="프로젝트 인터랙션">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row align-items-center portfolio-entry portfolio-entry-reverse">
+        <div class="col-xl-7 col-lg-7">
+          <div class="hero-preview hero-preview-gallery">
+            <div class="hero-gallery">
+              <img src="img/hometown1.png" class="hero-img" alt="귀향자 연결 앱 UI 화면 1">
+              <img src="img/hometown3.png" class="hero-img" alt="귀향자 연결 앱 UI 화면 3">
+              <!-- <img src="img/hometown2.png" class="hero-img" alt="귀향자 연결 앱 UI 화면 2"> -->
+              <img src="img/%20hometownon.gif" class="hero-img" alt="귀향자 연결 앱 데모 애니메이션">
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-5 text-right">
+          <p class="hero-label mr-10 pr-10">App + RAG 추천시스템</p>
+          <h1 class="hero-title">고향과 귀향자를 이어주는<br> AI 정착 코디네이터</h1>
+          <ul class="hero-highlights">
+            <li>프롬프트만으로 다양한 디자인 시안/시각화/<br> 3D·4D 모델 생성 지원</li>
+            <li>브랜드 아이덴티티/트렌드/피드백 등<br> 기업 맥락을 반영한 텍스트·이미지 생성</li>
+            <li>데이터와 모델을 클라우드 외부가 아닌 내부<br> 서버(온프레미스 환경)에서 직접 배포하여 운영</li>
+            <li>Human in the loop 방식 구조로 <br> 주요 의사결정 지점에서<br> 사용자가 직접 개입할 수 있도록 설계</li>
+          </ul>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn js-scroll px-4" href="project2.html" role="button">View Projects</a>
+            <a class="btn btn-primary btn js-scroll px-4" href="https://github.com/NGGW519/7th-kDT-HACKATHON" target="_blank" rel="noopener noreferrer" role="button">GitHub</a>
+          </div>
+        </div
+      </div>
+    </div>
+
+    <div class="row align-items-center portfolio-entry">
+      <div class="col-xl-3 col-lg-6">
+        <p class="hero-label">RAG 시스템 + Chainlit</p>
+        <h1 class="hero-title">콘텐츠 크리에이터를 위한<br> 저작권 정보제공 챗봇 시스템</h1>
+        <ul class="hero-highlights">
+          <li>프롬프트만으로 다양한 디자인 시안/시각화/<br> 3D·4D 모델 생성 지원</li>
+          <li>브랜드 아이덴티티/트렌드/피드백 등<br> 기업 맥락을 반영한 텍스트·이미지 생성</li>
+          <li>데이터와 모델을 클라우드 외부가 아닌 내부<br> 서버(온프레미스 환경)에서 직접 배포하여 운영</li>
+          <li>Human in the loop 방식 구조로 <br> 주요 의사결정 지점에서<br> 사용자가 직접 개입할 수 있도록 설계</li>
+        </ul>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn js-scroll px-4" href="project3.html" role="button">View Projects</a>
+          <a class="btn btn-primary btn js-scroll px-4" href="https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN13-3rd-6Team" target="_blank" rel="noopener noreferrer" role="button">GitHub</a>
+        </div>
+      </div>
+      <div class="col-xl-7 col-lg-8">
+        <div class="hero-preview">
+          <img src="img/chainlit.png" class="hero-img hero-img-large" alt="프로젝트 인터랙션">
+        </div>
+      </div>
+    </div>
+
+    <div class="row align-items-center portfolio-entry portfolio-entry-reverse">
+      <div class="col-xl-7 col-lg-7">
+        <div class="hero-preview hero-preview-gallery">
+          <div class="hero-gallery">
+            <p></p>
+            <img src="img/project4.png" class="hero-img" alt="귀향자 연결 앱 데모 애니메이션">
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-5 text-right">
+        <p class="hero-label mr-10 pr-10">Machine Learning</p>
+        <h1 class="hero-title">MOOC 온라인 학습 플랫폼<br> 이탈률 예측</h1>
+        <ul class="hero-highlights">
+          <li>프롬프트만으로 다양한 디자인 시안/시각화/<br> 3D·4D 모델 생성 지원</li>
+          <li>브랜드 아이덴티티/트렌드/피드백 등<br> 기업 맥락을 반영한 텍스트·이미지 생성</li>
+          <li>데이터와 모델을 클라우드 외부가 아닌 내부<br> 서버(온프레미스 환경)에서 직접 배포하여 운영</li>
+          <li>Human in the loop 방식 구조로 <br> 주요 의사결정 지점에서<br> 사용자가 직접 개입할 수 있도록 설계</li>
+        </ul>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn js-scroll px-4" href="project4.html" role="button">View Projects</a>
+          <a class="btn btn-primary btn js-scroll px-4" href="https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN13-2nd-3TEAM" target="_blank" rel="noopener noreferrer" role="button">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <!--/ code review & presentation /-->
+  <section id="portfolio-grid" class="portfolio-mf sect-pt4 route">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="title-box text-center">
+            <h3 class="title-a">
+              Paper Review & Presentation
+            </h3>
+            <p class="subtitle-a">
+              AI 관련 최신 논문 리뷰 및 세미나 참여 경험
             </p>
             <div class="line-mf"></div>
           </div>
@@ -347,16 +221,17 @@
       <div class="row">
         <div class="col-md-4">
           <div class="work-box">
-            <a href="img/work-1.jpg" data-lightbox="gallery-mf">
+            <a href="pdf-viewer.html" target="_blank" rel="noopener">
               <div class="work-img">
-                <img src="img/work-1.jpg" alt="" class="img-fluid">
+                <img src="img/paper_mpo.png" alt="논문 리뷰 미리보기" class="img-fluid">
               </div>
               <div class="work-content">
                 <div class="row">
                   <div class="col-sm-8">
-                    <h2 class="w-title">Lorem impsum dolor</h2>
+                    <h2 class="w-title">Enhancing the Reasoning Ability of Multimodal Large Language Models
+                      via Mixed Preference Optimization</h2>
                     <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
+                      <span class="w-ctegory">Mixed Preference Optimization</span> / <span class="w-date">16 July. 2025</span>
                     </div>
                   </div>
                   <div class="col-sm-4">
@@ -371,16 +246,17 @@
         </div>
         <div class="col-md-4">
           <div class="work-box">
-            <a href="img/work-2.jpg" data-lightbox="gallery-mf">
+            <a href="vl-viewer.html" target="_blank" rel="noopener">
               <div class="work-img">
-                <img src="img/work-2.jpg" alt="" class="img-fluid">
+                <img src="img/vl_thinker.png" alt="VL-ReThinker 미리보기" class="img-fluid">
               </div>
               <div class="work-content">
                 <div class="row">
                   <div class="col-sm-8">
-                    <h2 class="w-title">Loreda Cuno Nere</h2>
+                    <h2 class="w-title">VL-Rethinker: Incentivizing Self-Reflection of Vision-Language Models with Reinforcement Learning
+                    </h2>
                     <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
+                      <span class="w-ctegory">VLM</span> / <span class="w-date">06 Aug. 2025</span>
                     </div>
                   </div>
                   <div class="col-sm-4">
@@ -395,16 +271,17 @@
         </div>
         <div class="col-md-4">
           <div class="work-box">
-            <a href="img/work-3.jpg" data-lightbox="gallery-mf">
+            <a href="halo-viewer.html" target="_blank" rel="noopener">
               <div class="work-img">
-                <img src="img/work-3.jpg" alt="" class="img-fluid">
+                <img src="img/halo.png" alt="" class="img-fluid">
               </div>
               <div class="work-content">
                 <div class="row">
                   <div class="col-sm-8">
-                    <h2 class="w-title">Mavrito Lana Dere</h2>
+                    <h2 class="w-title">HALO: Hierarchical Autonomous Logic-Oriented Orchestration for Multi-Agent LLM Systems
+                    </h2>
                     <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
+                      <span class="w-ctegory">Agentic AI</span> / <span class="w-date">18 Sep. 2025</span>
                     </div>
                   </div>
                   <div class="col-sm-4">
@@ -419,64 +296,16 @@
         </div>
         <div class="col-md-4">
           <div class="work-box">
-            <a href="img/work-4.jpg" data-lightbox="gallery-mf">
+            <a href="visual-viewer.html" target="_blank" rel="noopener">
               <div class="work-img">
-                <img src="img/work-4.jpg" alt="" class="img-fluid">
+                <img src="img/visual_rag.png" alt="" class="img-fluid">
               </div>
               <div class="work-content">
                 <div class="row">
                   <div class="col-sm-8">
-                    <h2 class="w-title">Bindo Laro Cado</h2>
+                    <h2 class="w-title">Visual-RAG: Benchmarking Text-to-Image Retrieval Augmented Generation for Visual Knowledge Intensive Queries</h2>
                     <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="img/work-5.jpg" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="img/work-5.jpg" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Studio Lena Mado</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="img/work-6.jpg" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="img/work-6.jpg" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Studio Big Bang</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2017</span>
+                      <span class="w-ctegory">visual RAG</span> / <span class="w-date">18 Sep. 2025</span>
                     </div>
                   </div>
                   <div class="col-sm-4">
@@ -490,49 +319,11 @@
           </div>
         </div>
         
+        
       </div>
     </div>
   </section>
   <!--/ Section Portfolio End /-->
-
-  <!--/ Section Testimonials Star /-->
-  <div class="testimonials paralax-mf bg-image" style="background-image: url(img/overlay-bg.jpg)">
-    <div class="overlay-mf"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div id="testimonial-mf" class="owl-carousel owl-theme">
-            <div class="testimonial-box">
-              <div class="author-test">
-                <img src="img/testimonial-2.jpg" alt="" class="rounded-circle b-shadow-a">
-                <span class="author">Xavi Alonso</span>
-              </div>
-              <div class="content-test">
-                <p class="description lead">
-                  Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit.
-                </p>
-                <span class="comit"><i class="fa fa-quote-right"></i></span>
-              </div>
-            </div>
-            <div class="testimonial-box">
-              <div class="author-test">
-                <img src="img/testimonial-4.jpg" alt="" class="rounded-circle b-shadow-a">
-                <span class="author">Marta Socrate</span>
-              </div>
-              <div class="content-test">
-                <p class="description lead">
-                  Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit.
-                </p>
-                <span class="comit"><i class="fa fa-quote-right"></i></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!--/ Section Blog Star /-->
   <section id="blog" class="blog-mf sect-pt4 route">
@@ -544,7 +335,7 @@
               Blog
             </h3>
             <p class="subtitle-a">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              AI 트렌드, 회고록, 개인공부 정리를 위한 블로그
             </p>
             <div class="line-mf"></div>
           </div>
@@ -554,30 +345,27 @@
         <div class="col-md-4">
           <div class="card card-blog">
             <div class="card-img">
-              <a href="blog-single.html"><img src="img/post-1.jpg" alt="" class="img-fluid"></a>
+              <a href="https://velog.io/@jiyun_kang/%EC%B5%9C%EC%8B%A0-safeguard-%EB%AA%A8%EB%8D%B8-%EB%B9%84%EA%B5%90-gpt-oss-safeguard-vs-kanana-safeguard" target="_blank" rel="noopener noreferrer" ><img src="img/blog1.png" alt="" class="img-fluid"></a>
             </div>
             <div class="card-body">
               <div class="card-category-box">
                 <div class="card-category">
-                  <h6 class="category">Travel</h6>
+                  <h6 class="category">AI Trend</h6>
                 </div>
               </div>
-              <h3 class="card-title"><a href="blog-single.html">See more ideas about Travel</a></h3>
+              <h3 class="card-title"><a href="https://velog.io/@jiyun_kang/%EC%B5%9C%EC%8B%A0-safeguard-%EB%AA%A8%EB%8D%B8-%EB%B9%84%EA%B5%90-gpt-oss-safeguard-vs-kanana-safeguard" target="_blank" rel="noopener noreferrer" >[최신 safeguard 모델 비교] gpt-oss-safeguard vs kanana safeguard</a></h3>
               <p class="card-description">
-                Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis
-                a pellentesque nec,
-                egestas non nisi.
+                지난 10월에 맞춤형 안정 정책을 지원하는 안전 추론 모델로 gpt-oss-safeguard-120b 와 20b모델을 출시...
               </p>
             </div>
             <div class="card-footer">
               <div class="post-author">
                 <a href="#">
-                  <img src="img/testimonial-2.jpg" alt="" class="avatar rounded-circle">
-                  <span class="author">Morgan Freeman</span>
+                  <span class="author">jiyun_kang</span>
                 </a>
               </div>
               <div class="post-date">
-                <span class="ion-ios-clock-outline"></span> 10 min
+                <span class="ion-ios-clock-outline"></span> 2025.11.20
               </div>
             </div>
           </div>
@@ -585,30 +373,27 @@
         <div class="col-md-4">
           <div class="card card-blog">
             <div class="card-img">
-              <a href="blog-single.html"><img src="img/post-2.jpg" alt="" class="img-fluid"></a>
+              <a href="https://velog.io/@jiyun_kang/%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0-HALO-Hierarchical-Autonomous-Logic-Oriented-Orchestration-for-Multi-Agent-LLM-Systems" target="_blank" rel="noopener noreferrer" ><img src="img/blog6.png" alt="" class="img-fluid"></a>
             </div>
             <div class="card-body">
               <div class="card-category-box">
                 <div class="card-category">
-                  <h6 class="category">Web Design</h6>
+                  <h6 class="category">개인공부</h6>
                 </div>
               </div>
-              <h3 class="card-title"><a href="blog-single.html">See more ideas about Travel</a></h3>
+              <h3 class="card-title"><a href="https://velog.io/@jiyun_kang/%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0-HALO-Hierarchical-Autonomous-Logic-Oriented-Orchestration-for-Multi-Agent-LLM-Systems" target="_blank" rel="noopener noreferrer" >[논문 리뷰] HALO: Hierarchical Autonomous Logic-Oriented Orchestration for Multi-Agent LLM Systems</a></h3>
               <p class="card-description">
-                Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis
-                a pellentesque nec,
-                egestas non nisi.
+                How to maintain robust performance in complex interaction environments and expert-level task?
               </p>
             </div>
             <div class="card-footer">
               <div class="post-author">
                 <a href="#">
-                  <img src="img/testimonial-2.jpg" alt="" class="avatar rounded-circle">
-                  <span class="author">Morgan Freeman</span>
+                  <span class="author">jiyun_kang</span>
                 </a>
               </div>
               <div class="post-date">
-                <span class="ion-ios-clock-outline"></span> 10 min
+                <span class="ion-ios-clock-outline"></span> 2025.10.16
               </div>
             </div>
           </div>
@@ -616,30 +401,112 @@
         <div class="col-md-4">
           <div class="card card-blog">
             <div class="card-img">
-              <a href="blog-single.html"><img src="img/post-3.jpg" alt="" class="img-fluid"></a>
+              <a href="https://velog.io/@jiyun_kang/AI-Festa-%EB%8B%A4%EB%85%80%EC%98%A8-%ED%9B%84%EA%B8%B0%EA%B8%80" target="_blank" rel="noopener noreferrer" ><img src="img/blog2.jpeg" alt="" class="img-fluid"></a>
             </div>
             <div class="card-body">
               <div class="card-category-box">
                 <div class="card-category">
-                  <h6 class="category">Web Design</h6>
+                  <h6 class="category">AI Trend</h6>
                 </div>
               </div>
-              <h3 class="card-title"><a href="blog-single.html">See more ideas about Travel</a></h3>
+              <h3 class="card-title"><a href="https://velog.io/@jiyun_kang/AI-Festa-%EB%8B%A4%EB%85%80%EC%98%A8-%ED%9B%84%EA%B8%B0%EA%B8%80" target="_blank" rel="noopener noreferrer" >2025 AI Festa 다녀온 후기</a></h3>
               <p class="card-description">
-                Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis
-                a pellentesque nec,
-                egestas non nisi.
+                오늘은 같이 프로젝트를 했던 팀들과 AI Festa를 다녀왔다. AI를 다루는 대부분의 기업들이 모두 참석한 행사인만큼 볼거리가 정말 풍성했다. 팀원들과 AI 현재 동향도 살펴보고....
               </p>
             </div>
             <div class="card-footer">
               <div class="post-author">
                 <a href="#">
-                  <img src="img/testimonial-2.jpg" alt="" class="avatar rounded-circle">
-                  <span class="author">Morgan Freeman</span>
+                  <span class="author">jiyun_kang</span>
                 </a>
               </div>
               <div class="post-date">
-                <span class="ion-ios-clock-outline"></span> 10 min
+                <span class="ion-ios-clock-outline"></span> 2025.10.04
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-blog">
+            <div class="card-img">
+              <a href="https://velog.io/@jiyun_kang/SK%EB%84%A4%ED%8A%B8%EC%9B%8D%EC%8A%A4-Family-AI-%EC%BA%A0%ED%94%84-%EB%A7%88%EC%A7%80%EB%A7%89-%ED%9A%8C%EA%B3%A0-%EC%B5%9C%EC%A2%85-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%ED%8E%B8" target="_blank" rel="noopener noreferrer" ><img src="img/blog3.png" alt="" class="img-fluid"></a>
+            </div>
+            <div class="card-body">
+              <div class="card-category-box">
+                <div class="card-category">
+                  <h6 class="category">Self-Reflection</h6>
+                </div>
+              </div>
+              <h3 class="card-title"><a href="https://velog.io/@jiyun_kang/SK%EB%84%A4%ED%8A%B8%EC%9B%8D%EC%8A%A4-Family-AI-%EC%BA%A0%ED%94%84-%EB%A7%88%EC%A7%80%EB%A7%89-%ED%9A%8C%EA%B3%A0-%EC%B5%9C%EC%A2%85-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%ED%8E%B8" target="_blank" rel="noopener noreferrer" >SK네트웍스 Family AI 캠프 마지막 회고 -AI 부트캠프 최종 프로젝트편</a></h3>
+              <p class="card-description">
+                드디어 최종 프로젝트를 끝으로, 6개월 간의 AI 캠프의 여정이 끝났다. 6개월이라는 길고도 짧은 시간에 정말 많은 부분을 배우고, 개발자로서 한층 성장된 나 자신을 마주할 수 있었다...
+              </p>
+            </div>
+            <div class="card-footer">
+              <div class="post-author">
+                <a href="#">
+                  <span class="author">jiyun_kang</span>
+                </a>
+              </div>
+              <div class="post-date">
+                <span class="ion-ios-clock-outline"></span> 2025.09.22
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-blog">
+            <div class="card-img">
+              <a href="https://velog.io/@jiyun_kang/CV-CNNConvolutional-Neural-Network" target="_blank" rel="noopener noreferrer" ><img src="img/blog4.png" alt="" class="img-fluid"></a>
+            </div>
+            <div class="card-body">
+              <div class="card-category-box">
+                <div class="card-category">
+                  <h6 class="category">개인공부</h6>
+                </div>
+              </div>
+              <h3 class="card-title"><a href="https://velog.io/@jiyun_kang/CV-CNNConvolutional-Neural-Network" target="_blank" rel="noopener noreferrer" >[CV] CNN(Convolutional Neural Network)</a></h3>
+              <p class="card-description">
+                fully connected layer는 이미지의 공간적(spatial)구조를 학습하는 것이 어려움. 그니깐, 만약에 강아지 이미지가 있다고 해보자...
+              </p>
+            </div>
+            <div class="card-footer">
+              <div class="post-author">
+                <a href="#">
+                  <span class="author">jiyun_kang</span>
+                </a>
+              </div>
+              <div class="post-date">
+                <span class="ion-ios-clock-outline"></span> 2025.07.03
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-blog">
+            <div class="card-img">
+              <a href="https://velog.io/@jiyun_kang/PEFT-LoRALow-Rank-Adaption" target="_blank" rel="noopener noreferrer" ><img src="img/blog5.png" alt="" class="img-fluid"></a>
+            </div>
+            <div class="card-body">
+              <div class="card-category-box">
+                <div class="card-category">
+                  <h6 class="category">개인공부</h6>
+                </div>
+              </div>
+              <h3 class="card-title"><a href="https://velog.io/@jiyun_kang/PEFT-LoRALow-Rank-Adaption" target="_blank" rel="noopener noreferrer" >[PEFT] LoRA(Low-Rank Adaption)
+              </a></h3>
+              <p class="card-description">
+                1,750억 개의 학습 가능한 파라미터가 있는 GPT-3에서는 full-finetuning 방식을 활용하기엔 시간적 혹은 비용적 측면에서 힘들어지고 있다...
+              </p>
+            </div>
+            <div class="card-footer">
+              <div class="post-author">
+                <a href="#">
+                  <span class="author">jiyun_kang</span>
+                </a>
+              </div>
+              <div class="post-date">
+                <span class="ion-ios-clock-outline"></span> 2025.07.01
               </div>
             </div>
           </div>
@@ -649,83 +516,76 @@
   </section>
   <!--/ Section Blog End /-->
 
-  <!--/ Section Contact-Footer Star /-->
-  <section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(img/overlay-bg.jpg)">
-    <div class="overlay-mf"></div>
+  <section id="about" class="about-mf sect-pt4 route">
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
-          <div class="contact-mf">
-            <div id="contact" class="box-shadow-full">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="title-box-2">
-                    <h5 class="title-left">
-                      Send Message Us
-                    </h5>
+            <div class="title-box text-center">
+              <h3 class="title-a">
+                About
+              </h3>
+              <p class="subtitle-a">
+                간략한 소개 및 스킬
+              </p>
+              <div class="line-mf"></div>
+            </div>
+          </div>
+        </div>
+          <div class="box-shadow-full">
+            <div class="row">
+              <div class="col-lg-7">
+                <div class="row">
+                  <div class="col-sm-6 col-md-5">
+                    <div class="about-img">
+                      <img src="img/jiyun_photo.jpg" class="img-fluid rounded b-shadow-a" alt="">
+                    </div>
                   </div>
-                  <div>
-                      <form action="" method="post" role="form" class="contactForm">
-                      <div id="sendmessage">Your message has been sent. Thank you!</div>
-                      <div id="errormessage"></div>
-                      <div class="row">
-                        <div class="col-md-12 mb-3">
-                          <div class="form-group">
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                            <div class="validation"></div>
-                          </div>
-                        </div>
-                        <div class="col-md-12 mb-3">
-                          <div class="form-group">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                            <div class="validation"></div>
-                          </div>
-                        </div>
-                        <div class="col-md-12 mb-3">
-                            <div class="form-group">
-                              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                              <div class="validation"></div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 mb-3">
-                          <div class="form-group">
-                            <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                            <div class="validation"></div>
-                          </div>
-                        </div>
-                        <div class="col-md-12">
-                          <button type="submit" class="button button-a button-big button-rouded">Send Message</button>
-                        </div>
-                      </div>
-                    </form>
+                  <div class="col-sm-6 col-md-7">
+                    <div class="title-box-2">
+                      <h5 class="title-left">
+                        About
+                      </h5>
+                    </div>
+                    <div class="about-info">
+                      <p><span class="title-s">👩‍💻 Name: 강지윤(Jiyun Kang)</span></p>
+                      <p><span class="title-s">🫧 Birth: 1999.12.03</span></p>
+                      <p><span class="title-s">🏫 Education: 이화여자대학교 교육공학과 석사</span></p>
+                      <p><span class="title-s">📩 Email: jiun99245@gmail.com</span></p>
+                      <p><span class="title-s">☎️ Phone: (010) 9246-1715</span></p>
+                      <p><span class="title-s"><a href="https://github.com/jiyun-kang12" target="_blank" rel="noopener noreferrer" >💻 Github</a></span></p>
+                      <p><span class="title-s"><a href="https://velog.io/@jiyun_kang/posts" target="_blank" rel="noopener noreferrer" >📝 Velog</a></span></p>
+                    </div>
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="title-box-2 pt-4 pt-md-0">
+              </div>
+              <div class="col-lg-5">
+                <div class="skill-mf pt-4 pt-md-0">
+                  <div class="title-box-2">
                     <h5 class="title-left">
-                      Get in Touch
+                      Skills
                     </h5>
                   </div>
-                  <div class="more-info">
-                    <p class="lead">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dolorum dolorem soluta quidem
-                      expedita aperiam aliquid at.
-                      Totam magni ipsum suscipit amet? Autem nemo esse laboriosam ratione nobis
-                      mollitia inventore?
-                    </p>
-                    <ul class="list-ico">
-                      <li><span class="ion-ios-location"></span> 329 WASHINGTON ST BOSTON, MA 02108</li>
-                      <li><span class="ion-ios-telephone"></span> (617) 557-0089</li>
-                      <li><span class="ion-email"></span> contact@example.com</li>
-                    </ul>
+                  <span>
+                    <img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white">
+                    <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+                    <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+                    <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"> 
+                    <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black">
+                    <img src="https://img.shields.io/badge/django-092E20?style=for-the-badge&logo=django&logoColor=white">
+                    <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
+                    <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
+                    <img src="https://img.shields.io/badge/pytorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white">
+
+
+
+
+                  
+                  </span>
+                  
                   </div>
-                  <div class="socials">
-                    <ul>
-                      <li><a href=""><span class="ico-circle"><i class="ion-social-facebook"></i></span></a></li>
-                      <li><a href=""><span class="ico-circle"><i class="ion-social-instagram"></i></span></a></li>
-                      <li><a href=""><span class="ico-circle"><i class="ion-social-twitter"></i></span></a></li>
-                      <li><a href=""><span class="ico-circle"><i class="ion-social-pinterest"></i></span></a></li>
-                    </ul>
+                </div>
+              </div>
+            </div>
                   </div>
                 </div>
               </div>
@@ -734,12 +594,19 @@
         </div>
       </div>
     </div>
+  </section>
+  
+
+ 
+  
+
+  
     <footer>
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
             <div class="copyright-box">
-              <p class="copyright">&copy; Copyright <strong>DevFolio</strong>. All Rights Reserved</p>
+              <p class="copyright">&copy; Copyright <strong>Jiyun Kang</strong>. All Rights Reserved</p>
               <div class="credits">
                 <!--
                   All the links in the footer should remain intact.
