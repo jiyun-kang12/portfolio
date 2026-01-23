@@ -8,8 +8,8 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="img/jiyun_logo.png" rel="icon">
-  <link href="img/jiyun_logo.png" rel="apple-touch-icon">
+  <link href="img/jiyun_logo.webp" rel="icon">
+  <link href="img/jiyun_logo.webp" rel="apple-touch-icon">
 
   <!-- Bootstrap CSS File -->
   <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -146,7 +146,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-d
         <div class="col-md-8">
           <div class="post-box">
             <div class="post-thumb">
-              <img src="img/project4.png" class="img-fluid" alt="">
+              <img src="img/project4.webp" class="img-fluid" alt="" loading="lazy">
             </div>
             <div class="post-meta">
               <h1 class="article-title">MOOC 온라인 학습 플랫폼 이탈률 예측</h1>
@@ -207,7 +207,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-d
        
                     <!-- 데이터 수집 및 전처리 -->
                     <h2 class="little-title">🔍 데이터 탐색 및 테이블 병합 구조 설계 + 타겟변수 생성</h2>
-                    <img src="img/project4_erd.png" width="100%" alt="erd">
+                    <img src="img/project4_erd.webp" width="100%" alt="erd" loading="lazy">
                     <ul>
                     <li>Kaggle OULAD 데이터셋의 4개 테이블(StudentInfo, StudentRegistration, StudentAssessment, StudentVle)을 분석</li>
                     <li>id_student 기준 병합 전략 설계 및 실행</li>
@@ -382,22 +382,22 @@ print(new_merged_df)
                     <h2 class="little-title">🔍 탐색적 데이터 분석(EDA)</h2>
                     <ul>
                     <li><strong>컬럼별 이탈자에 대한 비율 및 전체비율 시각화 결과</strong></li>
-                    <img src="img/data_visualization.png" width="60%" alt="">
+                    <img src="img/data_visualization.webp" width="60%" alt="" loading="lazy">
                     <li><strong>히트맵 시각화를 통한 컬럼별 상관관계</strong></li>
-                    <img src="img/data_visualization2.png" width="60%" alt="">
+                    <img src="img/data_visualization2.webp" width="60%" alt="" loading="lazy">
                     <li><strong>컬럼별 학습자 이탈률 및 학습자 분포 시각화</strong></li>
                     <ul>
                       <li><strong>✔️ 수강 강의 회차(Code Presentation)별 이탈률:</strong><br>
                         두개의 년도를 비교해보면 1학기(=B) 이탈률이 2학기(=J) 이탈률보다 높은 것으로 나타났음. <br>
                         반면, 실제 강의를 듣는 학습자 수는 하반기(=J)에 더 많은 것으로 보이며, 실제적으로 하반기 학습자들이 강의도 많이 수강하면서 <br>
                         이탈률은 상반기에 비해 낮은 것으로 나타남. (<strong>💡 하반기 수강자들의 이런 탈률이 더 낮다!</strong>)
-                        <img src="img/code_present1.png" width="80%" alt="">
+                        <img src="img/code_present1.webp" width="80%" alt="" loading="lazy">
                       </li>
                       <li><strong>✔️ 학습자가 거주한 지역의 복합 빈곤 지수별 이탈률:</strong><br>
                         지역 복합 빈곤 지수별 이탈률을 비교한 결과, 빈곤 지수가 낮을수록 이탈률은 높아지는 경향을 보이는 것으로 나타남. <br>
                         한편, 3수준(53.37%)에 해당되는 학습자 수(4759명)가 가장 많기 때문에, 실제 이탈률 수는 1수준과 2수준과 거의 비슷한 수준인 것을 알 수 있음.<br>
                         (<strong>💡빈곤 지수가 낮을수록 이탈률이 높다!<br> 즉, Mooc강의는 무료 강의가 더 높아서 빈곤 지수가 높을수록 학습 기회를 놓지 않으려고 했을 것으로 해석될 수 있음</strong>)<br>
-                        <img src="img/imd_band2.png" width="80%" alt="">
+                        <img src="img/imd_band2.webp" width="80%" alt="" loading="lazy">
                       </li>
                     </ul>
 
@@ -418,7 +418,7 @@ print(new_merged_df)
                         </ul>
                       <li><strong>평가지표:</strong> Accuracy, Precision, Recall, F1-score</li>
                       <li>Recall을 핵심 지표로 설정 → <strong>실제 이탈자를 놓치는 False Negative 최소화</strong></li>
-                      <img src = "img/model_compare.png" width="80%" alt="">
+                      <img src = "img/model_compare.webp" width="80%" alt="" loading="lazy">
                       <li><strong>XGBoost 하이퍼파라미터 튜닝 및 최종 모델 선정</strong></li>
                       <ul>
                       <li>GridSearch / RandomizedSearch 조합으로 Hyperparameter 조정</li>
@@ -438,8 +438,8 @@ print(new_merged_df)
                           <th>ROC Curve</th>
                         </tr>
                         <tr>
-                          <td><img src="img/xg_mat.png" width="85%" alt="Confusion Matrix" /></td>
-                          <td><img src="img/xg_roc.png" width="85%" alt="ROC Curve" /></td>
+                          <td><img src="img/xg_mat.webp" width="85%" alt="Confusion Matrix" loading="lazy" /></td>
+                          <td><img src="img/xg_roc.webp" width="85%" alt="ROC Curve" loading="lazy" /></td>
                         </tr>
                       </table>
                       
