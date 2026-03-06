@@ -828,10 +828,11 @@ h3.title-a {
   border-radius: 0 !important;
   padding: 0 !important;
   box-shadow: none !important;
-  display: block !important;
+  display: flex !important;
+  align-items: center;
   gap: 0;
-  min-height: 500px;
   width: 100%;
+  overflow: hidden;
 }
 
 #portfolio .portfolio-entry .hero-preview {
@@ -847,6 +848,7 @@ h3.title-a {
 #portfolio .portfolio-entry .hero-preview .hero-img {
   width: 100% !important;
   height: auto !important;
+  max-height: 520px !important;
   border-radius: 0 !important;
   box-shadow: none !important;
   display: block !important;
