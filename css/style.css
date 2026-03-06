@@ -848,7 +848,7 @@ h3.title-a {
 #portfolio .portfolio-entry .hero-preview .hero-img {
   width: 100% !important;
   height: auto !important;
-  max-height: 520px !important;
+  max-height: 700px !important;
   border-radius: 0 !important;
   box-shadow: none !important;
   display: block !important;
@@ -864,11 +864,11 @@ h3.title-a {
 
 
 .hero-preview-gallery {
-  width: 95% !important;
+  width: 100% !important;
   margin: 0 auto;
   align-items: center;
   padding: 0 !important;
-  min-height: 400px;
+  min-height: 600px;
   background: #fff !important;
   border-radius: 0 !important;
   box-shadow: none !important;
@@ -909,8 +909,8 @@ h3.title-a {
   width: 0 !important;
   min-width: 0;
   max-width: none !important;
-  height: auto !important;
-  max-height: 520px !important;
+  height: 700px !important;
+  max-height: 700px !important;
   object-fit: cover !important;
   margin: 0 !important;
   padding: 0 !important;
