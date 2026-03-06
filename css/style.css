@@ -880,7 +880,7 @@ h3.title-a {
   display: flex;
   flex-direction: row;
   gap: 0rem;
-  width: 80%;
+  width: 100%;
   justify-content: flex-start;
   align-items: stretch;
 }
@@ -905,15 +905,14 @@ h3.title-a {
 }
 
 .hero-gallery .hero-img {
-  flex: 1 1 25%;
-  width: 25% !important;
-  max-width: 300px !important;
+  flex: 1 1 0;
+  width: 0 !important;
+  min-width: 0;
+  max-width: none !important;
   height: auto !important;
-  max-height: 500px !important;
+  max-height: 520px !important;
   object-fit: cover !important;
   margin: 0 !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
   padding: 0 !important;
   display: block !important;
   border-radius: 0 !important;
