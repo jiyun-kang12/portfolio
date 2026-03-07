@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="utf-8">
+  <title>Jiyun's Devfolio</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="img/jiyun_logo.webp" rel="icon">
+  <link href="img/jiyun_logo.webp" rel="apple-touch-icon">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@700&display=swap" rel="stylesheet">
+  <!-- Highlight.js CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/python.min.js"></script>
+  <script>hljs.highlightAll();</script>
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 80%;
+    }
+    th, td {
+      border: 1px solid #000000;
+      padding: 5px;
+      text-align: center;
+    }
+    th {
+      background-color: #ffffff;
+      font-weight: bold;
+    }
+    tr:nth-child(even) {
+      background-color: #ffffff;
+    }
+  </style>
+
+  <style>
+    pre code {
+      background-color: #1e1e1e;
+      color: #ffffff;
+      border-radius: 6px;
+      padding: 14px;
+      display: block;
+      overflow-x: visible;
+      border: none;
+    }
+    pre {
+      margin: 0 40px;
+    }
+  </style>
+
+  <!-- =======================================================
+    Theme Name: DevFolio
+    Theme URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
+</head>
+
+<body id="page-top" style="padding-top: 80px;">
+
+  <!--/ 메뉴 상단 바/-->
+  <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll" href="index.html">Jiyun's DevFolio</a>
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
+        aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link js-scroll active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll active" href="index.html#portfolio">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll" href="index.html#portfolio-grid">Paper Review</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll" href="index.html#blog">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll" href="index.html#about">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--/ Nav End /-->
+
+  <!--/ Section Blog-Single Star /-->
+  <section class="blog-wrapper sect-pt4" id="blog">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="post-box">
+            <div class="post-thumb">
+              <img src="img/ddp_functions.webp" class="img-fluid" alt="DDP 메인페이지" loading="lazy" />
+            </div>
+            <div class="post-meta">
+              <h1 class="article-title">DDP — 딥페이크 탐지 플랫폼 (Deepfake Detection Pro)</h1>
+              <ul>
+                <li>
+                  <span class="ion-ios-person"></span>
+                  <a>강지윤</a>
+                </li>
+                <li>
+                  <span class="ion-pricetag"></span>
+                  <a>Multimodal AI · Deepfake Detection</a>
+                </li>
+              </ul>
+            </div>
+            <div class="article-content">
+              <div class="portfolio-section">
+
+                <!-- 프로젝트 목표 -->
+                <h2 class="little-title">📌 프로젝트 목표</h2>
+                <ul>
+                  <li>딥페이크 기술을 악용한 <strong>보이스피싱·가짜 광고·허위 정보 확산</strong>에 대응하기 위한 AI 기반 멀티모달 분석 시스템 구축</li>
+                  <li>주파수 위조 흔적(Wavelet), 생체 신호(rPPG), 음성 발화 패턴(STT), 통합 Transformer(UNITE) <strong>4중 멀티모달 분석</strong>으로 딥페이크 입체 판별</li>
+                  <li>사용자의 자발적 신고를 포인트 리워드와 연결하는 <strong>선순환 디지털 생태계</strong> 구현</li>
+                </ul>
+
+                <!-- 핵심 기능 -->
+                <h2 class="little-title">📌 핵심 기능</h2>
+                <ul>
+                  <li><strong>증거수집모드 (Fast):</strong> Wavelet + rPPG + STT 3중 병렬 분석 → PNG 시각화 리포트 자동 생성</li>
+                  <li><strong>정밀탐지모드 (Deep):</strong> UNITE Transformer 기반 고정밀 딥페이크 판별</li>
+                  <li><strong>비동기 처리 파이프라인:</strong> Taskiq + Redis Queue로 딥러닝 작업 큐잉, WebSocket 실시간 결과 알림</li>
+                  <li><strong>멀티 소스 지원:</strong> 기기 내 동영상 업로드 + YouTube/SNS URL 실시간 수집</li>
+                  <li><strong>리워드 시스템:</strong> 신고 건당 1,000P 지급, 4단계 등급 뱃지, Top 10 실시간 리더보드</li>
+                </ul>
+
+                <!-- 기술 스택 -->
+                <h2 class="little-title">📌 기술 스택</h2>
+                <ul>
+                  <table>
+                    <tr><th>분류</th><th>기술</th></tr>
+                    <tr><td><strong>AI/ML</strong></td><td>PyTorch, ONNX Runtime, OpenAI Whisper, CLIP, InsightFace, OpenCV</td></tr>
+                    <tr><td><strong>Backend</strong></td><td>FastAPI, Python 3.12, PostgreSQL, SQLModel, Alembic, Taskiq, Redis</td></tr>
+                    <tr><td><strong>Storage</strong></td><td>AWS S3 (영상·프로필·리포트 이미지)</td></tr>
+                    <tr><td><strong>Frontend</strong></td><td>React Native, Expo 0.81, TypeScript, Expo Router</td></tr>
+                    <tr><td><strong>Infra</strong></td><td>WebSocket, ngrok, Redis Pub/Sub</td></tr>
+                  </table>
+                </ul>
+
+                <!-- 담당 역할 -->
+                <h2 class="little-title">📌 My Main Contributions</h2>
+
+                <p><strong>1. Wavelet-CLIP 주파수 분석 모델 — 초기 구현 및 백엔드 통합</strong></p>
+                <ul>
+                  <li>CLIP 인코더와 Wavelet 변환을 결합한 주파수 위조 탐지 모델(<code>wavelet_lib</code>) 초기 구현</li>
+                  <li>wavelet 모델 학습 최적화 (최종 학습 결과: <code>ACC=0.96</code>, 일반화 성능 결과: <code>AUC=0.84, ACC=0.71</code>)</li>
+                  <!-- 이미지 -->
+                  <ul>
+                    <img src="img/ddp_model_results.webp" width="80%" alt="architecture_image" loading="lazy" />
+                    </ul>
+                  <li><code>p75 집계</code> + <code>TTA(Test-Time Augmentation)</code> 적용으로 분석 안정성 확보</li>
+                  <li>FastAPI 백엔드의 <code>DetectionPipeline</code>에 <code>WaveletDetector</code> 클래스로 통합</li>
+                  <li>Wavelet 주파수 히스토그램 시각화 리포트(PNG) 생성 → AWS S3 업로드 연동</li>
+                </ul>
+
+                <p><strong>2. React Native 프론트엔드 — API 연동 및 핵심 기능 구현</strong></p>
+                <ul>
+                  <li>Google OAuth 로그인 / 아이디·비밀번호 찾기 / 회원탈퇴 구현</li>
+                  <li>분석 결과 대시보드 API 연동 (<code>/analysis-result</code>, <code>/video/upload</code>, <code>/video/link</code>)</li>
+                  <li>YouTube URL 입력 → 서버 전송 흐름 (<code>link-paste.tsx</code>) 구현</li>
+                  <li>WebSocket 토큰 인증 추가로 실시간 분석 진행 알림 수신</li>
+                  <li>AWS S3 프로필 이미지 업로드 API 연동 (<code>/account/profile</code>)</li>
+                  <li>프론트엔드 API 스펙 정의서(<code>API_RESPONSE_SPEC.md</code>) 작성으로 팀 협업 기준 수립</li>
+                </ul>
+
+                <p><strong>3. FastAPI 백엔드 — S3 통합 및 인프라 연동</strong></p>
+                <ul>
+                  <li>AWS S3 파일 업로드/다운로드 로직 구현 (프로필 이미지, 동영상 원본, 분석 리포트)</li>
+                  <li>YouTube <code>yt-dlp</code> 기반 외부 영상 수집 + <code>cookies.txt</code> 인증 처리</li>
+                  <li>ngrok 터널 연동으로 외부 접속 주소 동적 할당 (FastAPI lifespan 내 관리)</li>
+                </ul>
+
+                <p><strong>4. UNITE 모델 인프라 및 STT 파이프라인 통합</strong></p>
+                <ul>
+                  <li>UNITE 딥페이크 탐지 모델을 Git 서브모듈로 추가 및 체크포인트 자동 다운로드 스크립트(<code>get_ckpt.sh</code>) 작성</li>
+                  <li>PyTorch CUDA 128 버전 업그레이드 적용</li>
+                  <li>Whisper 기반 STT 파이프라인 초기 백엔드 통합</li>
+                </ul>
+
+                <!-- 문제 해결 경험 -->
+                <h2 class="little-title">📌 문제 해결 경험</h2>
+
+                <p><strong>① UNITE 모델 결과값 반전 및 확률 계산 오류 수정</strong></p>
+                <blockquote class="blockquote">
+                  <p>
+                    <strong>문제:</strong> UNITE 모델이 REAL/FAKE 판별 결과를 반대로 반환하고 확률값이 정상 범위를 벗어남<br>
+                    <strong>해결:</strong> softmax 출력 인덱스 매핑 오류 발견 → FAKE 확률 인덱스 수정 및 신뢰도 점수 계산 로직 재검토<br>
+                    <strong>결과:</strong> 모델 판별 정확도 정상화, 최종 데모 전날 배포 안정화 완료
+                  </p>
+                </blockquote>
+
+                <p><strong>② S3 / Redis 환경 설정 및 배포 연결 오류 해결</strong></p>
+                <blockquote class="blockquote">
+                  <p>
+                    <strong>문제:</strong> 배포 환경에서 S3 URL, Redis URL, ngrok 브로커 연결 끊김 등 환경변수 기반 오류 반복 발생<br>
+                    <strong>해결:</strong> ngrok 터널이 FastAPI lifespan 외부에서 종료되는 문제 → lifespan 내 명시적 cleanup 로직 추가; Redis 브로커 타입 불일치 수정으로 Taskiq 워커 정상화<br>
+                    <strong>결과:</strong> 안정적인 비동기 파이프라인 구동 및 외부 접속 환경 구성 완료
+                  </p>
+                </blockquote>
+
+                <p><strong>③ 브랜치 병합 충돌 해결 및 협업 프로세스 정착</strong></p>
+                <blockquote class="blockquote">
+                  <p>
+                    <strong>문제:</strong> 5인 동시 개발로 인해 main 브랜치 병합 충돌 이틀간 반복 발생<br>
+                    <strong>해결:</strong> 충돌 발생 지점(routers, schemas, models) 수동 병합; API 스펙 문서 선행 작성으로 인터페이스 기준 정렬; 역할별 모듈 분리로 파일 충돌 최소화<br>
+                    <strong>결과:</strong> 이후 충돌 빈도 감소 및 팀 협업 프로세스 개선
+                  </p>
+                </blockquote>
+
+                <!-- 성과 -->
+                <h2 class="little-title">📌 프로젝트 성과</h2>
+                <ul>
+                  <table>
+                    <tr><th>항목</th><th>수치</th></tr>
+                    <tr><td>전체 커밋 수</td><td>255 commits</td></tr>
+                    <tr><td>본인 커밋 수</td><td><strong>69 commits (기여도 27.1%)</strong></td></tr>
+                    <tr><td>프로젝트 기간</td><td>22일 (2026.02.06 ~ 2026.02.27)</td></tr>
+                    <tr><td>팀 규모</td><td>5명</td></tr>
+                    <tr><td>AI 탐지 모델</td><td>4종 (Wavelet, rPPG, STT, UNITE)</td></tr>
+                    <tr><td>지원 소스</td><td>2종 (파일 업로드, YouTube/SNS URL)</td></tr>
+                    <tr><td>리워드 등급</td><td>4단계 뱃지 시스템</td></tr>
+                  </table>
+                </ul>
+
+                <!-- 마일스톤 -->
+                <h2 class="little-title">📌 마일스톤</h2>
+                <p><strong>Week 1 (02.06~13): 프로젝트 기반 구축</strong></p>
+                <ul>
+                  <li>팀 전체: 백엔드 기본 구조(FastAPI, SQLModel, DB) 설계 및 UNITE 모델 마이그레이션</li>
+                  <li><strong>본인:</strong> 프로젝트 초기 커밋, Wavelet-CLIP 모델 및 프론트엔드 코드 초기 추가</li>
+                  <li><strong>본인:</strong> UNITE 서브모듈 추가 및 체크포인트 설정 스크립트 작성</li>
+                </ul>
+                <p><strong>Week 2 (02.14~21): AI 모델 통합 및 백엔드 API 개발</strong></p>
+                <ul>
+                  <li>팀 전체: DB 테이블 설계(User/Video/Result/Reports), 인증(JWT/OAuth) 구현</li>
+                  <li>LegenDUST: 백엔드 구조 전면 개편(Taskiq 워커, WebSocket, Redis Pub/Sub)</li>
+                  <li><strong>본인:</strong> STT 백엔드 통합, API_RESPONSE_SPEC.md 작성, FastAPI main.py 갱신</li>
+                </ul>
+                <p><strong>Week 3 (02.22~27): 전체 통합, 배포, 버그 수정</strong></p>
+                <ul>
+                  <li>곽재민: rPPG(EfficientPhys) 탐지기 및 시각화 코드 추가, YouTube 처리 파이프라인</li>
+                  <li>LegenDUST: WebSocket, Redis Pub/Sub 실시간 알림, 보고서 구조 완성</li>
+                  <li><strong>본인:</strong> AWS S3 통합, Google 로그인, YouTube URL, WebSocket 토큰, UNITE 결과값 오류 수정, ngrok 배포 안정화</li>
+                  <li><strong>본인:</strong> 프론트엔드 분석 결과/회원정보/탈퇴 API 전체 연동 완료</li>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 오른쪽 사이드바 -->
+        <div class="col-md-4">
+          <div class="widget-sidebar">
+            <h5 class="sidebar-title">Summary</h5>
+            <div class="sidebar-content">
+              <ul class="list-sidebar">
+                <li>
+                  <a href="#">Wavelet·rPPG·STT·UNITE 4중 멀티모달 분석으로<br> 딥페이크 입체 판별</a>
+                </li>
+                <li>
+                  <a href="#">Taskiq + Redis 비동기 파이프라인 +<br> WebSocket 실시간 알림</a>
+                </li>
+                <li>
+                  <a href="#">기기 업로드 및 YouTube/SNS URL<br> 멀티 소스 영상 수집 지원</a>
+                </li>
+                <li>
+                  <a href="#">신고 리워드 포인트 + 4단계 등급 뱃지<br> + Top 10 실시간 리더보드</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="widget-sidebar">
+            <h5 class="sidebar-title">Information</h5>
+            <div class="sidebar-content">
+              <ul class="list-sidebar">
+                <li>
+                  <a href="#">개발 기간: 2026.02.06 ~ 2026.02.27 (약 3주)</a>
+                </li>
+                <li>
+                  <a href="#">개발 인원: 5명</a>
+                </li>
+                <li>
+                  <a href="#">기술 스택: PyTorch, FastAPI, React Native, PostgreSQL, AWS S3, Redis, Taskiq, WebSocket, ngrok</a>
+                </li>
+                <li>
+                  <a href="https://github.com/AICV-Deepfaker/deepfaker_detection" target="_blank">GitHub 바로가기</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="widget-sidebar widget-tags">
+            <h5 class="sidebar-title">Tags</h5>
+            <div class="sidebar-content">
+              <ul>
+                <li><a href="#">Deepfake Detection</a></li>
+                <li><a href="#">Multimodal AI</a></li>
+                <li><a href="#">React Native</a></li>
+                <li><a href="#">FastAPI</a></li>
+                <li><a href="#">AWS S3</a></li>
+                <li><a href="#">Wavelet</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--/ Section Contact-Footer Star /-->
+  <section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(img/overlay-bg.jpg)">
+    <div class="overlay-mf"></div>
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="copyright-box">
+              <p class="copyright">&copy; Copyright <strong>Jiyun Kang</strong>. All Rights Reserved</p>
+              <div class="credits">
+                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </section>
+  <!--/ Section Contact-footer End /-->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <div id="preloader"></div>
+
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/popper/popper.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/counterup/jquery.waypoints.min.js"></script>
+  <script src="lib/counterup/jquery.counterup.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="lib/lightbox/js/lightbox.min.js"></script>
+  <script src="lib/typed/typed.min.js"></script>
+  <script src="contactform/contactform.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
