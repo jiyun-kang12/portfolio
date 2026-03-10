@@ -258,22 +258,23 @@
                 <h2 class="little-title">📌 마일스톤</h2>
                 <p><strong>Week 1 (02.06~13): 프로젝트 기반 구축</strong></p>
                 <ul>
-                  <li>팀 전체: 백엔드 기본 구조(FastAPI, SQLModel, DB) 설계 및 UNITE 모델 마이그레이션</li>
                   <li><strong>본인:</strong> 프로젝트 초기 커밋, Wavelet-CLIP 모델 및 프론트엔드 코드 초기 추가</li>
-                  <li><strong>본인:</strong> UNITE 서브모듈 추가 및 체크포인트 설정 스크립트 작성</li>
+                  <li><strong>본인:</strong> UNITE 서브모듈 추가 및 체크포인트 자동 다운로드 스크립트(<code>get_ckpt.sh</code>) 작성</li>
+                  <li><strong>팀 전체:</strong> 백엔드 기본 구조(FastAPI, SQLModel, DB) 설계, UNITE 모델 마이그레이션 착수</li>
                 </ul>
                 <p><strong>Week 2 (02.14~21): AI 모델 통합 및 백엔드 API 개발</strong></p>
                 <ul>
-                  <li>팀 전체: DB 테이블 설계(User/Video/Result/Reports), 인증(JWT/OAuth) 구현</li>
-                  <li>LegenDUST: 백엔드 구조 전면 개편(Taskiq 워커, WebSocket, Redis Pub/Sub)</li>
-                  <li><strong>본인:</strong> STT 백엔드 통합, API_RESPONSE_SPEC.md 작성, FastAPI main.py 갱신</li>
+                  <li><strong>본인:</strong> STT(Whisper) 파이프라인 백엔드 통합</li>
+                  <li><strong>본인:</strong> 프론트엔드 API 스펙 정의서(<code>API_RESPONSE_SPEC.md</code>) 작성 — 팀 협업 기준 수립</li>
+                  <li><strong>팀 전체:</strong> DB 테이블 설계(User/Video/Result/Reports), 인증(JWT/OAuth) 구현, 백엔드 구조 개편(Taskiq 워커, WebSocket, Redis Pub/Sub)</li>
                 </ul>
                 <p><strong>Week 3 (02.22~27): 전체 통합, 배포, 버그 수정</strong></p>
                 <ul>
-                  <li>곽재민: rPPG(EfficientPhys) 탐지기 및 시각화 코드 추가, YouTube 처리 파이프라인</li>
-                  <li>LegenDUST: WebSocket, Redis Pub/Sub 실시간 알림, 보고서 구조 완성</li>
-                  <li><strong>본인:</strong> AWS S3 통합, Google 로그인, YouTube URL, WebSocket 토큰, UNITE 결과값 오류 수정, ngrok 배포 안정화</li>
-                  <li><strong>본인:</strong> 프론트엔드 분석 결과/회원정보/탈퇴 API 전체 연동 완료</li>
+                  <li><strong>본인:</strong> AWS S3 통합 (프로필 이미지·동영상·분석 리포트), Google OAuth 로그인 구현</li>
+                  <li><strong>본인:</strong> YouTube URL 수집 흐름, WebSocket 토큰 인증 추가</li>
+                  <li><strong>본인:</strong> UNITE 모델 REAL/FAKE 결과값 반전 오류 수정, ngrok 배포 안정화</li>
+                  <li><strong>본인:</strong> 프론트엔드 분석 결과·회원정보·탈퇴 API 전체 연동 완료</li>
+                  <li><strong>팀 전체:</strong> rPPG 탐지기·YouTube 파이프라인 추가, WebSocket 실시간 알림·보고서 구조 완성, 최종 데모 준비</li>
                 </ul>
 
               </div>
