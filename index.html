@@ -119,6 +119,29 @@
         </div>
       </div>
 
+      <!-- 0번: 실시간 학습자 집중도 분석 시스템 (메인 - 첫번째) -->
+      <div class="row align-items-center portfolio-entry portfolio-entry-reverse" data-project-type="main">
+        <div class="col-xl-7 col-lg-7">
+          <div class="hero-preview">
+            <video src="img/project5_main.mp4" class="hero-img hero-img-large" alt="집중도 분석 시스템 시연" autoplay loop muted playsinline style="width:40%; margin:0 auto; display:block;"></video>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-4 text-right">
+          <p class="hero-label mr-10 pr-10">EdTech · Realtime AI<br>+ Fullstack</p>
+          <h1 class="hero-title" data-i18n="p5-title">AI 기반 실시간<br>학습 집중도<br>평가 플랫폼</h1>
+          <ul class="hero-highlights">
+            <li data-i18n="p5-h1">웹캠 하나로 시선·머리 방향·표정·핸드폰 사용을<br>실시간 감지 → 강의자에게 0.1초 단위 브로드캐스트</li>
+            <li data-i18n="p5-h2">focus = gaze×0.60 + head×0.40 − shoulder×0.10<br>집중도·피로도 독립 스코어링 공식 직접 설계·구현</li>
+            <li data-i18n="p5-h3">RandomForest 표정 분류(5-class) + YOLOv11s 핸드폰 탐지<br>+ Gemini LLM 기반 세션 리포트 자동 생성</li>
+            <li data-i18n="p5-h4">백엔드·강의자 프론트엔드·학습자 프론트엔드·클라우드 배포</li>
+          </ul>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn js-scroll px-4" href="project5.html" role="button" data-i18n="btn-view">View Projects</a>
+            <a class="btn btn-primary btn js-scroll px-4" href="https://github.com/Likelion-CV-Interns/learner-focus-analyzer" target="_blank" rel="noopener noreferrer" role="button">GitHub</a>
+          </div>
+        </div>
+      </div>
+
       <!-- 1번: DDP — 딥페이크 탐지 플랫폼 (메인) -->
       <div class="row align-items-start portfolio-entry" data-project-type="main">
         <div class="col-xl-3 col-lg-4">
@@ -682,6 +705,13 @@
         'filter-hint': '아래 버튼을 클릭하여 프로젝트 유형별로 필터링할 수 있습니다',
         'btn-view': 'View Projects',
 
+        // 실시간 학습자 집중도
+        'p5-title': 'AI 기반<br>실시간 학습 집중도<br>평가 플랫폼',
+        'p5-h1': '웹캠 하나로 시선·머리 방향·표정·핸드폰 사용을<br>실시간 감지 → 강의자에게 0.1초 단위 브로드캐스트',
+        'p5-h2': 'focus = gaze×0.60 + head×0.40 − shoulder×0.10<br>집중도·피로도 독립 스코어링 공식 직접 설계·구현',
+        'p5-h3': 'RandomForest 표정 분류(5-class)<br> + YOLOv11s 핸드폰 탐지<br>+ Gemini LLM 기반 세션 리포트 자동 생성',
+        'p5-h4': '백엔드·강의자·학습자 프론트엔드·클라우드 배포',
+
         // DDP
         'p0-title': 'DDP(Deepfake Detection Pro) <br>— 딥페이크 금융 사기 탐지 플랫폼',
         'p0-h1': 'Wavelet · rPPG · STT · UNITE Transformer<br> 4중 멀티모달 분석으로 딥페이크 입체 판별',
@@ -734,6 +764,13 @@
         'portfolio-subtitle': 'Major Projects Overview',
         'filter-hint': 'Click the buttons below to filter projects by type',
         'btn-view': 'View Projects',
+
+        // Real-time Learner Attention Analysis
+        'p5-title': 'AI-Based Real-Time<br>Learning Attention<br>Assessment Platform',
+        'p5-h1': 'One webcam detects gaze, head direction, expression & phone use<br>→ 0.1-sec WebSocket broadcast to instructor',
+        'p5-h2': 'focus = gaze×0.60 + head×0.40 − shoulder×0.10<br>Custom attention & fatigue scoring formula designed & implemented',
+        'p5-h3': 'RandomForest expression classification (5-class) + YOLOv11s phone detection<br>+ Gemini LLM auto session report',
+        'p5-h4': 'Full-stack solo implementation: backend · instructor dashboard · learner app · cloud deployment<br>(18 days, 92% contribution)',
 
         // DDP
         'p0-title': 'DDP(Deepfake Detection Pro) <br>— Financial Fraud Deepfake Detection Platform',

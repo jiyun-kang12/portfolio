@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="utf-8">
+  <title>Jiyun's Devfolio — 실시간 학습자 집중도 분석 시스템</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <!-- Favicons -->
+  <link href="img/jiyun_logo.webp" rel="icon">
+  <link href="img/jiyun_logo.webp" rel="apple-touch-icon">
+
+  <!-- Bootstrap CSS -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Highlight.js -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/python.min.js"></script>
+  <script>hljs.highlightAll();</script>
+
+  <!-- Libraries -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <style>
+    pre code {
+      background-color: #1e1e1e;
+      color: #ffffff;
+      border-radius: 6px;
+      padding: 14px;
+      display: block;
+      overflow-x: auto;
+      border: none;
+    }
+    pre { margin: 0 0 16px 0; }
+
+    /* h4 소제목: 크기 줄이고 볼드 */
+    .article-content .portfolio-section h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-top: 14px;
+      margin-bottom: 8px;
+      color: #1f2937;
+    }
+
+    /* 이미지 가운데 정렬 */
+    .article-content .portfolio-section img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* 📌 대제목(h2.little-title) 위 여백 추가 */
+    .article-content .portfolio-section h2.little-title {
+      margin-top: 28px;
+    }
+    .article-content .portfolio-section h2.little-title:first-child {
+      margin-top: 0;
+    }
+
+    /* 대표 이미지 크기 제한 해제 */
+    .post-thumb img {
+      width: 100%;
+      object-fit: contain;
+    }
+
+    .formula-box {
+      background: #f0f4ff;
+      border-left: 4px solid #2563eb;
+      border-radius: 0 8px 8px 0;
+      padding: 12px 18px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      color: #1e3a8a;
+      margin: 12px 0;
+    }
+    .formula-box .formula-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+    .formula-title {
+      font-weight: 700;
+      font-size: 14px;
+      color: #1d4ed8;
+      margin-bottom: 2px;
+    }
+
+    .milestone-week {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+    }
+    .milestone-week h6 {
+      font-weight: 700;
+      color: #2563eb;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+    .milestone-week ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .milestone-week ul li {
+      font-size: 13px;
+      color: #374151;
+      margin-bottom: 3px;
+    }
+
+    .img-placeholder {
+      background: #f1f5f9;
+      border: 2px dashed #cbd5e1;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 6px;
+      padding: 30px;
+      margin: 12px 0;
+      color: #94a3b8;
+      text-align: center;
+    }
+    .img-placeholder span { font-size: 13px; font-weight: 600; }
+    .img-placeholder small { font-size: 11px; }
+
+    .problem-card {
+      background: #fef9f0;
+      border-left: 3px solid #f59e0b;
+      border-radius: 0 8px 8px 0;
+      padding: 10px 14px;
+      margin-bottom: 10px;
+    }
+    .problem-card .prob-title { font-weight: 700; font-size: 13px; color: #92400e; margin-bottom: 4px; }
+    .problem-card .prob-body { font-size: 12.5px; color: #374151; }
+
+    .solve-card {
+      background: #f0fdf4;
+      border-left: 3px solid #22c55e;
+      border-radius: 0 8px 8px 0;
+      padding: 10px 14px;
+      margin-bottom: 10px;
+    }
+    .solve-card .solve-title { font-weight: 700; font-size: 13px; color: #15803d; margin-bottom: 4px; }
+    .solve-card .solve-body { font-size: 12.5px; color: #374151; }
+  </style>
+</head>
+
+<body id="page-top" style="padding-top: 80px;">
+
+  <!-- Nav -->
+  <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll" href="index.html">Jiyun's DevFolio</a>
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
+        aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link js-scroll active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll active" href="index.html#portfolio">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll" href="index.html#portfolio-grid">Paper Review</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll" href="index.html#blog">Blog</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll" href="index.html#about">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 본문 -->
+  <section class="blog-wrapper sect-pt4" id="blog">
+    <div class="container">
+      <div class="row">
+        <!-- 왼쪽 메인 콘텐츠 -->
+        <div class="col-md-8">
+          <div class="post-box">
+
+            <!-- 대표 이미지 / 영상 영역 -->
+            <div class="post-thumb">
+              <!-- project5_dashboard.webp 파일을 img/ 폴더에 추가하면 표시됩니다 -->
+              <img src="img/project5_dashboard.webp" class="img-fluid" alt="실시간 집중도 분석 대시보드"
+                onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><span>🖥️ 대표 이미지</span><small>img/project5_dashboard.webp 파일을 추가하세요</small></div>'">
+            </div>
+
+            <div class="post-meta">
+              <h1 class="article-title">AI 기반 실시간 학습 집중도 평가 플랫폼</h1>
+              <ul>
+                <li><span class="ion-ios-person"></span> <a>강지윤</a></li>
+                <li><span class="ion-pricetag"></span> <a>EdTech · Realtime AI · Fullstack</a></li>
+                <li><span class="ion-calendar"></span> <a>2026.03.16 ~ 2026.04.02 (18일)</a></li>
+              </ul>
+            </div>
+
+            <div class="article-content">
+              <div class="portfolio-section">
+
+                <!-- 프로젝트 개요 -->
+                <h2 class="little-title">📌 프로젝트 목표</h2>
+                <p>기존 온라인 강의는 학습자의 반응을 즉각적으로 확인하기 어렵다는 한계가 있었습니다. 본 플랫폼은 학습자의 <strong>웹캠 하나</strong>로 표정·시선·자세·핸드폰 사용 여부를 AI로 실시간 분석하여 강의자에게 즉각 피드백을 제공하고, 세션 종료 후 <strong>Gemini LLM 기반 강의 개선 리포트</strong>를 자동 생성하는 에듀테크 플랫폼입니다.</p>
+
+                <!-- 서비스 흐름도 이미지 -->
+                <img src="img/project5_flow.webp" width="90%" alt="서비스 전체 흐름도"
+                  onerror="this.outerHTML='<div class=\'img-placeholder\'><span>🖼 서비스 전체 흐름도</span><small>img/project5_flow.webp 파일을 추가하세요</small></div>'" loading="lazy">
+
+                <h2 class="little-title">📌 My Main Contributions</h2>
+                <ul>
+                  <li><strong>AI 감지 모듈 설계 및 집중도 스코어링 엔진 구현</strong> — 시선(Iris Gaze Yaw/Pitch)·머리 방향(solvePnP)·어깨 자세를 종합한 집중도 공식 직접 설계, EMA 스무딩 및 상태 확정 로직 구현</li>
+                  <li><strong>피로도 스코어링 설계</strong> — EAR·경과시간·시선고착·머리움직임 4가지 신호 가중 합산 공식 설계 및 안정화 (보정 2회 반복)</li>
+                  <li><strong>FastAPI + WebSocket 실시간 아키텍처 설계·구현</strong> — 학습자 ↔ 서버 ↔ 강의자 3자 간 데이터 흐름 전체 설계, UUID 세션 관리·Ping-Pong keepalive·KST 타임존 통일</li>
+                  <li><strong>React 프론트엔드 개발 (강의자·학습자·매니저 3화면)</strong> — Recharts 기반 집중도 추이·레이더 차트, 카테고리 필터, 졸음/핸드폰 토스트 알림 구현</li>
+                  <li><strong>Gemini LLM 리포트 통합</strong> — 세션 데이터 자동 요약 및 강의 개선 코멘트 생성 파이프라인 구축</li>
+                  <li><strong>GCP·Vercel 클라우드 배포</strong> — FastAPI·PostgreSQL·Nginx(HTTPS) 구성 및 Vercel 프론트엔드 배포, DuckDNS 도메인 연동</li>
+                </ul>
+
+                <h2 class="little-title">📌 사용자 구성</h2>
+                <ul>
+                  <li><strong>학습자</strong> — 웹캠 기반 집중도 데이터 생성 대상. URL 접속만으로 즉시 감지 시작</li>
+                  <li><strong>강사</strong> — 실시간 모니터링 및 강의 종료 후 리포트 확인 (본인 담당 강의만)</li>
+                  <li><strong>매니저</strong> — 전체 강의·학습자 현황 관리 및 통합 분석 (모든 강의 접근)</li>
+                </ul>
+
+                <!-- 핵심 기능 -->
+                <h2 class="little-title">📌 핵심 기능</h2>
+
+                <h4>① 집중도·피로도 스코어링 엔진 (직접 설계)</h4>
+                <p>MediaPipe FaceLandmarker를 브라우저에서 실행하여 5가지 신호를 멀티모달로 통합·스코어링합니다.</p>
+
+                <div class="formula-box">
+                  <div class="formula-label">집중도 공식 (focus_score)</div>
+                  <div class="formula-title">focus = gaze_score × 0.60 + head_score × 0.40 − shoulder_penalty × 0.10</div>
+                  <ul style="margin:6px 0 0 0; padding-left:18px; font-size:12px;">
+                    <li>gaze_score: 시선 범위 이탈 여부 → 정면 1.0 / 이탈 0.0</li>
+                    <li>head_score: solvePnP pitch/yaw/roll → 정면 1.0 / 이탈 0.0</li>
+                    <li>EMA 스무딩 (α=0.05) + 20~25프레임 상태 확정</li>
+                  </ul>
+                </div>
+
+                <div class="formula-box">
+                  <div class="formula-label">피로도 공식 (fatigue_score)</div>
+                  <div class="formula-title">fatigue = EAR×0.25 + 경과시간×0.35 + 시선고착×0.25 + 머리움직임×0.15</div>
+                  <ul style="margin:6px 0 0 0; padding-left:18px; font-size:12px;">
+                    <li>EAR: EMA(α=0.005)로 눈 감음 누적</li>
+                    <li>경과시간: 강의 90분 → 피로도 0.60 기여</li>
+                    <li>시선고착: 30초 프리즈 여부 감지</li>
+                    <li>머리움직임: 30초 미만 움직임 없음 감지</li>
+                  </ul>
+                </div>
+
+
+                <h4>② 감정(표정) 분류 — RandomForest 5-class</h4>
+                <ul>
+                  <li>MediaPipe blendshape 52개 → 82개 피처로 확장하여 RandomForest 모델 입력</li>
+                  <li>집중·지루함·혼란·웃음·놀람 5-class 실시간 분류, 약 1초 단위 갱신</li>
+                  <li>혼란 보정 Binary Classifier 통합하여 오분류 감소</li>
+                </ul>
+
+                <h4>③ 핸드폰 감지 — YOLOv11s (Google Colab GPU)</h4>
+                <ul>
+                  <li>브라우저에서 HTTP multipart로 프레임 전송 → Colab FastAPI 서버에서 YOLOv11s 추론</li>
+                  <li>핸드폰 감지 시 강의자 화면에 즉시 토스트 알림 (쿨다운 30초)</li>
+                  <li>졸음 감지 알림 쿨다운 1분 제어</li>
+                </ul>
+
+                <!-- 실시간 모니터링 화면 -->
+                <h4>④ 강의자 실시간 대시보드</h4>
+                <img src="img/project5_monitoring.webp" width="90%" alt="실시간 모니터링 화면"
+                  onerror="this.outerHTML='<div class=\'img-placeholder\'><span>🖼 강의자 실시간 모니터링 화면</span><small>학습자별 집중도 카드 + 카테고리 필터<br>img/project5_monitoring.webp 파일을 추가하세요</small></div>'" loading="lazy">
+
+                <ul>
+                  <li>강의 전체 평균 집중도 실시간 표시 (상단)</li>
+                  <li>학습자별 상태 카드: 이름 · 집중도(%) · 피로도(%) · 눈 깜빡임(횟수/min) · 표정 이모지</li>
+                  <li>카테고리 필터: 전체 / 집중 / 딴짓 / 졸음 / 핸드폰</li>
+                  <li>핸드폰 감지 시 카드 직접 표시 대신 Notification 토스트로 즉시 안내</li>
+                </ul>
+
+                <!-- 핸드폰 감지 알림 이미지 -->
+                <img src="img/project5_alert.webp" width="60%" alt="핸드폰 감지 알림"
+                  onerror="this.outerHTML='<div class=\'img-placeholder\'><span>🖼 핸드폰 감지 토스트 알림</span><small>img/project5_alert.webp 파일을 추가하세요</small></div>'" loading="lazy">
+
+                <h4>⑤ 세션 종료 후 AI 리포트</h4>
+
+                <!-- 전체/개별 리포트 나란히 -->
+                <div style="display:flex; gap:16px; margin: 14px 0; align-items: flex-start;">
+                  <figure style="flex:1; margin:0;">
+                    <img src="img/project5_all_report.webp" style="width:100%;" alt="전체 리포트 화면" loading="lazy">
+                    <figcaption style="text-align:center; font-size:12px; color:#6b7280; margin-top:6px;">전체 리포트</figcaption>
+                  </figure>
+                  <figure style="flex:1; margin:0;">
+                    <img src="img/project5_personal.webp" style="width:100%;" alt="개별 리포트 화면" loading="lazy">
+                    <figcaption style="text-align:center; font-size:12px; color:#6b7280; margin-top:6px;">개별 리포트</figcaption>
+                  </figure>
+                </div>
+
+                <ul>
+                  <li><strong>집중도 추이 그래프</strong> — 강의 시간대별 집중도 변화 시계열 라인 차트 (Recharts)</li>
+                  <li><strong>표정 분포 레이더 차트</strong> — 집중·놀람·지루함·웃음·혼란 분포 시각화</li>
+                  <li><strong>실습 제출률</strong> — 전체 학습자 대비 제출 비율, 학습자별 정답률 확인</li>
+                  <li><strong>Gemini LLM 총평</strong> — 전체 평균 집중도·피로도·참여 학생 수·퀴즈 완료율을 바탕으로 강의 개선 코멘트 자동 생성</li>
+                </ul>
+
+                <!-- Gemini LLM 총평 화면 -->
+                <img src="img/project5_report.webp" width="90%" alt="Gemini LLM 총평 화면" loading="lazy">
+
+                <ul>
+                  <li><strong>매니저 대시보드</strong> — 강의별 탭으로 라이브 세션 현황 확인 및 진행 중인 세션 실시간 모니터링 진입</li>
+                </ul>
+
+                <!-- 매니저 대시보드 이미지 -->
+                <img src="img/project5_manager.webp" width="90%" alt="매니저 대시보드"
+                  onerror="this.outerHTML='<div class=\'img-placeholder\'><span>🖼 매니저 대시보드</span><small>img/project5_manager.webp 파일을 추가하세요</small></div>'" loading="lazy">
+
+                <!-- 시스템 아키텍처 -->
+                <h2 class="little-title">📌 시스템 아키텍처</h2>
+                <img src="img/project5_architecture.webp" width="90%" alt="시스템 아키텍처" loading="lazy">
+
+                <ul>
+                  <li>WebSocket 엔드포인트 2종 설계</li>
+                </ul>
+                <pre><code class="language-python">
+# 학습자 감지 클라이언트
+@app.websocket("/ws/client/{session_id}/{user_id}")
+
+# 강의자/매니저 대시보드 브로드캐스트
+@app.websocket("/ws/dashboard/{session_id}")
+                </code></pre>
+                <ul>
+                  <li>UUID 기반 세션 관리 + 자동 재연결 · Ping-Pong keepalive 구현</li>
+                  <li>PostgreSQL ThreadedConnectionPool로 다중 WebSocket 동시성 처리</li>
+                  <li>KST 타임존 통일 — 서버·DB 전체 UTC+9 일관성 확보</li>
+                  <li>강의자 화면 브로드캐스트 + 학습자 화면 동기화 동시 구현</li>
+                </ul>
+
+                <!-- 배포 구성 -->
+                <h2 class="little-title">📌 배포 구성</h2>
+                <ul>
+                  <li><strong>학습자 앱 (포트 3000)</strong> — 웹캠 감지 전용 React 19 (Vite) 앱</li>
+                  <li><strong>강의자/매니저 앱 (포트 3001)</strong> — 대시보드 전용 React 19 (Vite) 앱</li>
+                  <li><strong>GCP VM</strong> — FastAPI · PostgreSQL · Nginx (HTTPS/WSS 프록시)</li>
+                  <li><strong>Vercel</strong> — 프론트엔드 배포 (DuckDNS 도메인 HTTPS 연동)</li>
+                  <li><strong>Google Colab + ngrok</strong> — YOLOv11s GPU 추론 서버</li>
+                </ul>
+
+                <!-- 문제 해결 -->
+                <h2 class="little-title">📌 문제 해결 경험</h2>
+
+                <h4>문제 1. 스코어러 보정 오류 — 집중도 점수 과소/과대 평가</h4>
+                <div class="problem-card">
+                  <div class="prob-title">상황</div>
+                  <div class="prob-body">초기 집중도 스코어러가 특정 자세·조명 조건에서 비정상적인 점수를 출력. (scorer fixed → scorer calibrate fixed 2단계 수정)</div>
+                </div>
+                <div class="solve-card">
+                  <div class="solve-title">해결</div>
+                  <div class="solve-body">EMA 스무딩 파라미터(α=0.05) 재조정 + 상태 전환 확정 프레임 수(20~25프레임) 조건부 설계 + 보정 계수 캘리브레이션으로 0~100 범위 안정화</div>
+                </div>
+
+                <h4>문제 2. Colab 서버 → WebSocket 반환값 없음 (CORS)</h4>
+                <div class="problem-card">
+                  <div class="prob-title">상황</div>
+                  <div class="prob-body">Colab 서버로 프레임 전송 시 모델 추론은 정상(로그에 pass=True)이지만 브라우저에서 결과값이 항상 {} 반환. colabSender.js의 catch 블록이 에러를 조용히 삼켜 원인 파악이 지연됨.</div>
+                </div>
+
+                <pre><code class="language-python">
+# 원인: Vercel(https) → Colab ngrok(https) 크로스 오리진 요청 시
+# CORSMiddleware 없어 브라우저가 preflight 요청을 차단
+
+# 해결: Colab FastAPI에 CORS 미들웨어 추가
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI(title='Focus Analyzer - Colab Model Server')
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['*'],
+    allow_methods=['*'],
+    allow_headers=['*'],
+)
+                </code></pre>
+
+                <div class="solve-card">
+                  <div class="solve-title">해결</div>
+                  <div class="solve-body">Colab FastAPI 서버에 CORSMiddleware 추가 → 브라우저의 preflight OPTIONS 요청 정상 통과 → 프레임 전송·추론 결과 수신 정상화</div>
+                </div>
+
+                <h4>문제 3. 피로도 로직 개선 — 단순 EAR 기반 오탐</h4>
+                <div class="problem-card">
+                  <div class="prob-title">상황</div>
+                  <div class="prob-body">초기 피로도가 EAR 단독 지표에 의존 → 안경 착용자·조명 변화 시 오탐 발생</div>
+                </div>
+                <div class="solve-card">
+                  <div class="solve-title">해결</div>
+                  <div class="solve-body">단일 EAR → 멀티 피처 가중 합산 공식 재설계 (fatigue logic modified): 시선 고착 패턴(30초 프리즈) + 머리 움직임 감소 지표 추가 → 가중치 최적화로 다양한 환경 대응력 향상</div>
+                </div>
+
+                <!-- 마일스톤 -->
+                <h2 class="little-title">📌 개발 마일스톤</h2>
+
+                <div class="milestone-week">
+                  <h6>Week 1 (2026.03.16~20) — 핵심 감지 엔진 구축</h6>
+                  <ul>
+                    <li>✅ 시선/머리/어깨 감지 초기 구현</li>
+                    <li>✅ 집중도·피로도 스코어러 초기 설계</li>
+                    <li>✅ Colab GPU 표정 분류 서버 구성</li>
+                    <li>✅ YOLOv8 핸드폰 감지 모듈 추가 (팀원)</li>
+                  </ul>
+                </div>
+
+                <div class="milestone-week">
+                  <h6>Week 2 (2026.03.23~27) — 서버 아키텍처 전환 + 실시간 연동</h6>
+                  <ul>
+                    <li>✅ FastAPI + WebSocket 새 아키텍처 전환</li>
+                    <li>✅ 학습자 프론트엔드 + UUID 세션 관리 구현</li>
+                    <li>✅ 강의자 브로드캐스트 + 학습자 화면 동기화</li>
+                    <li>✅ 타임존 불일치 문제 해결 (KST 통일)</li>
+                    <li>✅ 로그인 기능 + 실시간 모니터링 알림 연결</li>
+                  </ul>
+                </div>
+
+                <div class="milestone-week">
+                  <h6>Week 3 (2026.03.30~04.02) — 기능 완성 + 배포</h6>
+                  <ul>
+                    <li>✅ 피로도 로직 개선</li>
+                    <li>✅ 표정 모델 교체 + Gemini AI 리포트 통합</li>
+                    <li>✅ 과제 제출률 DB 연동 + 리포트 페이지 실데이터 연결</li>
+                    <li>✅ Vercel 프론트엔드 배포</li>
+                    <li>✅ 스코어러 보정 수정</li>
+                  </ul>
+                </div>
+
+              </div><!-- /portfolio-section -->
+            </div><!-- /article-content -->
+          </div><!-- /post-box -->
+        </div><!-- /col-md-8 -->
+
+        <!-- 오른쪽 사이드바 -->
+        <div class="col-md-4">
+
+          <div class="widget-sidebar">
+            <h5 class="sidebar-title">Summary</h5>
+            <div class="sidebar-content">
+              <ul class="list-sidebar">
+                <li><a href="#">웹캠 하나로 시선·머리·표정·핸드폰을 동시 감지하는 멀티모달 집중도 분석</a></li>
+                <li><a href="#">집중도·피로도 독립 스코어링 공식 직접 설계 (두 축 분리로 "집중하지만 피로한 상태" 구별)</a></li>
+                <li><a href="#">0.1초 단위 WebSocket 실시간 브로드캐스트로 강의자에게 즉각 피드백 제공</a></li>
+                <li><a href="#">Gemini LLM 기반 세션 분석 리포트 자동 생성</a></li>
+                <li><a href="#">학습자·강의자·매니저 3-역할 앱 분리, 역할별 독립 배포</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="widget-sidebar">
+            <h5 class="sidebar-title">Information</h5>
+            <div class="sidebar-content">
+              <ul class="list-sidebar">
+                <li><a href="#">개발 기간: 2026.03.16 ~ 2026.04.02 (18일)</a></li>
+                <li><a href="#">개발 인원: 4명</a></li>
+                <li><a href="#">기여율: 92% </a></li>
+                <li><a href="#">소속: 멋쟁이사자처럼</a></li>
+                <li>
+                  <a href="#">기술 스택: MediaPipe Tasks Vision JS · RandomForest · YOLOv11s · Gemini API · FastAPI · PostgreSQL · WebSocket · React 19 (Vite) · Recharts · GCP · Nginx · Vercel · Google Colab</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="widget-sidebar widget-tags">
+            <h5 class="sidebar-title">Tags</h5>
+            <div class="sidebar-content">
+              <ul>
+                <li><a href="#">EdTech</a></li>
+                <li><a href="#">Realtime AI</a></li>
+                <li><a href="#">MediaPipe</a></li>
+                <li><a href="#">WebSocket</a></li>
+                <li><a href="#">Fullstack</a></li>
+                <li><a href="#">LLM Report</a></li>
+                <li><a href="#">YOLO</a></li>
+                <li><a href="#">FastAPI</a></li>
+              </ul>
+            </div>
+          </div>
+
+        </div><!-- /col-md-4 -->
+      </div><!-- /row -->
+    </div><!-- /container -->
+  </section>
+
+  <!-- Footer -->
+  <section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(img/overlay-bg.jpg)">
+    <div class="overlay-mf"></div>
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="copyright-box">
+              <p class="copyright">&copy; Copyright <strong>Jiyun Kang</strong>. All Rights Reserved</p>
+              <div class="credits">Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <div id="preloader"></div>
+
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/popper/popper.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/counterup/jquery.waypoints.min.js"></script>
+  <script src="lib/counterup/jquery.counterup.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="lib/lightbox/js/lightbox.min.js"></script>
+  <script src="lib/typed/typed.min.js"></script>
+  <script src="contactform/contactform.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
