@@ -683,6 +683,19 @@
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
   <div id="preloader"></div>
 
+  <!-- ── 캔버스 (trail 별 + 텍스트 파티클) ── -->
+  <canvas id="galaxy-canvas"></canvas>
+
+  <style>
+    #galaxy-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
+
   <!-- JavaScript Libraries -->
   <script src="lib/jquery/jquery.min.js"></script>
   <script src="lib/jquery/jquery-migrate.min.js"></script>
@@ -855,6 +868,163 @@
       setLang(currentLang);
       applyFilter();
     });
+  </script>
+
+  <script>
+  // ══════════════════════════════════════════
+  //  유성 커서 + JIYUN KANG 글자 반발 효과
+  // ══════════════════════════════════════════
+  (function() {
+    const canvas = document.getElementById('galaxy-canvas');
+    const ctx    = canvas.getContext('2d');
+    let W, H;
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+
+    function resizeCanvas() {
+      W = canvas.width  = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX; mouseY = e.clientY;
+      meteorPath.push({ x: mouseX, y: mouseY });
+      if (meteorPath.length > TRAIL_MAX) meteorPath.shift();
+    });
+
+    // ── 유성 Trail (경로 추적) ──
+    const TRAIL_MAX = 75;
+    let meteorPath  = [];
+
+    function drawTrail() {
+      if (meteorPath.length > 1) meteorPath.shift();
+      const n = meteorPath.length;
+      if (n < 2) return;
+
+      ctx.save();
+      ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+
+      for (let i = 1; i < n; i++) {
+        const t = i / (n - 1);
+        ctx.beginPath();
+        ctx.moveTo(meteorPath[i-1].x, meteorPath[i-1].y);
+        ctx.lineTo(meteorPath[i].x,   meteorPath[i].y);
+        ctx.strokeStyle = `rgba(255,255,255,${t * t * 0.18})`;
+        ctx.lineWidth   = (1 + t * 6) * 6;
+        ctx.stroke();
+      }
+      for (let i = 1; i < n; i++) {
+        const t = i / (n - 1);
+        ctx.beginPath();
+        ctx.moveTo(meteorPath[i-1].x, meteorPath[i-1].y);
+        ctx.lineTo(meteorPath[i].x,   meteorPath[i].y);
+        ctx.strokeStyle = `rgba(255,255,255,${t * t * 0.45})`;
+        ctx.lineWidth   = (1 + t * 6) * 2.5;
+        ctx.stroke();
+      }
+      for (let i = 1; i < n; i++) {
+        const t = i / (n - 1);
+        ctx.beginPath();
+        ctx.moveTo(meteorPath[i-1].x, meteorPath[i-1].y);
+        ctx.lineTo(meteorPath[i].x,   meteorPath[i].y);
+        ctx.strokeStyle = `rgba(255,255,255,${t * t * 0.95})`;
+        ctx.lineWidth   = 0.8 + t * 3.5;
+        ctx.stroke();
+      }
+
+      const head = meteorPath[n - 1];
+      const rg = ctx.createRadialGradient(head.x, head.y, 0, head.x, head.y, 18);
+      rg.addColorStop(0,    'rgba(255,255,255,0.95)');
+      rg.addColorStop(0.25, 'rgba(255,255,255,0.55)');
+      rg.addColorStop(0.6,  'rgba(255,255,255,0.15)');
+      rg.addColorStop(1,    'rgba(255,255,255,0)');
+      ctx.beginPath();
+      ctx.arc(head.x, head.y, 18, 0, Math.PI * 2);
+      ctx.fillStyle = rg;
+      ctx.fill();
+      ctx.restore();
+    }
+
+    // ── JIYUN KANG 글자 반발 ──
+    const REPEL_RADIUS = 100;
+    const REPEL_FORCE  = 8.0;
+    const RETURN_SPEED = 0.06;
+    const DAMP         = 0.72;
+
+    let charParticles = [];
+
+    function initTitleChars() {
+      const titleEl = document.querySelector('h1.intro-title');
+      if (!titleEl) return;
+
+      // 텍스트 노드를 글자별 span으로 교체
+      const walker = document.createTreeWalker(titleEl, NodeFilter.SHOW_TEXT);
+      const textNodes = [];
+      let node;
+      while ((node = walker.nextNode())) {
+        if (node.textContent.trim()) textNodes.push(node);
+      }
+      textNodes.forEach(tn => {
+        const frag = document.createDocumentFragment();
+        [...tn.textContent].forEach(ch => {
+          if (ch === ' ') {
+            frag.appendChild(document.createTextNode(' '));
+          } else {
+            const s = document.createElement('span');
+            s.textContent = ch;
+            s.style.cssText = 'display:inline-block;will-change:transform;';
+            frag.appendChild(s);
+          }
+        });
+        tn.parentNode.replaceChild(frag, tn);
+      });
+
+      // 위치 캐시
+      titleEl.querySelectorAll('span').forEach(s => {
+        const r = s.getBoundingClientRect();
+        if (r.width === 0) return;
+        charParticles.push({
+          el: s,
+          cx: r.left + r.width  / 2 + window.scrollX,
+          cy: r.top  + r.height / 2 + window.scrollY,
+          tx: 0, ty: 0, vx: 0, vy: 0,
+        });
+      });
+    }
+
+    document.fonts.ready.then(initTitleChars);
+
+    // ── 메인 루프 ──
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      drawTrail();
+
+      const sx = window.scrollX, sy = window.scrollY;
+      charParticles.forEach(p => {
+        const screenCX = p.cx - sx + p.tx;
+        const screenCY = p.cy - sy + p.ty;
+        const dx = screenCX - mouseX;
+        const dy = screenCY - mouseY;
+        const dist = Math.sqrt(dx*dx + dy*dy) || 1;
+
+        if (dist < REPEL_RADIUS) {
+          const force = (REPEL_RADIUS - dist) / REPEL_RADIUS;
+          p.vx += (dx / dist) * force * REPEL_FORCE;
+          p.vy += (dy / dist) * force * REPEL_FORCE;
+        }
+        p.vx += -p.tx * RETURN_SPEED;
+        p.vy += -p.ty * RETURN_SPEED;
+        p.vx *= DAMP; p.vy *= DAMP;
+        p.tx += p.vx; p.ty += p.vy;
+        p.el.style.transform = `translate(${p.tx.toFixed(2)}px,${p.ty.toFixed(2)}px)`;
+      });
+
+      requestAnimationFrame(draw);
+    }
+    requestAnimationFrame(draw);
+  })();
   </script>
 
 </body>
