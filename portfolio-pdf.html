@@ -4,1609 +4,781 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jiyun Kang - Portfolio</title>
-  <!-- AI Engineer → Portfolio label change done throughout -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; }
 
     :root {
-      --primary: #2563eb;
-      --primary-light: #eff6ff;
-      --accent: #7c3aed;
-      --accent-light: #f5f3ff;
-      --text-dark: #111827;
-      --text-mid: #374151;
-      --text-light: #6b7280;
-      --border: #e5e7eb;
-      --bg: #ffffff;
-      --tag-bg: #f3f4f6;
+      --primary:#111111; --primary-light:#f0f0f0;
+      --accent:#333333;  --accent-light:#f5f5f5;
+      --text-dark:#111827; --text-mid:#374151; --text-light:#6b7280;
+      --border:#e5e7eb; --tag-bg:#f3f4f6;
     }
 
     body {
-      font-family: 'Noto Sans KR', 'Inter', sans-serif;
-      color: var(--text-dark);
-      background: #f8fafc;
-      font-size: 13px;
-      line-height: 1.6;
+      font-family:'Noto Sans KR','Inter',sans-serif;
+      background:#000; color:var(--text-dark); font-size:11.5px; line-height:1.55;
     }
 
-    /* Print styles */
     @media print {
-      body { background: white; }
-      .page { box-shadow: none !important; margin: 0 !important; }
-      .page-break { page-break-before: always; }
-      .no-break { page-break-inside: avoid; }
-      @page {
-        size: A4;
-        margin: 0;
-      }
+      body { background:white; }
+      .page { box-shadow:none !important; margin:0 !important; page-break-after:always; }
+      @page { size:A4 landscape; margin:0; }
     }
 
+    /* ── PAGE ── */
     .page {
-      width: 210mm;
-      height: 297mm;
-      background: white;
-      margin: 0 auto 20px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-      position: relative;
-      overflow: hidden;
+      width:297mm; height:210mm;
+      background:white; margin:0 auto 24px;
+      box-shadow:0 4px 28px rgba(0,0,0,.18);
+      position:relative; overflow:hidden;
     }
 
-    /* ── COVER PAGE ── */
-    .cover {
-      display: flex;
-      flex-direction: column;
-      height: 297mm;
-      padding: 0;
-    }
-
-    .cover-top {
-      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #7c3aed 100%);
-      padding: 40px 44px 32px;
-      color: white;
-      flex-shrink: 0;
-    }
-
-    .cover-label {
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      opacity: 0.7;
-      margin-bottom: 12px;
-    }
-
-    .cover-name {
-      font-size: 38px;
-      font-weight: 700;
-      letter-spacing: -1px;
-      margin-bottom: 4px;
-    }
-
-    .cover-name-en {
-      font-size: 17px;
-      font-weight: 300;
-      opacity: 0.75;
-      margin-bottom: 18px;
-    }
-
-    .cover-role {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 500;
-      background: rgba(255,255,255,0.18);
-      border: 1px solid rgba(255,255,255,0.3);
-      border-radius: 20px;
-      padding: 4px 14px;
-      margin-bottom: 22px;
-    }
-
-    .cover-meta {
-      display: flex;
-      gap: 22px;
-      flex-wrap: wrap;
-    }
-
-    .cover-meta-item {
-      font-size: 11px;
-      opacity: 0.85;
-    }
-
-    .cover-meta-item span {
-      font-weight: 600;
-      opacity: 1;
-    }
-
-    .cover-bottom {
-      flex: 1;
-      padding: 24px 44px 44px;
-      overflow: hidden;
-    }
-
-    .cover-section-title {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--primary);
-      margin-bottom: 12px;
-    }
-
-    .cover-intro {
-      font-size: 12.5px;
-      color: var(--text-mid);
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-
-    .cover-projects-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-bottom: 20px;
-    }
-
-    .cover-project-card {
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 10px 12px;
-      cursor: default;
-    }
-
-    .cover-project-card.main {
-      border-left: 3px solid var(--primary);
-    }
-
-    .cover-project-card.toy {
-      border-left: 3px solid var(--accent);
-    }
-
-    .cover-project-badge {
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 1px 6px;
-      border-radius: 4px;
-      display: inline-block;
-      margin-bottom: 5px;
-    }
-
-    .badge-main { background: var(--primary-light); color: var(--primary); }
-    .badge-toy { background: var(--accent-light); color: var(--accent); }
-    .badge-award { background: #fef3c7; color: #92400e; }
-
-    .cover-project-name {
-      font-size: 11.5px;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin-bottom: 2px;
-    }
-
-    .cover-project-desc {
-      font-size: 10.5px;
-      color: var(--text-light);
-    }
-
-    .stack-summary {
-      background: #f8fafc;
-      border-radius: 8px;
-      padding: 12px 14px;
-    }
-
-    .stack-row {
-      display: flex;
-      gap: 8px;
-      align-items: flex-start;
-      margin-bottom: 7px;
-    }
-
-    .stack-row:last-child { margin-bottom: 0; }
-
-    .stack-label {
-      font-size: 9.5px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      color: var(--text-light);
-      min-width: 72px;
-      padding-top: 3px;
-    }
-
-    .stack-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-    }
-
-    .tag {
-      font-size: 10.5px;
-      background: var(--tag-bg);
-      color: var(--text-mid);
-      border-radius: 4px;
-      padding: 2px 7px;
-      font-weight: 500;
-    }
-
-    .tag-blue { background: var(--primary-light); color: var(--primary); }
-    .tag-purple { background: var(--accent-light); color: var(--accent); }
-    .tag-green { background: #ecfdf5; color: #065f46; }
-    .tag-orange { background: #fff7ed; color: #9a3412; }
-
-    /* ── CONTENT PAGES ── */
-    .content-page {
-      padding: 30px 42px 52px;
-      height: 297mm;
-      overflow: hidden;
-      box-sizing: border-box;
-    }
-
-    .page-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 18px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid var(--border);
-    }
-
-    .page-title {
-      font-size: 19px;
-      font-weight: 700;
-      color: var(--text-dark);
-    }
-
-    .page-num {
-      font-size: 10.5px;
-      color: var(--text-light);
-      font-weight: 500;
-    }
-
-    /* Project cards */
-    .project-block {
-      margin-bottom: 20px;
-    }
-
-    .project-block:last-child {
-      margin-bottom: 0;
-    }
-
-    .project-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      margin-bottom: 8px;
-      gap: 12px;
-    }
-
-    .project-title-area {
-      flex: 1;
-    }
-
-    .project-badges {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 4px;
-      flex-wrap: wrap;
-    }
-
-    .project-name {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin-bottom: 3px;
-      line-height: 1.3;
-    }
-
-    .project-name-sub {
-      font-size: 11px;
-      color: var(--text-light);
-    }
-
-    .project-meta-right {
-      text-align: right;
-      flex-shrink: 0;
-    }
-
-    .project-duration {
-      font-size: 10.5px;
-      color: var(--text-light);
-      margin-bottom: 2px;
-    }
-
-    .project-team {
-      font-size: 10.5px;
-      color: var(--text-light);
-    }
-
-    .project-divider {
-      height: 1px;
-      background: var(--border);
-      margin-bottom: 10px;
-    }
-
-    .project-desc {
-      font-size: 11.5px;
-      color: var(--text-mid);
-      line-height: 1.65;
-      margin-bottom: 10px;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-bottom: 10px;
-    }
-
-    .section-label {
-      font-size: 9.5px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--text-light);
-      margin-bottom: 6px;
-    }
-
-    ul.feature-list {
-      list-style: none;
-      padding: 0;
-    }
-
-    ul.feature-list li {
-      font-size: 11.5px;
-      color: var(--text-mid);
-      padding: 2px 0;
-      padding-left: 13px;
-      position: relative;
-    }
-
-    ul.feature-list li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: var(--primary);
-      font-weight: 700;
-    }
-
-    ul.feature-list li.sub {
-      padding-left: 22px;
-      color: var(--text-light);
-      font-size: 10.5px;
-    }
-
-    ul.feature-list li.sub::before {
-      content: '–';
-      color: var(--text-light);
-      left: 11px;
-    }
-
-    .contribution-block {
-      background: var(--primary-light);
-      border-radius: 8px;
-      padding: 10px 12px;
-      margin-bottom: 10px;
-    }
-
-    .contribution-block .section-label {
-      color: var(--primary);
-    }
-
-    .metrics-row {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 10px;
-    }
-
-    .metric-chip {
-      background: var(--tag-bg);
-      border-radius: 6px;
-      padding: 4px 9px;
-      text-align: center;
-    }
-
-    .metric-val {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--primary);
-    }
-
-    .metric-label {
-      font-size: 9.5px;
-      color: var(--text-light);
-    }
-
-    .tech-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-      margin-top: 4px;
-    }
-
-    /* Divider between projects */
-    .project-separator {
-      height: 1px;
-      background: linear-gradient(to right, var(--primary), transparent);
-      margin: 18px 0;
-      opacity: 0.2;
-    }
-
-    /* Tech stack page */
-    .stack-category {
-      margin-bottom: 14px;
-    }
-
-    .stack-category-title {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .stack-category-title::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    .stack-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 6px 0;
-      border-bottom: 1px solid #f3f4f6;
-    }
-
-    .stack-item:last-child {
-      border-bottom: none;
-    }
-
-    .stack-item-name {
-      font-size: 11.5px;
-      font-weight: 600;
-      color: var(--text-dark);
-      min-width: 130px;
-    }
-
-    .stack-item-desc {
-      font-size: 11px;
-      color: var(--text-mid);
-      line-height: 1.5;
-    }
-
-    /* Performance table */
-    .perf-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 11px;
-      margin-top: 6px;
-    }
-
-    .perf-table th {
-      background: var(--primary-light);
-      color: var(--primary);
-      font-weight: 700;
-      padding: 6px 10px;
-      text-align: left;
-      font-size: 10.5px;
-    }
-
-    .perf-table td {
-      padding: 5px 10px;
-      border-bottom: 1px solid var(--border);
-      color: var(--text-mid);
-    }
-
-    .perf-table tr:last-child td { border-bottom: none; }
-    .perf-table tr:hover td { background: #f8fafc; }
-
-    .highlight-val {
-      font-weight: 700;
-      color: var(--primary);
-    }
-
-    /* Callout box */
-    .callout {
-      border-left: 3px solid var(--primary);
-      background: var(--primary-light);
-      padding: 7px 11px;
-      border-radius: 0 6px 6px 0;
-      margin-bottom: 8px;
-    }
-
-    .callout.accent {
-      border-color: var(--accent);
-      background: var(--accent-light);
-    }
-
-    .callout-title {
-      font-size: 10.5px;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 3px;
-    }
-
-    .callout.accent .callout-title { color: var(--accent); }
-
-    .callout-body {
-      font-size: 11px;
-      color: var(--text-mid);
-      line-height: 1.5;
-    }
-
-    /* award banner */
-    .award-banner {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: linear-gradient(90deg, #fef9c3, #fffbeb);
-      border: 1px solid #fcd34d;
-      border-radius: 6px;
-      padding: 5px 10px;
-      font-size: 11.5px;
-      font-weight: 600;
-      color: #78350f;
-      margin-bottom: 10px;
-    }
-
-    .award-icon { font-size: 14px; }
-
-    /* Footer */
+    /* ── FOOTER ── */
     .footer {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 36px;
-      background: linear-gradient(135deg, #1e3a8a, #2563eb);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 50px;
+      position:absolute; bottom:0; left:0; right:0; height:28px;
+      background:#111; display:flex; align-items:center;
+      justify-content:space-between; padding:0 38px;
+    }
+    .fn { font-size:9px; color:rgba(255,255,255,.7); font-weight:500; }
+    .fc { font-size:8.5px; color:rgba(255,255,255,.5); }
+
+    /* ── MAIN CONTENT AREA ── */
+    .cp {
+      padding:16px 34px 10px;
+      height:210mm; box-sizing:border-box;
+      display:flex; flex-direction:column; gap:0;
+      padding-bottom:44px; /* room for footer */
     }
 
-    .footer-name {
-      font-size: 11px;
-      color: rgba(255,255,255,0.7);
-      font-weight: 500;
+    /* ── PAGE HEADER ── */
+    .ph {
+      display:flex; align-items:baseline; justify-content:space-between;
+      padding-bottom:7px; margin-bottom:10px;
+      border-bottom:2px solid var(--border); flex-shrink:0;
     }
+    .ph-t { font-size:14px; font-weight:700; color:var(--text-dark); }
+    .ph-s { font-size:9.5px; color:var(--text-light); margin-left:7px; }
+    .ph-r { font-size:9px; color:var(--text-light); }
 
-    .footer-contact {
-      font-size: 10.5px;
-      color: rgba(255,255,255,0.6);
+    /* ── SECTION ROW: text left + image right ── */
+    .srow {
+      display:grid; gap:14px;
+      flex:1; min-height:0;
+      align-items:stretch;
     }
+    .srow.t45 { grid-template-columns:45% 1fr; }
+    .srow.t50 { grid-template-columns:1fr 1fr; }
+    .srow.t40 { grid-template-columns:40% 1fr; }
+    .srow.t55 { grid-template-columns:55% 1fr; }
+
+    .st { display:flex; flex-direction:column; gap:5px; overflow:hidden; min-height:0; }
+    .si { display:flex; flex-direction:column; gap:4px; overflow:hidden; min-height:0; }
+    .si img {
+      flex:1; min-height:0; width:100%;
+      object-fit:contain; background:#f8fafc;
+      border-radius:6px; display:block;
+    }
+    .si-cap { font-size:7.5px; color:var(--text-light); text-align:center; flex-shrink:0; }
+
+    /* divider between rows */
+    .divrow { height:1px; background:var(--border); flex-shrink:0; margin:7px 0; }
+
+    /* ── BODY ELEMENTS ── */
+    .pname { font-size:12.5px; font-weight:700; color:var(--text-dark); line-height:1.3; }
+    .psub  { font-size:9px; color:var(--text-light); margin-top:1px; }
+    .pdesc { font-size:10px; color:var(--text-mid); line-height:1.55; }
+    .pdiv  { height:1px; background:var(--border); flex-shrink:0; }
+
+    .badge { font-size:8px; font-weight:600; letter-spacing:.8px; text-transform:uppercase; padding:1px 6px; border-radius:4px; display:inline-block; margin-right:3px; }
+    .bm { background:var(--primary-light); color:var(--primary); }
+    .bt { background:var(--accent-light);  color:var(--accent);  }
+    .ba { background:#fef3c7; color:#92400e; }
+
+    .slabel { font-size:8px; font-weight:700; letter-spacing:.8px; text-transform:uppercase; color:var(--text-light); margin-bottom:3px; flex-shrink:0; }
+
+    ul.fl { list-style:none; padding:0; }
+    ul.fl li { font-size:9.5px; color:var(--text-mid); padding:1px 0 1px 11px; position:relative; }
+    ul.fl li::before { content:'•'; position:absolute; left:0; color:var(--primary); font-weight:700; }
+    ul.fl li.s { padding-left:18px; color:var(--text-light); font-size:9px; }
+    ul.fl li.s::before { content:'–'; left:9px; color:var(--text-light); }
+
+    .award { display:flex; align-items:center; gap:6px; background:linear-gradient(90deg,#fef9c3,#fffbeb); border:1px solid #fcd34d; border-radius:5px; padding:3px 9px; font-size:9.5px; font-weight:600; color:#78350f; flex-shrink:0; }
+
+    .metrics { display:flex; gap:4px; flex-wrap:wrap; flex-shrink:0; }
+    .mc { background:var(--tag-bg); border-radius:5px; padding:2px 7px; text-align:center; }
+    .mv { font-size:10.5px; font-weight:700; color:var(--primary); }
+    .ml { font-size:7.5px; color:var(--text-light); }
+
+    .tags { display:flex; flex-wrap:wrap; gap:3px; flex-shrink:0; }
+    .tag { font-size:8.5px; background:var(--tag-bg); color:var(--text-mid); border-radius:3px; padding:1px 5px; font-weight:500; }
+    .tb { background:var(--primary-light); color:var(--primary); }
+    .tp { background:var(--accent-light);  color:var(--accent);  }
+    .tg { background:#ecfdf5; color:#065f46; }
+    .to { background:#fff7ed; color:#9a3412; }
+
+    .callout { border-left:3px solid var(--primary); background:var(--primary-light); padding:4px 8px; border-radius:0 5px 5px 0; flex-shrink:0; }
+    .callout.ac { border-color:var(--accent); background:var(--accent-light); }
+    .ct { font-size:9px; font-weight:700; color:var(--primary); margin-bottom:1px; }
+    .callout.ac .ct { color:var(--accent); }
+    .cb { font-size:9px; color:var(--text-mid); line-height:1.4; }
+
+    .tbl { width:100%; border-collapse:collapse; font-size:9px; }
+    .tbl th { background:var(--primary-light); color:var(--primary); font-weight:700; padding:3px 6px; text-align:left; }
+    .tbl td { padding:2.5px 6px; border-bottom:1px solid var(--border); color:var(--text-mid); }
+    .tbl tr:last-child td { border-bottom:none; }
+    .hv { font-weight:700; color:var(--primary); }
   </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════ PAGE 1: COVER ═══════════════════════════ -->
+<!-- ═══════════ PAGE 1: COVER — FULL IMAGE ═══════════ -->
+<div class="page" style="padding:0;">
+  <img src="img/port_pdf_firstpages.png"
+       style="width:100%;height:100%;object-fit:cover;display:block;">
+  <div style="position:absolute; bottom:28px; left:0; right:0; display:flex; justify-content:center;">
+    <a href="https://jiyun-kang12.github.io/portfolio/" target="_blank"
+       style="display:inline-block; padding:5px 16px; background:#000; border:1.5px solid #fff; border-radius:20px; color:#fff; font-size:10px; font-weight:500; text-decoration:none; letter-spacing:0.5px; font-family:'Inter',sans-serif;">
+      Homepage Link
+    </a>
+  </div>
+</div>
+
+
+<!-- ═══════════ PAGE 2: PROJECT 01 — 서비스 개요 & 흐름 ═══════════ -->
 <div class="page">
-  <div class="cover">
-    <div class="cover-top">
-      <div class="cover-label">Jiyun Kang · Portfolio</div>
-      <div class="cover-name">강지윤</div>
-      <div class="cover-name-en">Jiyun Kang</div>
-      <div class="cover-role">AI Engineer · LLM · RAG · Multimodal</div>
-      <div class="cover-meta">
-        <div class="cover-meta-item">📧 <span>jiun99245@gmail.com</span></div>
-        <div class="cover-meta-item">📱 <span>010-9246-1715</span></div>
-        <div class="cover-meta-item">🎓 <span>이화여자대학교 교육공학 석사</span></div>
-        <div class="cover-meta-item">💻 <span>github.com/jiyun-kang12</span></div>
-      </div>
+  <div class="cp">
+    <div class="ph">
+      <div><span class="ph-t">Project 01</span><span class="ph-s">AI 기반 실시간 학습 집중도 평가 플랫폼 — 1/2</span></div>
+      <div class="ph-r">2026.03.16~04.02 · 18일 · 팀 2명 · 기여 92%</div>
     </div>
 
-    <div class="cover-bottom">
-      <div class="cover-section-title">About</div>
-      <div class="cover-intro">
-        LLM 파인튜닝, RAG 파이프라인, 멀티모달 AI 시스템 개발 경험을 보유한 AI 엔지니어입니다.<br>
-        실제 사회 문제 해결에 AI를 접목하는 것을 목표로 하며, 딥페이크 탐지·저작권 챗봇·귀농 정착 지원 등<br>
-        다양한 도메인에서 end-to-end AI 시스템을 설계·구현해왔습니다.
-      </div>
-
-      <div class="cover-section-title">Projects</div>
-      <div class="cover-projects-grid">
-        <div class="cover-project-card main">
-          <span class="cover-project-badge badge-main">Main</span>
-          <div class="cover-project-name">실시간 학습자 집중도 분석 시스템</div>
-          <div class="cover-project-desc">MediaPipe · YOLO · WebSocket · 풀스택 단독 구현</div>
-        </div>
-        <div class="cover-project-card main">
-          <span class="cover-project-badge badge-main">Main</span>
-          <div class="cover-project-name">DDP — Deepfake Detection Pro</div>
-          <div class="cover-project-desc">4-modal AI 딥페이크 탐지 플랫폼</div>
-        </div>
-        <div class="cover-project-card main">
-          <span class="cover-project-badge badge-main">Main</span>
-          <span class="cover-project-badge badge-award">🏆 우수상</span>
-          <div class="cover-project-name">자동차 디자인 프로토타입 생성 플랫폼</div>
-          <div class="cover-project-desc">sLLM 파인튜닝 · FLUX LoRA · 3D/4D 파이프라인</div>
-        </div>
-        <div class="cover-project-card main">
-          <span class="cover-project-badge badge-main">Main</span>
-          <span class="cover-project-badge badge-award">🏆 장관상</span>
-          <div class="cover-project-name">AI 정착 코디네이터</div>
-          <div class="cover-project-desc">귀농·귀촌 맞춤형 멀티 에이전트 AI 서비스</div>
-        </div>
-        <div class="cover-project-card toy">
-          <span class="cover-project-badge badge-toy">Toy</span>
-          <div class="cover-project-name">저작권 정보 챗봇</div>
-          <div class="cover-project-desc">LangGraph 3-stage RAG 파이프라인</div>
-        </div>
-        <div class="cover-project-card toy">
-          <span class="cover-project-badge badge-toy">Toy</span>
-          <div class="cover-project-name">MOOC 학습 이탈률 예측</div>
-          <div class="cover-project-desc">ML 분류 모델 · XGBoost 최적화</div>
-        </div>
-      </div>
-
-      <div class="cover-section-title">Tech Stack Overview</div>
-      <div class="stack-summary">
-        <div class="stack-row">
-          <div class="stack-label">AI / ML</div>
-          <div class="stack-tags">
-            <span class="tag tag-blue">PyTorch</span>
-            <span class="tag tag-blue">ONNX Runtime</span>
-            <span class="tag tag-blue">Transformers</span>
-            <span class="tag tag-blue">vLLM</span>
-            <span class="tag tag-blue">OpenCV</span>
-          </div>
-        </div>
-        <div class="stack-row">
-          <div class="stack-label">LLM / RAG</div>
-          <div class="stack-tags">
-            <span class="tag tag-purple">LangChain</span>
-            <span class="tag tag-purple">LangGraph</span>
-            <span class="tag tag-purple">OpenAI API</span>
-            <span class="tag tag-purple">Qdrant</span>
-            <span class="tag tag-purple">ChromaDB</span>
-          </div>
-        </div>
-        <div class="stack-row">
-          <div class="stack-label">Backend</div>
-          <div class="stack-tags">
-            <span class="tag tag-green">FastAPI</span>
-            <span class="tag tag-green">Django</span>
-            <span class="tag tag-green">PostgreSQL</span>
-            <span class="tag tag-green">Redis</span>
-            <span class="tag tag-green">WebSocket</span>
-          </div>
-        </div>
-        <div class="stack-row">
-          <div class="stack-label">Frontend</div>
-          <div class="stack-tags">
-            <span class="tag tag-orange">React Native</span>
-            <span class="tag tag-orange">Expo</span>
-            <span class="tag tag-orange">TypeScript</span>
-            <span class="tag tag-orange">React</span>
-          </div>
-        </div>
-        <div class="stack-row">
-          <div class="stack-label">Infra</div>
-          <div class="stack-tags">
-            <span class="tag">AWS S3</span>
-            <span class="tag">AWS EC2</span>
-            <span class="tag">GCP</span>
-            <span class="tag">Docker</span>
-            <span class="tag">Nginx</span>
-            <span class="tag">Runpod</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="footer">
-    <span class="footer-name">Jiyun Kang · Portfolio</span>
-    <span class="footer-contact">jiun99245@gmail.com · github.com/jiyun-kang12</span>
-  </div>
-</div>
-
-
-<!-- ═══════════════════════════ PAGE 2: PROJECT 01 — 1/2 ═══════════════════════════ -->
-<div class="page page-break">
-  <div class="content-page">
-    <div class="page-header">
-      <div class="page-title">Project 01 <span style="font-size:13px; font-weight:400; color:var(--text-light);">— 1/2</span></div>
-      <div class="page-num">실시간 학습자 집중도 분석 시스템</div>
-    </div>
-
-    <div class="project-header">
-      <div class="project-title-area">
-        <div class="project-badges">
-          <span class="cover-project-badge badge-main">Main Project</span>
-        </div>
-        <div class="project-name">AI 기반 실시간 학습 집중도 평가 플랫폼</div>
-        <div class="project-name-sub">웹캠 기반 집중도 자동 감지 · 강의자 실시간 대시보드 · Gemini LLM 리포트 · 풀스택 단독 구현</div>
-      </div>
-      <div class="project-meta-right">
-        <div class="project-duration">2026.03.16 ~ 2026.04.02 (18일)</div>
-        <div class="project-team">팀 2명 · 기여율 92% (34/36 commits)</div>
-      </div>
-    </div>
-    <div class="project-divider"></div>
-
-    <div class="project-desc">
-      기존 온라인 강의는 학습자의 반응을 즉각적으로 확인하기 어렵다는 한계가 있었습니다. 본 플랫폼은 학습자의 웹캠 하나로 표정·시선·자세·핸드폰 사용 여부를 AI로 실시간 분석하여 강의자에게 즉각 피드백을 제공하고, 세션 종료 후 <b>Gemini LLM 기반 강의 개선 리포트</b>를 자동 생성하는 에듀테크 플랫폼입니다.
-    </div>
-
-    <!-- 이미지 1: 서비스 전체 흐름도 -->
-    <div style="border: 2px dashed #cbd5e1; border-radius: 8px; background: #f8fafc; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 5px; height: 108px; margin-bottom: 12px;">
-      <div style="font-size: 22px; opacity: 0.35;">🖼</div>
-      <div style="font-size: 11px; color: #64748b; font-weight: 700;">[ 이미지 삽입 ] 서비스 전체 흐름도</div>
-      <div style="font-size: 10px; color: #94a3b8;">학습자 웹캠 → 데이터 추출 → 분석 결과 → 강의자·매니저 대시보드 흐름</div>
-    </div>
-
-    <div class="metrics-row">
-      <div class="metric-chip">
-        <div class="metric-val">0.1초</div>
-        <div class="metric-label">WebSocket 전송 주기</div>
-      </div>
-      <div class="metric-chip">
-        <div class="metric-val">5가지</div>
-        <div class="metric-label">멀티모달 신호 통합</div>
-      </div>
-      <div class="metric-chip">
-        <div class="metric-val">5-class</div>
-        <div class="metric-label">RandomForest 표정 분류</div>
-      </div>
-      <div class="metric-chip">
-        <div class="metric-val">92%</div>
-        <div class="metric-label">기여율</div>
-      </div>
-      <div class="metric-chip">
-        <div class="metric-val">3개</div>
-        <div class="metric-label">역할별 화면 (학습자·강의자·매니저)</div>
-      </div>
-    </div>
-
-    <div class="two-col">
-      <div>
-        <div class="section-label">집중도 스코어링 엔진 (직접 설계)</div>
-        <ul class="feature-list">
-          <li>집중도 공식 설계 및 구현</li>
-          <li class="sub">focus = gaze×0.60 + head×0.40 − shoulder×0.10</li>
-          <li class="sub">EMA 스무딩(α=0.05) + 20~25프레임 상태 확정</li>
-          <li>피로도 공식 설계 및 구현</li>
-          <li class="sub">fatigue = EAR×0.25 + 경과시간×0.35 + 시선고착×0.25 + 머리움직임×0.15</li>
-          <li>집중·산만·졸음 3-상태 독립 분류</li>
-          <li class="sub">"집중하지만 피로한 상태" 구별 가능</li>
-        </ul>
-      </div>
-      <div>
-        <div class="section-label">AI 감지 모듈 구성</div>
-        <ul class="feature-list">
-          <li>MediaPipe FaceLandmarker (브라우저 실행)</li>
-          <li class="sub">EAR 졸음 감지 · 홍채 랜드마크 시선 추정</li>
-          <li class="sub">안면 변환 행렬(4×4) 고개 방향 계산</li>
-          <li>RandomForest 표정 분류 (52 blendshape → 82 피처)</li>
-          <li class="sub">집중·지루함·혼란·웃음·놀람 5-class</li>
-          <li>YOLOv11s 핸드폰 탐지 (Google Colab GPU)</li>
-          <li class="sub">브라우저 → HTTP multipart 프레임 전송 → YOLO 추론</li>
-          <li>로컬 MediaPipe + Colab GPU 병렬 추론 파이프라인</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 이미지 2: 집중도·피로도 스코어링 공식 화면 -->
-    <div style="border: 2px dashed #cbd5e1; border-radius: 8px; background: #f8fafc; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 5px; height: 80px; margin-top: 4px;">
-      <div style="font-size: 18px; opacity: 0.35;">🖼</div>
-      <div style="font-size: 11px; color: #64748b; font-weight: 700;">[ 이미지 삽입 ] 집중도·피로도 스코어링 공식 화면 (보고서 p.5)</div>
-      <div style="font-size: 10px; color: #94a3b8;">focus_score / fatigue_score 수식 블록 캡처 이미지</div>
-    </div>
-
-  </div>
-  <div class="footer">
-    <span class="footer-name">Jiyun Kang · Portfolio</span>
-    <span class="footer-contact">jiun99245@gmail.com · github.com/jiyun-kang12</span>
-  </div>
-</div>
-
-
-<!-- ═══════════════════════════ PAGE 3: PROJECT 01 — 2/2 ═══════════════════════════ -->
-<div class="page page-break">
-  <div class="content-page">
-    <div class="page-header">
-      <div class="page-title">Project 01 <span style="font-size:13px; font-weight:400; color:var(--text-light);">— 2/2</span></div>
-      <div class="page-num">대시보드 · 리포트 · 아키텍처</div>
-    </div>
-
-    <div class="two-col" style="margin-bottom:10px;">
-      <!-- 이미지 3: 실시간 모니터링 대시보드 -->
-      <div>
-        <div class="section-label" style="margin-bottom:6px;">실시간 모니터링 화면</div>
-        <div style="border: 2px dashed #cbd5e1; border-radius: 8px; background: #f8fafc; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 4px; height: 112px;">
-          <div style="font-size: 18px; opacity: 0.35;">🖼</div>
-          <div style="font-size: 10.5px; color: #64748b; font-weight: 700;">[ 이미지 삽입 ] 강의자 대시보드 모니터링 화면</div>
-          <div style="font-size: 9.5px; color: #94a3b8;">학습자별 집중도 카드 + 카테고리 필터 (보고서 p.2~3)</div>
-        </div>
-      </div>
-      <!-- 이미지 4: 핸드폰 감지 알림 -->
-      <div>
-        <div class="section-label" style="margin-bottom:6px;">핸드폰 감지 알림</div>
-        <div style="border: 2px dashed #cbd5e1; border-radius: 8px; background: #f8fafc; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 4px; height: 112px;">
-          <div style="font-size: 18px; opacity: 0.35;">🖼</div>
-          <div style="font-size: 10.5px; color: #64748b; font-weight: 700;">[ 이미지 삽입 ] 핸드폰 감지 토스트 알림 화면</div>
-          <div style="font-size: 9.5px; color: #94a3b8;">YOLO 탐지 시 즉시 Notification 표시 (보고서 p.3)</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 이미지 5: 세션 종료 리포트 -->
-    <div class="section-label" style="margin-bottom:6px;">세션 종료 후 AI 리포트</div>
-    <div style="border: 2px dashed #cbd5e1; border-radius: 8px; background: #f8fafc; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 4px; height: 90px; margin-bottom: 12px;">
-      <div style="font-size: 18px; opacity: 0.35;">🖼</div>
-      <div style="font-size: 10.5px; color: #64748b; font-weight: 700;">[ 이미지 삽입 ] 세션 종료 리포트 화면</div>
-      <div style="font-size: 9.5px; color: #94a3b8;">집중도 추이 라인 차트 + 표정 분포 레이더 차트 + Gemini LLM 총평 (보고서 p.3~4)</div>
-    </div>
-
-    <div class="two-col" style="margin-bottom:10px;">
-      <div>
-        <div class="section-label">FastAPI WebSocket 아키텍처</div>
-        <ul class="feature-list">
-          <li>/ws/client/{session_id}/{user_id} — 학습자 감지</li>
-          <li>/ws/dashboard/{session_id} — 강의자 대시보드</li>
-          <li>UUID 기반 세션 관리 + Ping-Pong keepalive</li>
-          <li>PostgreSQL ThreadedConnectionPool 동시성 처리</li>
-          <li>KST 타임존 통일 (서버·DB 전체 UTC+9)</li>
-        </ul>
-      </div>
-      <div>
-        <div class="section-label">배포 구성</div>
-        <ul class="feature-list">
-          <li>다중 역할 앱 분리</li>
-          <li class="sub">학습자 (포트 3000) · 강의자/매니저 (포트 3001)</li>
-          <li>GCP VM — FastAPI · PostgreSQL · Nginx (HTTPS)</li>
-          <li>Vercel — React 프론트엔드 배포</li>
-          <li>Google Colab + ngrok — GPU 추론 서버</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="section-label">주요 성과</div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px;">
-      <div class="callout">
-        <div class="callout-title">풀스택 단독 구현</div>
-        <div class="callout-body">백엔드(FastAPI·PostgreSQL)·강의자 프론트엔드·학습자 프론트엔드·클라우드 배포까지 18일 내 설계·구현</div>
-      </div>
-      <div class="callout accent">
-        <div class="callout-title">보안 강화</div>
-        <div class="callout-body">세션 ID·사용자 ID를 추측 가능한 문자열(sess_abc123, cam1)에서 UUID로 전환, API 열거 공격 방지</div>
-      </div>
-      <div class="callout">
-        <div class="callout-title">다중 역할 아키텍처</div>
-        <div class="callout-body">학습자(포트 3000)·강의자/매니저(포트 3001) 앱 분리, 역할별 독립 배포</div>
-      </div>
-      <div class="callout accent">
-        <div class="callout-title">클라우드 배포</div>
-        <div class="callout-body">GCP VM에 FastAPI·PostgreSQL·Nginx(HTTPS 프록시) 구성, 외부 접속 환경 구축</div>
-      </div>
-    </div>
-
-    <div class="section-label">기술 스택</div>
-    <div class="tech-tags">
-      <span class="tag tag-blue">MediaPipe Tasks Vision JS</span>
-      <span class="tag tag-blue">RandomForest</span>
-      <span class="tag tag-blue">YOLOv11s</span>
-      <span class="tag tag-blue">Gemini API</span>
-      <span class="tag tag-green">FastAPI</span>
-      <span class="tag tag-green">PostgreSQL</span>
-      <span class="tag tag-green">WebSocket</span>
-      <span class="tag tag-orange">React 19 (Vite)</span>
-      <span class="tag tag-orange">Recharts</span>
-      <span class="tag">Google Colab</span>
-      <span class="tag">GCP VM</span>
-      <span class="tag">Nginx</span>
-      <span class="tag">Vercel</span>
-    </div>
-  </div>
-  <div class="footer">
-    <span class="footer-name">Jiyun Kang · Portfolio</span>
-    <span class="footer-contact">jiun99245@gmail.com · github.com/jiyun-kang12</span>
-  </div>
-</div>
-
-
-<!-- ═══════════════════════════ PAGE 3: PROJECT 2 ═══════════════════════════ -->
-<div class="page page-break">
-  <div class="content-page">
-    <div class="page-header">
-      <div class="page-title">Project 02</div>
-      <div class="page-num">DDP — Deepfake Detection Pro Platform</div>
-    </div>
-
-    <!-- Header -->
-    <div class="project-header">
-      <div class="project-title-area">
-        <div class="project-badges">
-          <span class="cover-project-badge badge-main">Main Project</span>
-        </div>
-        <div class="project-name">DDP — Deepfake Detection Pro</div>
-        <div class="project-name-sub">딥페이크 기반 보이스피싱·허위광고·가짜뉴스 대응 멀티모달 AI 탐지 플랫폼</div>
-      </div>
-      <div class="project-meta-right">
-        <div class="project-duration">2026.02.06 – 2026.02.27</div>
-        <div class="project-team">팀 5명 · 기여도 27.1% (69/255 commits)</div>
-      </div>
-    </div>
-    <div class="project-divider"></div>
-
-    <!-- Description -->
-    <div class="project-desc">
-      딥페이크 콘텐츠의 급증에 대응하는 AI 기반 멀티모달 분석 시스템입니다. <b>Wavelet 주파수 분석, rPPG 혈류 패턴, STT 음성 분석, UNITE Transformer</b>의 4가지 모달을 병렬 활용하여 영상·음성 위변조를 탐지합니다. 신고 리워드 포인트 시스템을 통해 사용자 참여형 순환 생태계를 구축했습니다.
-    </div>
-
-    <!-- Metrics -->
-    <div class="metrics-row">
-      <div class="metric-chip">
-        <div class="metric-val">4</div>
-        <div class="metric-label">AI 탐지 모달</div>
-      </div>
-      <div class="metric-chip">
-        <div class="metric-val">0.96</div>
-        <div class="metric-label">Wavelet ACC (학습)</div>
-      </div>
-      <div class="metric-chip">
-        <div class="metric-val">0.84</div>
-        <div class="metric-label">Wavelet AUC</div>
-      </div>
-      <div class="metric-chip">
-        <div class="metric-val">22일</div>
-        <div class="metric-label">개발 기간</div>
-      </div>
-      <div class="metric-chip">
-        <div class="metric-val">255</div>
-        <div class="metric-label">총 커밋 수</div>
-      </div>
-    </div>
-
-    <div class="two-col">
-      <div>
-        <div class="section-label">주요 기능</div>
-        <ul class="feature-list">
-          <li>증거 수집 모드 (Fast): Wavelet + rPPG + STT 병렬 분석 → PNG 리포트</li>
-          <li>정밀 탐지 모드 (Deep): UNITE Transformer 고정밀 판별</li>
-          <li>비동기 처리: Taskiq + Redis Queue 딥러닝 태스크 큐잉</li>
-          <li>WebSocket 실시간 알림</li>
-          <li>멀티 소스: 디바이스 업로드 + YouTube/SNS URL</li>
-          <li>리워드 시스템: 신고 1,000P + 4단계 배지 + Top10 리더보드</li>
-        </ul>
-      </div>
-      <div>
-        <div class="section-label">담당 역할</div>
-        <ul class="feature-list">
-          <li>Wavelet-CLIP 주파수 분석 모델 구현 및 백엔드 연동</li>
-          <li class="sub">CLIP 인코더 + Wavelet 변환, p75 집계 + TTA</li>
-          <li class="sub">PNG 히스토그램 시각화 + AWS S3 업로드</li>
-          <li>React Native 프론트엔드 API 연동</li>
-          <li class="sub">Google OAuth 로그인 / 분석 결과 대시보드</li>
-          <li class="sub">WebSocket 토큰 인증 / S3 프로필 이미지</li>
-          <li>FastAPI 백엔드 S3 인프라 구축</li>
-          <li class="sub">yt-dlp YouTube 수집 + ngrok 터널 통합</li>
-          <li>UNITE 모델 서브모듈 + Whisper STT 파이프라인</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="callout">
-      <div class="callout-title">문제 해결 경험</div>
-      <div class="callout-body">UNITE 모델 REAL/FAKE 결과 반전 및 confidence 계산 로직 수정 · S3/Redis 환경변수 설정 및 배포 연결 디버깅 · 5인 브랜치 병합 충돌 해결 및 협업 프로세스 개선</div>
-    </div>
-
-    <div class="section-label">기술 스택</div>
-    <div class="tech-tags">
-      <span class="tag tag-blue">PyTorch</span>
-      <span class="tag tag-blue">ONNX Runtime</span>
-      <span class="tag tag-blue">OpenAI Whisper</span>
-      <span class="tag tag-blue">CLIP</span>
-      <span class="tag tag-blue">InsightFace</span>
-      <span class="tag tag-blue">OpenCV</span>
-      <span class="tag tag-green">FastAPI</span>
-      <span class="tag tag-green">PostgreSQL</span>
-      <span class="tag tag-green">SQLModel</span>
-      <span class="tag tag-green">Taskiq</span>
-      <span class="tag tag-green">Redis</span>
-      <span class="tag tag-orange">React Native</span>
-      <span class="tag tag-orange">Expo</span>
-      <span class="tag tag-orange">TypeScript</span>
-      <span class="tag">AWS S3</span>
-      <span class="tag">WebSocket</span>
-      <span class="tag">Python 3.12</span>
-    </div>
-  </div>
-  <div class="footer">
-    <span class="footer-name">Jiyun Kang · Portfolio</span>
-    <span class="footer-contact">jiun99245@gmail.com · github.com/jiyun-kang12</span>
-  </div>
-</div>
-
-
-<!-- ═══════════════════════════ PAGE 4: PROJECT 3 ═══════════════════════════ -->
-<div class="page page-break">
-  <div class="content-page">
-    <div class="page-header">
-      <div class="page-title">Project 03</div>
-      <div class="page-num">자동차 디자인 프로토타입 이미지 생성 플랫폼</div>
-    </div>
-
-    <div class="award-banner">
-      <span class="award-icon">🏆</span>
-      SK Networks Family AI Camp 13기 — 우수상
-    </div>
-
-    <div class="project-header">
-      <div class="project-title-area">
-        <div class="project-badges">
-          <span class="cover-project-badge badge-main">Main Project</span>
-        </div>
-        <div class="project-name">Automotive Design Prototype Image Generation</div>
-        <div class="project-name-sub">현대자동차 디자인 철학 기반 sLLM 파인튜닝 + FLUX LoRA + 3D/4D 통합 AI 플랫폼</div>
-      </div>
-      <div class="project-meta-right">
-        <div class="project-duration">2025.07 – 2025.09 (3개월)</div>
-        <div class="project-team">팀 5명</div>
-      </div>
-    </div>
-    <div class="project-divider"></div>
-
-    <div class="project-desc">
-      현대자동차의 디자인 철학·VoC·트렌드를 반영하는 기업 특화 sLLM과 이미지 생성 모델(FLUX LoRA)을 개발하고, Text → Image → 3D → 4D 통합 파이프라인을 구축한 AI 플랫폼입니다. Human-in-the-Loop 워크플로우로 디자이너의 초기 컨셉 생성부터 3D 시각화까지 지원합니다.
-    </div>
-
-    <div class="two-col">
-      <div>
-        <div class="section-label">담당 역할</div>
-        <ul class="feature-list">
-          <li>InternVL3 이미지-텍스트 모델로 자동차 이미지 캡셔닝</li>
-          <li class="sub">자동차 디자인 특징 추출 프롬프트 템플릿 설계</li>
-          <li>sLLM 파인튜닝 데이터셋 구성</li>
-          <li class="sub">청킹 → LLM Q&A 트리플 생성 (청크당 3쌍)</li>
-          <li class="sub">Reranker 학습용 positive/negative 샘플링</li>
-          <li>AI 파이프라인 오케스트레이션 (LangGraph)</li>
-          <li class="sub">인텐트 분류 4종: RAG / 이미지 생성 / 수정 / 일반</li>
-          <li class="sub">HyDE 쿼리 재작성 → Qdrant → Reranker → LLM</li>
-          <li class="sub">HITL: LangGraph interrupt + MemorySaver</li>
-          <li>ERD 데이터베이스 설계</li>
-        </ul>
-      </div>
-      <div>
-        <div class="section-label">데이터셋</div>
-        <ul class="feature-list">
-          <li>현대 이미지 1,988장 + 컨셉카 56장 (17GB)</li>
-          <li>디자인 문서 22종 (논문 4, 기사 12 등, 40MB)</li>
-        </ul>
-
-        <div class="section-label" style="margin-top:14px;">파이프라인 플로우</div>
-        <ul class="feature-list">
-          <li>체크리스트 기반 생성 → FLUX → 3D/4D → S3</li>
-          <li>RAG: 쿼리 재작성 → 벡터 검색 → Reranker</li>
-          <li>품질 평가 → LLM Fallback</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="section-label">모델 성능 비교</div>
-    <table class="perf-table" style="margin-bottom:16px;">
-      <thead>
-        <tr>
-          <th>모델</th>
-          <th>지표</th>
-          <th>Base</th>
-          <th>Fine-tuned</th>
-          <th>변화</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>FLUX.1-Kontext-dev (LoRA)</td>
-          <td>FID Score ↓</td>
-          <td>66.35</td>
-          <td class="highlight-val">52.42</td>
-          <td style="color:#059669;">▼ 13.93 (개선)</td>
-        </tr>
-        <tr>
-          <td>FLUX.1-Kontext-dev (LoRA)</td>
-          <td>GPT 브랜드 정체성 (5점)</td>
-          <td>4.18</td>
-          <td class="highlight-val">4.27</td>
-          <td style="color:#059669;">▲ +0.09</td>
-        </tr>
-        <tr>
-          <td>kanana-1.5-8b (sLLM)</td>
-          <td>BERTScore-F1 (Exp 2)</td>
-          <td>0.7344</td>
-          <td class="highlight-val">0.8884</td>
-          <td style="color:#059669;">▲ +0.154</td>
-        </tr>
-        <tr>
-          <td>kanana-1.5-8b (sLLM)</td>
-          <td>Cosine Similarity</td>
-          <td>0.9004</td>
-          <td class="highlight-val">0.9526</td>
-          <td style="color:#059669;">▲ +0.052</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="section-label">기술 스택</div>
-    <div class="tech-tags">
-      <span class="tag tag-blue">PyTorch</span>
-      <span class="tag tag-blue">FLUX.1-Kontext-dev</span>
-      <span class="tag tag-blue">InternVL3</span>
-      <span class="tag tag-blue">kanana-1.5-8b</span>
-      <span class="tag tag-blue">vLLM</span>
-      <span class="tag tag-blue">ComfyUI</span>
-      <span class="tag tag-purple">LangGraph</span>
-      <span class="tag tag-purple">LangChain</span>
-      <span class="tag tag-purple">Qdrant</span>
-      <span class="tag tag-purple">HyDE</span>
-      <span class="tag tag-green">FastAPI</span>
-      <span class="tag tag-green">Django</span>
-      <span class="tag tag-green">PostgreSQL</span>
-      <span class="tag tag-orange">React</span>
-      <span class="tag">AWS S3</span>
-      <span class="tag">AWS EC2</span>
-      <span class="tag">Docker</span>
-      <span class="tag">Runpod</span>
-    </div>
-  </div>
-  <div class="footer">
-    <span class="footer-name">Jiyun Kang · Portfolio</span>
-    <span class="footer-contact">jiun99245@gmail.com · github.com/jiyun-kang12</span>
-  </div>
-</div>
-
-
-<!-- ═══════════════════════════ PAGE 5: PROJECT 4 ═══════════════════════════ -->
-<div class="page page-break">
-  <div class="content-page">
-    <div class="page-header">
-      <div class="page-title">Project 04</div>
-      <div class="page-num">AI 정착 코디네이터 — 귀향·귀촌 연결 서비스</div>
-    </div>
-
-    <div class="award-banner">
-      <span class="award-icon">🏆</span>
-      2025 제7회 K-Digital Training 해커톤 — 고용노동부 장관상
-    </div>
-
-    <div class="project-header">
-      <div class="project-title-area">
-        <div class="project-badges">
-          <span class="cover-project-badge badge-main">Main Project</span>
-        </div>
-        <div class="project-name">AI Settlement Coordinator</div>
-        <div class="project-name-sub">지역 소멸 문제 해결을 위한 귀농·귀촌 AI 맞춤형 정착 서비스</div>
-      </div>
-      <div class="project-meta-right">
-        <div class="project-duration">2025.07 – 2025.09 (3개월)</div>
-        <div class="project-team">팀 5명</div>
-      </div>
-    </div>
-    <div class="project-divider"></div>
-
-    <div class="project-desc">
-      국내 전체 시·군·구의 절반 이상이 '인구감소위험지역'으로 분류된 현실을 타개하기 위해 기획된 서비스입니다. 40~64세 귀촌 희망자를 대상으로 RAG 기반 미션 추천, 멀티 에이전트 AI 대화, 기술 인증, 멘토링, 커뮤니티 게시판을 통합한 AI 정착 코디네이터를 개발했습니다.
-    </div>
-
-    <div class="two-col">
-      <div>
-        <div class="section-label">핵심 기능</div>
-        <ul class="feature-list">
-          <li>RAG 기반 개인화 미션 추천 (게임화)</li>
-          <li class="sub">탐색형: 고향과의 정서적 재연결 미션</li>
-          <li class="sub">유대형: 지역 상호작용으로 커뮤니티 소속감</li>
-          <li class="sub">경력형: 귀촌자 스킬·전문성으로 지역 문제 해결</li>
-          <li>배지 시스템: 전문성·신뢰도·활동 이력 시각화</li>
-          <li>포인트 리워드 → 지역 상점·서비스 혜택</li>
-          <li>커뮤니티: 의뢰게시판 / 멘토링게시판 / 자유게시판</li>
-        </ul>
-      </div>
-      <div>
-        <div class="section-label">RAG 설계</div>
-        <ul class="feature-list">
-          <li>사용자 기본 정보 (스킬·동기)</li>
-          <li>활동 로그 (완료·거절 패턴)</li>
-          <li>관심 지역 및 유사 과거 미션</li>
-          <li>평가 요소: 유사도 + 목표 반영률 + 제약 충족</li>
-        </ul>
-
-        <div class="section-label" style="margin-top:14px;">멀티 에이전트</div>
-        <ul class="feature-list">
-          <li>자연어 쿼리 → 인텐트 분류 → 에이전트 분기</li>
-          <li>미션 생성 에이전트</li>
-          <li>게시물 관리 에이전트</li>
-          <li>정보 조회 에이전트</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="callout accent">
-      <div class="callout-title">담당 역할</div>
-      <div class="callout-body">프로젝트 기획 및 핵심 컨셉 설계 · React Native 프론트엔드 개발</div>
-    </div>
-
-    <div class="section-label">기술 스택</div>
-    <div class="tech-tags">
-      <span class="tag tag-orange">React Native</span>
-      <span class="tag tag-green">FastAPI</span>
-      <span class="tag tag-purple">OpenAI API</span>
-      <span class="tag tag-purple">RAG</span>
-      <span class="tag tag-purple">Multi-Agent</span>
-      <span class="tag tag-green">MySQL</span>
-      <span class="tag">Python</span>
-    </div>
-  </div>
-  <div class="footer">
-    <span class="footer-name">Jiyun Kang · Portfolio</span>
-    <span class="footer-contact">jiun99245@gmail.com · github.com/jiyun-kang12</span>
-  </div>
-</div>
-
-
-<!-- ═══════════════════════════ PAGE 6: PROJECT 5 + 6 ═══════════════════════════ -->
-<div class="page page-break">
-  <div class="content-page">
-    <div class="page-header">
-      <div class="page-title">Project 05 · 06</div>
-      <div class="page-num">Toy Projects</div>
-    </div>
-
-    <!-- Project 3 -->
-    <div class="project-block no-break">
-      <div class="project-header">
-        <div class="project-title-area">
-          <div class="project-badges">
-            <span class="cover-project-badge badge-toy">Toy Project</span>
-          </div>
-          <div class="project-name">저작권 정보 챗봇 for 콘텐츠 크리에이터</div>
-          <div class="project-name-sub">LangGraph 3-stage RAG 파이프라인 · 플랫폼별 저작권 지식베이스</div>
-        </div>
-        <div class="project-meta-right">
-          <div class="project-duration">2025.06 (1개월)</div>
-          <div class="project-team">팀 4명</div>
-        </div>
-      </div>
-      <div class="project-divider"></div>
-
-      <div class="project-desc">
-        YouTube·Instagram·네이버 블로그 등 플랫폼별 정책과 국내외 저작권법을 통합한 RAG 기반 챗봇입니다. 사용자 인텐트를 분석해 RAG / Tool Call / LLM 응답으로 라우팅하는 3단계 파이프라인을 구축했습니다.
-      </div>
-
-      <div class="two-col">
+    <!-- 상단 섹션: 프로젝트 개요 설명 | 서비스 흐름도 -->
+    <div class="srow t45" style="flex:1.2;">
+      <div class="st">
         <div>
-          <div class="section-label">담당 역할</div>
-          <ul class="feature-list">
-            <li>정부 PDF·플랫폼 FAQ Selenium 크롤링 및 전처리</li>
-            <li class="sub">페이지별 블록 텍스트 추출 + 메타태깅 자동화</li>
-            <li>ChromaDB 벡터 DB 구축</li>
-            <li class="sub">text-embedding-3-large 임베딩 + 배치 삽입</li>
-            <li>LangGraph 챗봇 파이프라인 설계 및 개발</li>
-            <li class="sub">HyDE → 라우팅 → RAG/Tool/Fallback</li>
-            <li>Figma 화면 설계 + 프론트엔드 개발</li>
-          </ul>
+          <span class="badge bm">Main Project</span>
+          <div class="pname" style="margin-top:3px;">AI 기반 실시간 학습 집중도 평가 플랫폼</div>
+          <div class="psub">MediaPipe · YOLOv11s · WebSocket · Gemini LLM · 풀스택 단독 구현</div>
+        </div>
+        <div class="pdiv"></div>
+        <div class="pdesc">온라인 강의에서 학습자 반응을 즉각 확인하기 어렵다는 한계를 해소한 에듀테크 플랫폼입니다. 웹캠 하나로 <b>표정·시선·자세·핸드폰 사용</b>을 AI로 실시간 분석해 강의자에게 즉각 피드백을 제공하고, 세션 종료 후 <b>Gemini LLM 기반 강의 개선 리포트</b>를 자동 생성합니다.</div>
+        <div class="metrics">
+          <div class="mc"><div class="mv">0.1초</div><div class="ml">WebSocket 주기</div></div>
+          <div class="mc"><div class="mv">5종</div><div class="ml">멀티모달 신호</div></div>
+          <div class="mc"><div class="mv">5-class</div><div class="ml">표정 분류</div></div>
+          <div class="mc"><div class="mv">92%</div><div class="ml">기여율</div></div>
+          <div class="mc"><div class="mv">3역할</div><div class="ml">학습자·강의자·매니저</div></div>
         </div>
         <div>
-          <div class="section-label">LangGraph 파이프라인 (3-stage)</div>
-          <ul class="feature-list">
-            <li>extract_name → hyde → check_route</li>
-            <li>retrieve (RAG 문서 검색)</li>
-            <li>call_tool_llm → tool_runner → process_tool_result</li>
-            <li>synthesize_response → fallback</li>
+          <div class="slabel">서비스 흐름 — 학습자 웹캠부터 강의자 대시보드까지</div>
+          <ul class="fl">
+            <li>학습자 브라우저에서 MediaPipe로 표정·시선·자세 실시간 추출</li>
+            <li>YOLOv11s(Colab GPU)로 핸드폰 사용 탐지 → WebSocket으로 0.1초 주기 전송</li>
+            <li>FastAPI 서버에서 집중도·피로도 스코어 계산 → 강의자 대시보드 실시간 브로드캐스트</li>
+            <li>세션 종료 후 PostgreSQL 집계 데이터 기반 Gemini LLM 강의 개선 리포트 자동 생성</li>
           </ul>
-
-          <div class="section-label" style="margin-top:12px;">RAG 평가 지표</div>
-          <div class="metrics-row" style="flex-wrap:wrap; gap:8px; margin-bottom:0;">
-            <div class="metric-chip">
-              <div class="metric-val">0.867</div>
-              <div class="metric-label">Faithfulness</div>
-            </div>
-            <div class="metric-chip">
-              <div class="metric-val">0.800</div>
-              <div class="metric-label">Context Recall</div>
-            </div>
-            <div class="metric-chip">
-              <div class="metric-val">0.800</div>
-              <div class="metric-label">Context Precision</div>
-            </div>
-            <div class="metric-chip">
-              <div class="metric-val">0.637</div>
-              <div class="metric-label">Answer Relevancy</div>
-            </div>
-          </div>
         </div>
       </div>
-
-      <div class="section-label">기술 스택</div>
-      <div class="tech-tags">
-        <span class="tag tag-purple">LangChain</span>
-        <span class="tag tag-purple">LangGraph</span>
-        <span class="tag tag-purple">ChromaDB</span>
-        <span class="tag tag-purple">HyDE</span>
-        <span class="tag tag-purple">OpenAI Embeddings</span>
-        <span class="tag">Selenium</span>
-        <span class="tag">PyMuPDF</span>
-        <span class="tag">BeautifulSoup</span>
-        <span class="tag">Python</span>
+      <div class="si">
+        <img src="img/project5_flow.webp" alt="서비스 전체 흐름도">
+        <div class="si-cap">서비스 전체 흐름도 — 학습자 웹캠 → AI 분석 → 강의자 대시보드</div>
       </div>
     </div>
 
-    <div class="project-separator"></div>
+    <div class="divrow"></div>
 
-    <!-- Project 4 -->
-    <div class="project-block no-break">
-      <div class="project-header">
-        <div class="project-title-area">
-          <div class="project-badges">
-            <span class="cover-project-badge badge-toy">Toy Project</span>
-          </div>
-          <div class="project-name">MOOC 온라인 학습 이탈률 예측</div>
-          <div class="project-name-sub">85~90% 이탈률 문제 해결 · XGBoost 최적화 ML 분류 모델</div>
-        </div>
-        <div class="project-meta-right">
-          <div class="project-duration">2025.05 (1개월)</div>
-          <div class="project-team">팀 4명</div>
-        </div>
-      </div>
-      <div class="project-divider"></div>
-
-      <div class="project-desc">
-        MOOC 플랫폼의 만성적인 고이탈률(85~90%) 문제를 해결하기 위한 조기 예측 ML 모델입니다. 교수 설계자가 선제적 개입 전략을 수립할 수 있도록 Recall 최적화를 중심으로 모델을 개발했습니다.
-      </div>
-
-      <div class="two-col">
+    <!-- 하단 섹션: 시스템 아키텍처 설명 | 아키텍처 이미지 -->
+    <div class="srow t45" style="flex:1;">
+      <div class="st">
         <div>
-          <div class="section-label">담당 역할</div>
-          <ul class="feature-list">
-            <li>4개 테이블 병합 구조 설계 + 타겟 변수 생성</li>
-            <li class="sub">sum_click / avg_score / last_click_week 파생변수</li>
-            <li class="sub">Fail 포함 이탈 정의 (MOOC 맥락 반영)</li>
-            <li>데이터 전처리 및 품질 개선</li>
-            <li class="sub">이상치 제거 2조건 + 결측값 대체 전략</li>
-            <li class="sub">순서형 인코딩 (education / imd_band / age)</li>
-            <li>EDA: 이탈률 시각화, 상관 히트맵, IMD 분석</li>
-            <li>ML 모델 학습 및 성능 비교</li>
-            <li class="sub">XGBoost 최종 선정 (n_est=1000, lr=0.01, depth=6)</li>
+          <div class="slabel">시스템 아키텍처 — GCP · Vercel · Colab 분산 배포</div>
+          <ul class="fl">
+            <li>GCP VM: FastAPI + PostgreSQL + Nginx(HTTPS) 통합 백엔드 서버</li>
+            <li>Vercel: 학습자(포트 3000) · 강의자/매니저(포트 3001) React 앱 분리 배포</li>
+            <li>Google Colab + ngrok: YOLOv11s GPU 추론 서버 (무료 GPU 활용)</li>
+            <li>UUID 기반 세션 관리 + Ping-Pong keepalive · PostgreSQL ThreadedConnectionPool</li>
           </ul>
         </div>
-        <div>
-          <div class="section-label">비교 모델</div>
-          <ul class="feature-list">
-            <li>Decision Tree / Random Forest / SVM</li>
-            <li>XGBoost / CatBoost / LightGBM</li>
-            <li>MLPClassifier (PyTorch 기반)</li>
-          </ul>
-
-          <div class="section-label" style="margin-top:12px;">핵심 설계 결정</div>
-          <div class="callout" style="margin-bottom:0;">
-            <div class="callout-title">Recall 최우선 최적화</div>
-            <div class="callout-body">이탈 학생을 미탐지(FN)하는 것이 더 큰 손실 → Recall 중심 평가 지표 설정. Fail 결과를 이탈(1)로 분류하는 도메인 기반 타겟 정의 적용.</div>
-          </div>
+        <div class="tags">
+          <span class="tag tb">MediaPipe Tasks Vision JS</span><span class="tag tb">YOLOv11s</span>
+          <span class="tag tb">RandomForest</span><span class="tag tb">Gemini API</span>
+          <span class="tag tg">FastAPI</span><span class="tag tg">PostgreSQL</span><span class="tag tg">WebSocket</span>
+          <span class="tag to">React 19</span><span class="tag to">Recharts</span>
+          <span class="tag">GCP</span><span class="tag">Nginx</span><span class="tag">Vercel</span>
         </div>
       </div>
-
-      <div class="section-label">기술 스택</div>
-      <div class="tech-tags">
-        <span class="tag tag-blue">PyTorch</span>
-        <span class="tag tag-blue">XGBoost</span>
-        <span class="tag tag-blue">CatBoost</span>
-        <span class="tag tag-blue">Scikit-learn</span>
-        <span class="tag tag-blue">MLPClassifier</span>
-        <span class="tag">NumPy</span>
-        <span class="tag">Pandas</span>
-        <span class="tag">Matplotlib</span>
-        <span class="tag">Seaborn</span>
+      <div class="si">
+        <img src="img/project5_architecture.webp" alt="시스템 아키텍처">
+        <div class="si-cap">시스템 아키텍처 — FastAPI · PostgreSQL · Nginx · Colab GPU 구성</div>
       </div>
     </div>
   </div>
   <div class="footer">
-    <span class="footer-name">Jiyun Kang · Portfolio</span>
-    <span class="footer-contact">jiun99245@gmail.com · github.com/jiyun-kang12</span>
+    <span class="fn">Jiyun Kang · Portfolio</span>
+    <span class="fc">github.com/jiyun-kang12 · jiyun-kang12.github.io/portfolio/</span>
   </div>
 </div>
 
 
-<!-- ═══════════════════════════ PAGE 7: TECH STACK ═══════════════════════════ -->
-<div class="page page-break">
-  <div class="content-page">
-    <div class="page-header">
-      <div class="page-title">Tech Stack</div>
-      <div class="page-num">기술 스택 상세</div>
+<!-- ═══════════ PAGE 3: PROJECT 01 — 집중도 엔진 & 화면 ═══════════ -->
+<div class="page">
+  <div class="cp">
+    <div class="ph">
+      <div><span class="ph-t">Project 01</span><span class="ph-s">집중도·피로도 스코어링 엔진 & 강의자 대시보드 — 2/2</span></div>
     </div>
 
-    <div class="two-col" style="gap:32px;">
-      <div>
-        <div class="stack-category">
-          <div class="stack-category-title">AI / Machine Learning</div>
-          <div class="stack-item">
-            <div class="stack-item-name">PyTorch</div>
-            <div class="stack-item-desc">딥러닝 모델 학습 및 추론. Wavelet-CLIP, MLP, UNITE 모델 개발에 활용</div>
-          </div>
-          <div class="stack-item">
-            <div class="stack-item-name">ONNX Runtime</div>
-            <div class="stack-item-desc">모델 경량화 및 고속 추론, DDP 딥페이크 탐지 파이프라인 배포</div>
-          </div>
-          <div class="stack-item">
-            <div class="stack-item-name">OpenAI Whisper</div>
-            <div class="stack-item-desc">음성-텍스트 변환(STT), 딥페이크 음성 분석 모달</div>
-          </div>
-          <div class="stack-item">
-            <div class="stack-item-name">CLIP / InsightFace</div>
-            <div class="stack-item-desc">이미지 임베딩 및 얼굴 인식, Wavelet 주파수 조작 탐지</div>
-          </div>
-          <div class="stack-item">
-            <div class="stack-item-name">vLLM</div>
-            <div class="stack-item-desc">LLM 고속 서빙 및 추론 최적화</div>
-          </div>
-          <div class="stack-item">
-            <div class="stack-item-name">XGBoost / CatBoost</div>
-            <div class="stack-item-desc">MOOC 이탈 예측 앙상블 모델, Recall 최적화</div>
-          </div>
-          <div class="stack-item">
-            <div class="stack-item-name">Scikit-learn</div>
-            <div class="stack-item-desc">ML 전처리, 모델 평가, 하이퍼파라미터 튜닝</div>
-          </div>
-        </div>
-
-        <div class="stack-category">
-          <div class="stack-category-title">LLM / RAG / Vector DB</div>
-          <div class="stack-item">
-            <div class="stack-item-name">LangGraph</div>
-            <div class="stack-item-desc">멀티 스텝 AI 워크플로우, 저작권 챗봇 3-stage 파이프라인, HITL 인터럽트</div>
-          </div>
-          <div class="stack-item">
-            <div class="stack-item-name">LangChain</div>
-            <div class="stack-item-desc">LLM 체이닝, 문서 로더, 리트리버 구성</div>
-          </div>
-          <div class="stack-item">
-            <div class="stack-item-name">ChromaDB</div>
-            <div class="stack-item-desc">저작권 문서 벡터 DB, 로컬 영구 저장소</div>
-          </div>
-          <div class="stack-item">
-            <div class="stack-item-name">Qdrant</div>
-            <div class="stack-item-desc">자동차 디자인 문서 벡터 검색, Reranker 연동</div>
-          </div>
-          <div class="stack-item">
-            <div class="stack-item-name">HyDE</div>
-            <div class="stack-item-desc">가상 문서 임베딩으로 RAG 검색 품질 향상</div>
-          </div>
-          <div class="stack-item">
-            <div class="stack-item-name">OpenAI API</div>
-            <div class="stack-item-desc">GPT-4 기반 LLM 응답 생성 및 에이전트 오케스트레이션</div>
-          </div>
-        </div>
-
-        <div class="stack-category">
-          <div class="stack-category-title">Image Generation</div>
-          <div class="stack-item">
-            <div class="stack-item-name">FLUX.1-Kontext-dev</div>
-            <div class="stack-item-desc">LoRA 파인튜닝으로 현대차 브랜드 아이덴티티 반영 이미지 생성</div>
-          </div>
-          <div class="stack-item">
-            <div class="stack-item-name">ComfyUI</div>
-            <div class="stack-item-desc">이미지→3D→4D 통합 파이프라인 워크플로우 관리</div>
-          </div>
-          <div class="stack-item">
-            <div class="stack-item-name">InternVL3</div>
-            <div class="stack-item-desc">자동차 이미지 캡셔닝 (Image-to-Text), 파인튜닝 데이터 구성</div>
-          </div>
-        </div>
+    <!-- 상단: 스코어링 공식 | 강의자 모니터링 화면 -->
+    <div class="srow t50" style="flex:1.1;">
+      <div class="st">
+        <div class="slabel">집중도·피로도 스코어링 엔진 — 직접 설계 및 구현</div>
+        <ul class="fl">
+          <li><b>집중도</b>: focus = gaze×0.60 + head×0.40 − shoulder×0.10</li>
+          <li class="s">EMA 스무딩(α=0.05) + 20~25프레임 상태 확정으로 노이즈 제거</li>
+          <li><b>피로도</b>: fatigue = EAR×0.25 + 경과시간×0.35 + 시선고착×0.25 + 머리움직임×0.15</li>
+          <li class="s">"집중하지만 피로한 상태"를 별도 분류 — 단순 집중도와 구분</li>
+          <li>MediaPipe FaceLandmarker: EAR 졸음감지 · 홍채 랜드마크 시선추정 · 4×4 변환행렬 고개 방향</li>
+          <li>RandomForest: 52 blendshape → 82 피처, 집중·지루함·혼란·웃음·놀람 5-class</li>
+        </ul>
+        <div class="slabel" style="margin-top:4px;">강의자 실시간 대시보드 — 학습자 집중도 카드</div>
+        <div class="pdesc">학습자별 집중 상태를 실시간 카드로 표시하며, 카테고리 필터(집중·산만·졸음·핸드폰)로 즉각적인 수업 개입 포인트를 제공합니다.</div>
       </div>
+      <div class="si">
+        <img src="img/project5_monitoring.webp" alt="강의자 모니터링">
+        <div class="si-cap">강의자 실시간 모니터링 대시보드 — 학습자별 집중도 카드 + 카테고리 필터</div>
+      </div>
+    </div>
 
-      <div>
-        <div class="stack-category">
-          <div class="stack-category-title">Backend & Infrastructure</div>
-          <div class="stack-item">
-            <div class="stack-item-name">FastAPI</div>
-            <div class="stack-item-desc">비동기 REST API 서버, WebSocket 실시간 알림, AI 모델 서빙</div>
-          </div>
-          <div class="stack-item">
-            <div class="stack-item-name">Django</div>
-            <div class="stack-item-desc">자동차 디자인 플랫폼 백엔드 서버</div>
-          </div>
-          <div class="stack-item">
-            <div class="stack-item-name">PostgreSQL / MySQL</div>
-            <div class="stack-item-desc">관계형 데이터베이스, SQLModel + Alembic 마이그레이션</div>
-          </div>
-          <div class="stack-item">
-            <div class="stack-item-name">Redis + Taskiq</div>
-            <div class="stack-item-desc">딥러닝 태스크 비동기 큐잉, WebSocket Pub/Sub 실시간 알림</div>
-          </div>
-          <div class="stack-item">
-            <div class="stack-item-name">AWS S3 / EC2</div>
-            <div class="stack-item-desc">파일 스토리지(영상·프로필·리포트) 및 서버 배포</div>
-          </div>
-          <div class="stack-item">
-            <div class="stack-item-name">Docker</div>
-            <div class="stack-item-desc">컨테이너 기반 환경 구성 및 배포 자동화</div>
-          </div>
-          <div class="stack-item">
-            <div class="stack-item-name">Runpod</div>
-            <div class="stack-item-desc">GPU 서버 임대, 대규모 모델 학습 및 추론</div>
-          </div>
+    <div class="divrow"></div>
+
+    <!-- 중간: 핸드폰 감지 알림 설명 | 알림 화면 -->
+    <div class="srow t50" style="flex:1;">
+      <div class="st">
+        <div class="slabel">핸드폰 감지 알림 — YOLOv11s + 즉시 토스트 알림</div>
+        <ul class="fl">
+          <li>브라우저가 웹캠 프레임을 HTTP multipart로 Colab GPU 서버에 전송</li>
+          <li>YOLOv11s가 핸드폰 탐지 시 WebSocket으로 강의자에게 즉시 알림 (30초 쿨다운)</li>
+          <li>졸음 감지 시에도 별도 알림 발생 (EAR 임계값 기반, 1분 쿨다운)</li>
+        </ul>
+        <div class="slabel" style="margin-top:4px;">세션 종료 리포트 — Gemini LLM 강의 개선 코멘트</div>
+        <div class="pdesc">집중도 추이 라인 차트 + 표정 분포 레이더 차트 + Gemini LLM이 세션 데이터를 분석하여 강의 방식 개선점을 자동으로 요약합니다.</div>
+      </div>
+      <div class="si" style="flex-direction:row; gap:8px;">
+        <div style="flex:1; display:flex; flex-direction:column; gap:4px; min-width:0;">
+          <img src="img/project5_alert.webp" alt="핸드폰 감지 알림" style="flex:1; min-height:0; object-fit:contain; background:#f8fafc; border-radius:6px;">
+          <div class="si-cap">핸드폰 감지 토스트 알림</div>
         </div>
-
-        <div class="stack-category">
-          <div class="stack-category-title">Frontend</div>
-          <div class="stack-item">
-            <div class="stack-item-name">React Native + Expo</div>
-            <div class="stack-item-desc">크로스플랫폼 모바일 앱, DDP·AI 정착 코디네이터 프론트엔드</div>
-          </div>
-          <div class="stack-item">
-            <div class="stack-item-name">TypeScript</div>
-            <div class="stack-item-desc">타입 안전성, Expo Router 기반 파일 라우팅</div>
-          </div>
-          <div class="stack-item">
-            <div class="stack-item-name">React</div>
-            <div class="stack-item-desc">자동차 디자인 플랫폼 웹 프론트엔드</div>
-          </div>
-        </div>
-
-        <div class="stack-category">
-          <div class="stack-category-title">Data Collection & Processing</div>
-          <div class="stack-item">
-            <div class="stack-item-name">Selenium + BeautifulSoup</div>
-            <div class="stack-item-desc">플랫폼 정책 FAQ 동적 크롤링</div>
-          </div>
-          <div class="stack-item">
-            <div class="stack-item-name">PyMuPDF</div>
-            <div class="stack-item-desc">정부 문서 PDF 페이지별 텍스트 추출 자동화</div>
-          </div>
-          <div class="stack-item">
-            <div class="stack-item-name">yt-dlp</div>
-            <div class="stack-item-desc">YouTube 영상 수집 + cookies.txt 인증 처리</div>
-          </div>
-          <div class="stack-item">
-            <div class="stack-item-name">Pandas / NumPy</div>
-            <div class="stack-item-desc">데이터 탐색, 전처리, 파생변수 생성</div>
-          </div>
-        </div>
-
-        <div class="stack-category">
-          <div class="stack-category-title">Computer Vision (Browser)</div>
-          <div class="stack-item">
-            <div class="stack-item-name">MediaPipe Tasks Vision JS</div>
-            <div class="stack-item-desc">브라우저에서 FaceLandmarker 실행, EAR 졸음 감지·홍채 시선 추정·안면 변환 행렬(4×4) 고개 방향 계산·blendshape 52개 감정 분류</div>
-          </div>
-          <div class="stack-item">
-            <div class="stack-item-name">YOLO</div>
-            <div class="stack-item-desc">핸드폰 사용 감지, Google Colab에서 추론 · 브라우저 HTTP multipart 프레임 수신</div>
-          </div>
-          <div class="stack-item">
-            <div class="stack-item-name">Recharts</div>
-            <div class="stack-item-desc">시계열 집중도 추이·표정 분포·집중 상태 분포 실시간 대시보드 시각화</div>
-          </div>
-        </div>
-
-        <div class="stack-category">
-          <div class="stack-category-title">Cloud & Deployment</div>
-          <div class="stack-item">
-            <div class="stack-item-name">GCP VM</div>
-            <div class="stack-item-desc">FastAPI·PostgreSQL·Nginx(HTTPS 프록시) 배포, 외부 접속 환경 구축</div>
-          </div>
-          <div class="stack-item">
-            <div class="stack-item-name">Nginx</div>
-            <div class="stack-item-desc">HTTPS 리버스 프록시, 학습자·강의자 앱 포트(3000/3001) 라우팅</div>
-          </div>
-          <div class="stack-item">
-            <div class="stack-item-name">Google Colab</div>
-            <div class="stack-item-desc">YOLO 모델 서빙, 무료 GPU 환경에서 핸드폰 감지 추론</div>
-          </div>
+        <div style="flex:1; display:flex; flex-direction:column; gap:4px; min-width:0;">
+          <img src="img/project5_report.webp" alt="Gemini 리포트" style="flex:1; min-height:0; object-fit:contain; background:#f8fafc; border-radius:6px;">
+          <div class="si-cap">Gemini LLM 강의 개선 리포트</div>
         </div>
       </div>
     </div>
   </div>
   <div class="footer">
-    <span class="footer-name">Jiyun Kang · Portfolio</span>
-    <span class="footer-contact">jiun99245@gmail.com · github.com/jiyun-kang12</span>
+    <span class="fn">Jiyun Kang · Portfolio</span>
+    <span class="fc">github.com/jiyun-kang12 · jiyun-kang12.github.io/portfolio/</span>
+  </div>
+</div>
+
+
+<!-- ═══════════ PAGE 4: PROJECT 02 — DDP ═══════════ -->
+<div class="page">
+  <div class="cp">
+    <div class="ph">
+      <div><span class="ph-t">Project 02</span><span class="ph-s">DDP — Deepfake Detection Pro Platform</span></div>
+      <div class="ph-r">2026.02.06~02.27 · 22일 · 팀 5명 · 기여 27.1% (69/255 commits)</div>
+    </div>
+
+    <!-- 상단: 프로젝트 설명 + 기여 | 시스템 아키텍처 -->
+    <div class="srow t45" style="flex:1.2;">
+      <div class="st">
+        <div>
+          <span class="badge bm">Main</span>
+          <div class="pname" style="margin-top:3px;">DDP — Deepfake Detection Pro</div>
+          <div class="psub">딥페이크 기반 보이스피싱·허위광고·가짜뉴스 대응 4-modal AI 탐지 플랫폼</div>
+        </div>
+        <div class="pdiv"></div>
+        <div class="pdesc"><b>Wavelet 주파수 분석, rPPG 혈류 패턴, STT 음성 분석, UNITE Transformer</b> 4가지 모달을 병렬 활용해 영상·음성 위변조를 탐지합니다. Fast 모드(3모달 병렬 → PNG 리포트)와 Deep 모드(UNITE 고정밀 판별)로 상황에 맞게 선택 가능합니다.</div>
+        <div>
+          <div class="slabel">담당 구현 — Wavelet-CLIP 모델 + React Native 프론트엔드</div>
+          <ul class="fl">
+            <li>Wavelet-CLIP: CLIP 인코더 + Wavelet 변환, p75 집계 + TTA → ACC 0.96, AUC 0.84</li>
+            <li class="s">PNG 히스토그램 시각화 리포트 자동 생성 후 AWS S3 업로드</li>
+            <li>React Native: Google OAuth · 분석 결과 대시보드 · WebSocket 토큰 인증</li>
+            <li>FastAPI S3 인프라 · yt-dlp YouTube 수집 · UNITE 서브모듈 + Whisper STT</li>
+          </ul>
+        </div>
+        <div class="metrics">
+          <div class="mc"><div class="mv">4</div><div class="ml">AI 탐지 모달</div></div>
+          <div class="mc"><div class="mv">0.96</div><div class="ml">Wavelet ACC</div></div>
+          <div class="mc"><div class="mv">0.84</div><div class="ml">AUC</div></div>
+          <div class="mc"><div class="mv">1,000P</div><div class="ml">신고 리워드</div></div>
+        </div>
+      </div>
+      <div class="si">
+        <img src="img/ddp_system_architecture.webp" alt="DDP 시스템 아키텍처">
+        <div class="si-cap">시스템 아키텍처 — Taskiq+Redis 비동기 큐, WebSocket 실시간 알림, S3 파일 저장</div>
+      </div>
+    </div>
+
+    <div class="divrow"></div>
+
+    <!-- 하단: 탐지 기능 설명 | 앱 화면 -->
+    <div class="srow t50" style="flex:1;">
+      <div class="st">
+        <div class="slabel">탐지 기능 — Fast 모드 & Deep 모드 & 리워드 시스템</div>
+        <ul class="fl">
+          <li><b>Fast 모드</b>: Wavelet + rPPG + STT 병렬 분석 → PNG 리포트 자동 생성</li>
+          <li><b>Deep 모드</b>: UNITE Transformer 고정밀 딥페이크 판별</li>
+          <li>멀티 소스: 디바이스 업로드 + YouTube/SNS URL 실시간 수집</li>
+          <li>리워드: 신고 1,000P + 4단계 배지 + Top10 리더보드 (사용자 참여형 생태계)</li>
+        </ul>
+        <div class="tags" style="margin-top:4px;">
+          <span class="tag tb">PyTorch</span><span class="tag tb">ONNX</span><span class="tag tb">Whisper</span><span class="tag tb">CLIP</span>
+          <span class="tag tg">FastAPI</span><span class="tag tg">PostgreSQL</span><span class="tag tg">Taskiq</span><span class="tag tg">Redis</span>
+          <span class="tag to">React Native</span><span class="tag to">Expo</span><span class="tag to">TypeScript</span>
+          <span class="tag">AWS S3</span>
+        </div>
+      </div>
+      <div class="si" style="flex-direction:row; gap:8px;">
+        <div style="flex:1; display:flex; flex-direction:column; gap:4px; min-width:0;">
+          <img src="img/ddp_functions.webp" alt="탐지 기능" style="flex:1; min-height:0; object-fit:contain; background:#f8fafc; border-radius:6px;">
+          <div class="si-cap">탐지 기능 화면 (Fast/Deep 모드)</div>
+        </div>
+        <div style="flex:1; display:flex; flex-direction:column; gap:4px; min-width:0;">
+          <img src="img/ddp_analyze.webp" alt="분석 결과" style="flex:1; min-height:0; object-fit:contain; background:#f8fafc; border-radius:6px;">
+          <div class="si-cap">분석 결과 대시보드</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="fn">Jiyun Kang · Portfolio</span>
+    <span class="fc">github.com/jiyun-kang12 · jiyun-kang12.github.io/portfolio/</span>
+  </div>
+</div>
+
+
+<!-- ═══════════ PAGE 5: PROJECT 03 — 자동차 1/2 ═══════════ -->
+<div class="page">
+  <div class="cp">
+    <div class="ph">
+      <div><span class="ph-t">Project 03</span><span class="ph-s">자동차 디자인 프로토타입 이미지 생성 플랫폼 — 1/2</span></div>
+      <div class="ph-r">2025.07~09 · 3개월 · 팀 5명</div>
+    </div>
+
+    <!-- 상단: 프로젝트 설명 + 캡셔닝 역할 | 시스템 아키텍처 -->
+    <div class="srow t45" style="flex:1.2;">
+      <div class="st">
+        <div class="award"><span>🏆</span>SK Networks Family AI Camp 13기 우수상</div>
+        <div>
+          <span class="badge bm">Main</span>
+          <div class="pname" style="margin-top:3px;">Automotive Design Prototype Image Generation</div>
+          <div class="psub">현대차 디자인 철학 기반 sLLM 파인튜닝 + FLUX LoRA + 3D/4D 통합 AI 플랫폼</div>
+        </div>
+        <div class="pdiv"></div>
+        <div class="pdesc">현대자동차의 디자인 철학·VoC·트렌드를 반영하는 기업 특화 sLLM과 이미지 생성 모델(FLUX LoRA)을 개발하고, Text → Image → 3D → 4D 통합 파이프라인을 구축한 AI 플랫폼입니다.</div>
+        <div>
+          <div class="slabel">InternVL3 이미지 캡셔닝 — 1,988장 자동차 이미지 자동 레이블링</div>
+          <ul class="fl">
+            <li>OpenGVLab/InternVL3-8B로 자동차 디자인 특징 자동 추출 (17GB 데이터셋)</li>
+            <li class="s">차체 형태·비율·곡면·조명·그릴·휠·색상·미래지향적 요소 추출 프롬프트 설계</li>
+            <li>JSONL 형식 출력 → sLLM 파인튜닝 데이터셋 구성 (청크당 Q&A 트리플 3쌍)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="si">
+        <img src="img/system_archi.webp" alt="시스템 아키텍처">
+        <div class="si-cap">시스템 전체 아키텍처 — Text → Image → 3D → 4D 통합 파이프라인</div>
+      </div>
+    </div>
+
+    <div class="divrow"></div>
+
+    <!-- 하단: 캡셔닝 이미지 설명 | captioning_image -->
+    <div class="srow t50" style="flex:1;">
+      <div class="st">
+        <div class="slabel">모델 성능 비교 — 파인튜닝 전후</div>
+        <table class="tbl">
+          <thead><tr><th>모델</th><th>지표</th><th>Base</th><th>Fine-tuned</th></tr></thead>
+          <tbody>
+            <tr><td>FLUX LoRA</td><td>FID Score ↓</td><td>66.35</td><td class="hv">52.42</td></tr>
+            <tr><td>FLUX LoRA</td><td>GPT 브랜드 정체성 (5점)</td><td>4.18</td><td class="hv">4.27</td></tr>
+            <tr><td>kanana-1.5-8b</td><td>BERTScore-F1</td><td>0.7344</td><td class="hv">0.8884</td></tr>
+            <tr><td>kanana-1.5-8b</td><td>Cosine Similarity</td><td>0.9004</td><td class="hv">0.9526</td></tr>
+          </tbody>
+        </table>
+        <div class="tags" style="margin-top:5px;">
+          <span class="tag tb">FLUX.1-Kontext</span><span class="tag tb">InternVL3</span><span class="tag tb">kanana-1.5-8b</span><span class="tag tb">vLLM</span>
+          <span class="tag tp">LangGraph</span><span class="tag tp">Qdrant</span><span class="tag tp">HyDE</span>
+          <span class="tag tg">FastAPI</span><span class="tag tg">Django</span>
+          <span class="tag to">React</span><span class="tag">Runpod</span><span class="tag">Docker</span>
+        </div>
+      </div>
+      <div class="si">
+        <img src="img/captioning_image.webp" alt="InternVL3 캡셔닝">
+        <div class="si-cap">InternVL3가 자동차 이미지에서 디자인 특징을 자동 추출하는 캡셔닝 결과</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="fn">Jiyun Kang · Portfolio</span>
+    <span class="fc">github.com/jiyun-kang12 · jiyun-kang12.github.io/portfolio/</span>
+  </div>
+</div>
+
+
+<!-- ═══════════ PAGE 6: PROJECT 03 — 자동차 2/2 ═══════════ -->
+<div class="page">
+  <div class="cp">
+    <div class="ph">
+      <div><span class="ph-t">Project 03</span><span class="ph-s">LangGraph AI 파이프라인 — 인텐트 분류 · RAG · 이미지 생성 — 2/2</span></div>
+    </div>
+
+    <!-- 상단: 인텐트 분류기 설명 | intent.webp -->
+    <div class="srow t50" style="flex:1;">
+      <div class="st">
+        <div class="slabel">LangGraph 인텐트 분류기 — 4종 라우팅</div>
+        <ul class="fl">
+          <li>사용자 입력을 RAG / 이미지 생성 / 이미지 수정 / 일반 대화 4종으로 자동 분류</li>
+          <li class="s">각 인텐트별로 별도 LangGraph 노드로 분기 처리</li>
+          <li>RAG 경로: HyDE 쿼리 재작성 → Qdrant 벡터 검색 → Reranker → LLM 응답</li>
+          <li class="s">Human-in-the-Loop: LangGraph interrupt + MemorySaver로 디자이너 검토 단계 삽입</li>
+        </ul>
+      </div>
+      <div class="si">
+        <img src="img/intent.webp" alt="인텐트 분류기">
+        <div class="si-cap">인텐트 분류기 — 4종 라우팅 (RAG / 이미지 생성 / 이미지 수정 / 일반)</div>
+      </div>
+    </div>
+
+    <div class="divrow"></div>
+
+    <!-- 중단: RAG 파이프라인 설명 | rage.webp -->
+    <div class="srow t50" style="flex:1;">
+      <div class="st">
+        <div class="slabel">RAG 파이프라인 — HyDE + Reranker로 검색 품질 향상</div>
+        <ul class="fl">
+          <li>HyDE(Hypothetical Document Embedding): 가상 문서 임베딩으로 쿼리 재작성</li>
+          <li>Qdrant 벡터 DB에서 현대차 디자인 문서 의미 검색 (논문 4편 + 기사 12편 + 문서)</li>
+          <li>Reranker로 검색 결과 재정렬 → LLM Fallback으로 품질 보장</li>
+        </ul>
+      </div>
+      <div class="si">
+        <img src="img/rage.webp" alt="RAG 파이프라인">
+        <div class="si-cap">RAG 파이프라인 — HyDE 쿼리 재작성 → Qdrant 벡터 검색 → Reranker</div>
+      </div>
+    </div>
+
+    <div class="divrow"></div>
+
+    <!-- 하단: 이미지 생성 파이프라인 설명 | image_pipeline.webp -->
+    <div class="srow t50" style="flex:1;">
+      <div class="st">
+        <div class="slabel">이미지 생성 파이프라인 — 체크리스트 HITL → FLUX LoRA → 3D/4D</div>
+        <ul class="fl">
+          <li>디자인 체크리스트 기반 프롬프트 자동 생성 → 디자이너 검토(HITL) 후 FLUX 이미지 생성</li>
+          <li>FLUX.1-Kontext-dev LoRA 파인튜닝: FID Score 66.35 → 52.42 (▼ 21% 개선)</li>
+          <li>ComfyUI 워크플로우로 이미지 → 3D → 4D 통합 변환 파이프라인</li>
+        </ul>
+      </div>
+      <div class="si">
+        <img src="img/image_pipeline.webp" alt="이미지 생성 파이프라인">
+        <div class="si-cap">이미지 생성 파이프라인 — FLUX LoRA 파인튜닝 → 3D/4D ComfyUI 통합 변환</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="fn">Jiyun Kang · Portfolio</span>
+    <span class="fc">github.com/jiyun-kang12 · jiyun-kang12.github.io/portfolio/</span>
+  </div>
+</div>
+
+
+<!-- ═══════════ PAGE 7: PROJECT 04 — 정착 코디네이터 ═══════════ -->
+<div class="page">
+  <div class="cp">
+    <div class="ph">
+      <div><span class="ph-t">Project 04</span><span class="ph-s">AI 정착 코디네이터 — 고향과 귀향자를 이어주는 AI 서비스</span></div>
+      <div class="ph-r">2025.07~09 · 3개월 · 팀 5명</div>
+    </div>
+
+    <!-- 상단: 프로젝트 설명 + 앱 전체 구성 | 앱 화면 -->
+    <div class="srow t45" style="flex:1.2;">
+      <div class="st">
+        <div class="award"><span>🏆</span>2025 제7회 K-Digital Training 해커톤 — 고용노동부 장관상</div>
+        <div>
+          <span class="badge bm">Main</span>
+          <div class="pname" style="margin-top:3px;">AI Settlement Coordinator</div>
+          <div class="psub">지역 소멸 해결을 위한 귀농·귀촌 AI 맞춤형 정착 서비스 · React Native 프론트엔드 전체 담당</div>
+        </div>
+        <div class="pdiv"></div>
+        <div class="pdesc">국내 시·군·구 절반 이상이 '인구감소위험지역'으로 분류된 현실을 타개하기 위해, 40~64세 귀촌 희망자 대상으로 <b>RAG 기반 게임화 미션, 멀티 에이전트 AI 대화, 멘토링·커뮤니티</b>를 통합한 정착 코디네이터를 개발했습니다.</div>
+        <div>
+          <div class="slabel">담당 역할 — 프로젝트 기획 · React Native 프론트엔드 전체</div>
+          <ul class="fl">
+            <li>서비스 핵심 컨셉 설계 — 탐색형·유대형·경력형 3종 미션 구조 기획</li>
+            <li>React Native + Expo: 전체 앱 화면 설계 및 구현</li>
+            <li>미션 추천 피드, 배지·포인트 리워드, 커뮤니티 게시판 UI 개발</li>
+          </ul>
+        </div>
+      </div>
+      <div class="si">
+        <img src="img/hometownon1.webp" alt="앱 전체 구성">
+        <div class="si-cap">앱 전체 구성 — 미션 피드 · 커뮤니티 · 챗봇 · 마이페이지</div>
+      </div>
+    </div>
+
+    <div class="divrow"></div>
+
+    <!-- 하단: 미션 타입 + 배지 설명 | 미션 화면 | 챗봇 화면 -->
+    <div class="srow t40" style="flex:1;">
+      <div class="st">
+        <div class="slabel">RAG 기반 개인화 미션 — 게임화로 정착 유도</div>
+        <ul class="fl">
+          <li><b>탐색형</b>: 고향과의 정서적 재연결 미션</li>
+          <li><b>유대형</b>: 지역 상호작용으로 커뮤니티 소속감 형성</li>
+          <li><b>경력형</b>: 귀촌자 스킬·전문성으로 지역 문제 해결</li>
+          <li>배지: 전문성·신뢰도·활동 이력 시각화 → 포인트로 지역 서비스 혜택 연계</li>
+          <li>멀티 에이전트 챗봇: 인텐트 분류 → 미션 생성·게시물·정보 조회 에이전트</li>
+        </ul>
+        <div class="tags" style="margin-top:4px;">
+          <span class="tag to">React Native</span><span class="tag to">Expo</span>
+          <span class="tag tg">FastAPI</span><span class="tag tp">OpenAI API</span>
+          <span class="tag tp">RAG</span><span class="tag tp">Multi-Agent</span>
+          <span class="tag tg">MySQL</span>
+        </div>
+      </div>
+      <div class="si" style="flex-direction:row; gap:8px;">
+        <div style="flex:1; display:flex; flex-direction:column; gap:4px; min-width:0;">
+          <img src="img/hometownon2.webp" alt="미션 타입" style="flex:1; min-height:0; object-fit:contain; background:#f8fafc; border-radius:6px;">
+          <div class="si-cap">3종 미션 타입 (탐색·유대·경력)</div>
+        </div>
+        <div style="flex:1; display:flex; flex-direction:column; gap:4px; min-width:0;">
+          <img src="img/chatbot.webp" alt="멀티에이전트 챗봇" style="flex:1; min-height:0; object-fit:contain; background:#f8fafc; border-radius:6px;">
+          <div class="si-cap">멀티 에이전트 AI 챗봇</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="fn">Jiyun Kang · Portfolio</span>
+    <span class="fc">github.com/jiyun-kang12 · jiyun-kang12.github.io/portfolio/</span>
+  </div>
+</div>
+
+
+<!-- ═══════════ PAGE 8: PROJECT 05 — 저작권 챗봇 ═══════════ -->
+<div class="page">
+  <div class="cp">
+    <div class="ph">
+      <div><span class="ph-t">Project 05</span><span class="ph-s">저작권 정보 챗봇 for 콘텐츠 크리에이터</span></div>
+      <div class="ph-r">2025.06 · 1개월 · 팀 4명</div>
+    </div>
+
+    <!-- 상단: 프로젝트 설명 + 데이터 구축 | LangGraph 파이프라인 진화 -->
+    <div class="srow t45" style="flex:1.1;">
+      <div class="st">
+        <div>
+          <span class="badge bt">Toy Project</span>
+          <div class="pname" style="margin-top:3px;">저작권 정보 챗봇 for 콘텐츠 크리에이터</div>
+          <div class="psub">LangGraph 3-stage RAG · 플랫폼별 저작권 지식베이스 · Faithfulness 0.867</div>
+        </div>
+        <div class="pdiv"></div>
+        <div class="pdesc">YouTube·Instagram·네이버 블로그 등 플랫폼별 저작권 정책과 국내외 저작권법을 통합한 RAG 기반 챗봇입니다. 단순 FAQ를 넘어 사용자 인텐트를 분석해 <b>RAG / Tool Call / LLM 직접 응답</b>으로 라우팅하는 3단계 파이프라인을 구축했습니다.</div>
+        <div>
+          <div class="slabel">데이터 구축 — 정부 PDF + 플랫폼 FAQ 크롤링 · ChromaDB 벡터 DB</div>
+          <ul class="fl">
+            <li>정부 저작권 PDF 페이지별 블록 텍스트 추출 (PyMuPDF) + 메타태깅 자동화</li>
+            <li class="s">platform · law_scope · doc_type · source · topic 5종 메타데이터 자동 태깅</li>
+            <li>플랫폼 정책·FAQ Selenium 크롤링 → JSON/CSV 구조화 후 ChromaDB 벡터 DB 구축</li>
+            <li class="s">text-embedding-3-large, 500건 배치 삽입으로 API 안정성 확보</li>
+          </ul>
+        </div>
+      </div>
+      <div class="si">
+        <img src="img/project3_langgraph.webp" alt="LangGraph 진화">
+        <div class="si-cap">LangGraph 파이프라인 진화 — 단순 리트리버에서 3-stage 라우팅으로 단계별 개선</div>
+      </div>
+    </div>
+
+    <div class="divrow"></div>
+
+    <!-- 하단: 8-node 파이프라인 설명 | pipeline 이미지 + 성능 -->
+    <div class="srow t50" style="flex:1;">
+      <div class="st">
+        <div class="slabel">LangGraph 8-node 파이프라인 — HyDE → 라우팅 → RAG/Tool/Fallback</div>
+        <ul class="fl">
+          <li>extract_name → <b>hyde</b>(가상문서 임베딩) → <b>check_route</b>(RAG/Tool/LLM 분기)</li>
+          <li>retrieve(RAG 문서 검색) → call_tool_llm → tool_runner → process_tool_result</li>
+          <li>synthesize_response → fallback (최종 응답 합성)</li>
+        </ul>
+        <div class="metrics" style="margin-top:5px;">
+          <div class="mc"><div class="mv">0.867</div><div class="ml">Faithfulness</div></div>
+          <div class="mc"><div class="mv">0.800</div><div class="ml">Context Recall</div></div>
+          <div class="mc"><div class="mv">0.800</div><div class="ml">Context Precision</div></div>
+          <div class="mc"><div class="mv">0.637</div><div class="ml">Answer Relevancy</div></div>
+        </div>
+        <div class="tags" style="margin-top:4px;">
+          <span class="tag tp">LangGraph</span><span class="tag tp">LangChain</span>
+          <span class="tag tp">ChromaDB</span><span class="tag tp">HyDE</span>
+          <span class="tag">Selenium</span><span class="tag">PyMuPDF</span><span class="tag">Python</span>
+        </div>
+      </div>
+      <div class="si">
+        <img src="img/project3_pipeline.webp" alt="8-node 파이프라인">
+        <div class="si-cap">8-node 파이프라인 구조 — extract_name → HyDE → check_route → RAG/Tool → synthesize</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="fn">Jiyun Kang · Portfolio</span>
+    <span class="fc">github.com/jiyun-kang12 · jiyun-kang12.github.io/portfolio/</span>
+  </div>
+</div>
+
+
+<!-- ═══════════ PAGE 9: PROJECT 06 — MOOC 이탈률 예측 ═══════════ -->
+<div class="page">
+  <div class="cp">
+    <div class="ph">
+      <div><span class="ph-t">Project 06</span><span class="ph-s">MOOC 온라인 학습 이탈률 예측</span></div>
+      <div class="ph-r">2025.05 · 1개월 · 팀 4명</div>
+    </div>
+
+    <!-- 상단: 프로젝트 설명 + EDA | 이탈률 시각화 -->
+    <div class="srow t45" style="flex:1.1;">
+      <div class="st">
+        <div>
+          <span class="badge bt">Toy Project</span>
+          <div class="pname" style="margin-top:3px;">MOOC 온라인 학습 이탈률 예측</div>
+          <div class="psub">85~90% 이탈률 문제 해결 · XGBoost 최적화 · Recall 중심 ML 분류 모델</div>
+        </div>
+        <div class="pdiv"></div>
+        <div class="pdesc">MOOC 플랫폼의 만성적인 고이탈률(85~90%) 문제를 해결하기 위한 조기 예측 ML 모델입니다. 이탈 학생을 미탐지(FN)하는 것이 더 큰 손실이라는 도메인 판단 하에 <b>Recall 최우선 최적화</b>를 적용했습니다.</div>
+        <div>
+          <div class="slabel">데이터 설계 — 4개 테이블 병합 + 타겟 변수 정의</div>
+          <ul class="fl">
+            <li>OULAD 데이터셋: StudentInfo · StudentRegistration · StudentAssessment · StudentVle 병합</li>
+            <li>파생변수: sum_click · avg_score · last_click_week (학습 행동 패턴 수치화)</li>
+            <li>Fail 결과를 이탈(1)로 분류 — 학습 목표 미달성도 이탈로 정의 (MOOC 맥락 반영)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="si">
+        <img src="img/data_visualization.webp" alt="이탈률 시각화">
+        <div class="si-cap">코드 프레젠테이션별 이탈률 시각화 — 1학기 이탈률이 더 높은 경향 확인</div>
+      </div>
+    </div>
+
+    <div class="divrow"></div>
+
+    <!-- 하단: 모델 비교 설명 | model_compare + xg_roc -->
+    <div class="srow t45" style="flex:1;">
+      <div class="st">
+        <div class="slabel">ML 모델 비교 — 7종 모델 학습 후 XGBoost 최종 선정</div>
+        <ul class="fl">
+          <li>Decision Tree · Random Forest · SVM · XGBoost · CatBoost · LightGBM · MLPClassifier 비교</li>
+          <li>XGBoost 최종 선정: n_estimators=1000, learning_rate=0.01, max_depth=6</li>
+          <li>Recall 중심 평가: 이탈 미탐지(FN)가 오탐지(FP)보다 손실 크다는 도메인 판단</li>
+        </ul>
+        <div class="tags" style="margin-top:5px;">
+          <span class="tag tb">XGBoost</span><span class="tag tb">CatBoost</span><span class="tag tb">LightGBM</span>
+          <span class="tag tb">Scikit-learn</span><span class="tag tb">PyTorch (MLP)</span>
+          <span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span>
+        </div>
+      </div>
+      <div class="si" style="flex-direction:row; gap:8px;">
+        <div style="flex:1; display:flex; flex-direction:column; gap:4px; min-width:0;">
+          <img src="img/model_compare.webp" alt="모델 비교" style="flex:1; min-height:0; object-fit:contain; background:#f8fafc; border-radius:6px;">
+          <div class="si-cap">7종 모델 성능 비교 (Accuracy·Recall·F1)</div>
+        </div>
+        <div style="flex:1; display:flex; flex-direction:column; gap:4px; min-width:0;">
+          <img src="img/xg_roc.webp" alt="ROC Curve" style="flex:1; min-height:0; object-fit:contain; background:#f8fafc; border-radius:6px;">
+          <div class="si-cap">XGBoost ROC Curve (Recall 최적화)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="fn">Jiyun Kang · Portfolio</span>
+    <span class="fc">github.com/jiyun-kang12 · jiyun-kang12.github.io/portfolio/</span>
+  </div>
+</div>
+
+
+<!-- ═══════════ PAGE 10: TECH STACK ═══════════ -->
+<div class="page">
+  <div class="cp">
+    <div class="ph">
+      <div><span class="ph-t">Tech Stack</span><span class="ph-s">기술 스택 상세</span></div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; flex:1; min-height:0; overflow:hidden;">
+
+      <div style="display:flex;flex-direction:column;gap:9px;overflow:hidden;">
+        <div>
+          <div style="font-size:10px;font-weight:700;padding-bottom:3px;border-bottom:1px solid var(--border);margin-bottom:4px;">AI / Machine Learning</div>
+          <div style="display:flex;gap:5px;padding:2px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9px;font-weight:600;min-width:95px;">PyTorch</div><div style="font-size:8.5px;color:var(--text-mid);">딥러닝 학습·추론. Wavelet-CLIP, MLP, UNITE 개발</div></div>
+          <div style="display:flex;gap:5px;padding:2px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9px;font-weight:600;min-width:95px;">ONNX Runtime</div><div style="font-size:8.5px;color:var(--text-mid);">모델 경량화·고속 추론, DDP 탐지 파이프라인</div></div>
+          <div style="display:flex;gap:5px;padding:2px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9px;font-weight:600;min-width:95px;">OpenAI Whisper</div><div style="font-size:8.5px;color:var(--text-mid);">STT 음성-텍스트, 딥페이크 음성 분석 모달</div></div>
+          <div style="display:flex;gap:5px;padding:2px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9px;font-weight:600;min-width:95px;">MediaPipe JS</div><div style="font-size:8.5px;color:var(--text-mid);">브라우저 FaceLandmarker, EAR·홍채·blendshape 52</div></div>
+          <div style="display:flex;gap:5px;padding:2px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9px;font-weight:600;min-width:95px;">YOLOv11s</div><div style="font-size:8.5px;color:var(--text-mid);">핸드폰 감지, Colab GPU HTTP multipart 추론</div></div>
+          <div style="display:flex;gap:5px;padding:2px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9px;font-weight:600;min-width:95px;">XGBoost/CatBoost</div><div style="font-size:8.5px;color:var(--text-mid);">MOOC 이탈 예측, Recall 최적화 앙상블</div></div>
+          <div style="display:flex;gap:5px;padding:2px 0;"><div style="font-size:9px;font-weight:600;min-width:95px;">vLLM</div><div style="font-size:8.5px;color:var(--text-mid);">LLM 고속 서빙 및 추론 최적화</div></div>
+        </div>
+        <div>
+          <div style="font-size:10px;font-weight:700;padding-bottom:3px;border-bottom:1px solid var(--border);margin-bottom:4px;">Image Generation</div>
+          <div style="display:flex;gap:5px;padding:2px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9px;font-weight:600;min-width:95px;">FLUX.1-Kontext</div><div style="font-size:8.5px;color:var(--text-mid);">LoRA 파인튜닝, 현대차 브랜드 이미지 생성</div></div>
+          <div style="display:flex;gap:5px;padding:2px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9px;font-weight:600;min-width:95px;">ComfyUI</div><div style="font-size:8.5px;color:var(--text-mid);">이미지→3D→4D 통합 파이프라인 워크플로우</div></div>
+          <div style="display:flex;gap:5px;padding:2px 0;"><div style="font-size:9px;font-weight:600;min-width:95px;">InternVL3</div><div style="font-size:8.5px;color:var(--text-mid);">자동차 이미지 캡셔닝, 파인튜닝 데이터 구성</div></div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:9px;overflow:hidden;">
+        <div>
+          <div style="font-size:10px;font-weight:700;padding-bottom:3px;border-bottom:1px solid var(--border);margin-bottom:4px;">LLM / RAG / Vector DB</div>
+          <div style="display:flex;gap:5px;padding:2px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9px;font-weight:600;min-width:95px;">LangGraph</div><div style="font-size:8.5px;color:var(--text-mid);">멀티스텝 워크플로우, 저작권 챗봇 3-stage, HITL</div></div>
+          <div style="display:flex;gap:5px;padding:2px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9px;font-weight:600;min-width:95px;">LangChain</div><div style="font-size:8.5px;color:var(--text-mid);">LLM 체이닝, 문서 로더, 리트리버 구성</div></div>
+          <div style="display:flex;gap:5px;padding:2px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9px;font-weight:600;min-width:95px;">Qdrant</div><div style="font-size:8.5px;color:var(--text-mid);">자동차 디자인 문서 벡터 검색, Reranker 연동</div></div>
+          <div style="display:flex;gap:5px;padding:2px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9px;font-weight:600;min-width:95px;">ChromaDB</div><div style="font-size:8.5px;color:var(--text-mid);">저작권 문서 벡터 DB, 로컬 영구 저장소</div></div>
+          <div style="display:flex;gap:5px;padding:2px 0;"><div style="font-size:9px;font-weight:600;min-width:95px;">HyDE</div><div style="font-size:8.5px;color:var(--text-mid);">가상 문서 임베딩으로 RAG 검색 품질 향상</div></div>
+        </div>
+        <div>
+          <div style="font-size:10px;font-weight:700;padding-bottom:3px;border-bottom:1px solid var(--border);margin-bottom:4px;">Frontend</div>
+          <div style="display:flex;gap:5px;padding:2px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9px;font-weight:600;min-width:95px;">React Native + Expo</div><div style="font-size:8.5px;color:var(--text-mid);">크로스플랫폼 모바일, DDP·정착 코디네이터 프론트</div></div>
+          <div style="display:flex;gap:5px;padding:2px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9px;font-weight:600;min-width:95px;">TypeScript</div><div style="font-size:8.5px;color:var(--text-mid);">타입 안전성, Expo Router 기반 파일 라우팅</div></div>
+          <div style="display:flex;gap:5px;padding:2px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9px;font-weight:600;min-width:95px;">React (Vite)</div><div style="font-size:8.5px;color:var(--text-mid);">집중도·자동차 디자인 플랫폼 웹 프론트엔드</div></div>
+          <div style="display:flex;gap:5px;padding:2px 0;"><div style="font-size:9px;font-weight:600;min-width:95px;">Recharts</div><div style="font-size:8.5px;color:var(--text-mid);">시계열 집중도·표정 분포 실시간 대시보드 시각화</div></div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:9px;overflow:hidden;">
+        <div>
+          <div style="font-size:10px;font-weight:700;padding-bottom:3px;border-bottom:1px solid var(--border);margin-bottom:4px;">Backend & Infrastructure</div>
+          <div style="display:flex;gap:5px;padding:2px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9px;font-weight:600;min-width:95px;">FastAPI</div><div style="font-size:8.5px;color:var(--text-mid);">비동기 REST API, WebSocket 실시간, AI 서빙</div></div>
+          <div style="display:flex;gap:5px;padding:2px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9px;font-weight:600;min-width:95px;">Django</div><div style="font-size:8.5px;color:var(--text-mid);">자동차 디자인 플랫폼 백엔드</div></div>
+          <div style="display:flex;gap:5px;padding:2px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9px;font-weight:600;min-width:95px;">PostgreSQL/MySQL</div><div style="font-size:8.5px;color:var(--text-mid);">관계형 DB, SQLModel + Alembic 마이그레이션</div></div>
+          <div style="display:flex;gap:5px;padding:2px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9px;font-weight:600;min-width:95px;">Redis + Taskiq</div><div style="font-size:8.5px;color:var(--text-mid);">딥러닝 비동기 큐잉, Pub/Sub 실시간 알림</div></div>
+          <div style="display:flex;gap:5px;padding:2px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9px;font-weight:600;min-width:95px;">AWS S3 / EC2</div><div style="font-size:8.5px;color:var(--text-mid);">파일 스토리지, 서버 배포</div></div>
+          <div style="display:flex;gap:5px;padding:2px 0;"><div style="font-size:9px;font-weight:600;min-width:95px;">Docker / Nginx</div><div style="font-size:8.5px;color:var(--text-mid);">컨테이너 배포, HTTPS 리버스 프록시</div></div>
+        </div>
+        <div>
+          <div style="font-size:10px;font-weight:700;padding-bottom:3px;border-bottom:1px solid var(--border);margin-bottom:4px;">Cloud & Data</div>
+          <div style="display:flex;gap:5px;padding:2px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9px;font-weight:600;min-width:95px;">GCP VM</div><div style="font-size:8.5px;color:var(--text-mid);">FastAPI·PostgreSQL·Nginx(HTTPS) 집중도 서버</div></div>
+          <div style="display:flex;gap:5px;padding:2px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9px;font-weight:600;min-width:95px;">Runpod</div><div style="font-size:8.5px;color:var(--text-mid);">GPU 서버 임대, 대규모 모델 학습·추론</div></div>
+          <div style="display:flex;gap:5px;padding:2px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9px;font-weight:600;min-width:95px;">Google Colab</div><div style="font-size:8.5px;color:var(--text-mid);">YOLO 핸드폰 감지 GPU 추론 서버</div></div>
+          <div style="display:flex;gap:5px;padding:2px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9px;font-weight:600;min-width:95px;">Selenium + BS4</div><div style="font-size:8.5px;color:var(--text-mid);">플랫폼 정책 FAQ 동적 크롤링</div></div>
+          <div style="display:flex;gap:5px;padding:2px 0;"><div style="font-size:9px;font-weight:600;min-width:95px;">yt-dlp / PyMuPDF</div><div style="font-size:8.5px;color:var(--text-mid);">YouTube 수집, 정부 PDF 텍스트 자동 추출</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="fn">Jiyun Kang · Portfolio</span>
+    <span class="fc">github.com/jiyun-kang12 · jiyun-kang12.github.io/portfolio/</span>
   </div>
 </div>
 

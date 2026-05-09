@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jiyun Kang - Data Coordinator Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    :root {
+      --primary:#111111; --primary-light:#f0f0f0;
+      --accent:#333333;  --accent-light:#f5f5f5;
+      --text-dark:#111827; --text-mid:#374151; --text-light:#6b7280;
+      --border:#e5e7eb; --tag-bg:#f3f4f6;
+    }
+
+    body {
+      font-family:'Inter','Noto Sans KR',sans-serif;
+      background:#000; color:var(--text-dark); font-size:11.5px; line-height:1.55;
+    }
+
+    @media print {
+      body { background:white; }
+      .page { box-shadow:none !important; margin:0 !important; page-break-after:always; }
+      @page { size:A4 landscape; margin:0; }
+    }
+
+    .page {
+      width:297mm; height:210mm;
+      background:white; margin:0 auto 24px;
+      box-shadow:0 4px 28px rgba(0,0,0,.18);
+      position:relative; overflow:hidden;
+    }
+
+    .footer {
+      position:absolute; bottom:0; left:0; right:0; height:28px;
+      background:#111; display:flex; align-items:center;
+      justify-content:space-between; padding:0 38px;
+    }
+    .fn { font-size:9px; color:rgba(255,255,255,.7); font-weight:500; }
+    .fc { font-size:8.5px; color:rgba(255,255,255,.5); }
+
+    .cp {
+      padding:16px 34px 10px;
+      height:210mm; box-sizing:border-box;
+      display:flex; flex-direction:column; gap:0;
+      padding-bottom:44px;
+    }
+
+    .ph {
+      display:flex; align-items:baseline; justify-content:space-between;
+      padding-bottom:7px; margin-bottom:10px;
+      border-bottom:2px solid var(--border); flex-shrink:0;
+    }
+    .ph-t { font-size:15px; font-weight:700; color:var(--text-dark); }
+    .ph-s { font-size:10.5px; color:var(--text-mid); margin-left:7px; }
+    .ph-r { font-size:9.5px; color:var(--text-light); }
+
+    .srow {
+      display:grid; gap:14px;
+      flex:1; min-height:0;
+      align-items:stretch;
+    }
+    .srow.t45 { grid-template-columns:45% 1fr; }
+    .srow.t50 { grid-template-columns:1fr 1fr; }
+    .srow.t40 { grid-template-columns:40% 1fr; }
+    .srow.t55 { grid-template-columns:55% 1fr; }
+
+    .st { display:flex; flex-direction:column; gap:5px; overflow:hidden; min-height:0; }
+    .si { display:flex; flex-direction:column; gap:4px; overflow:hidden; min-height:0; }
+    .si img {
+      flex:1; min-height:0; width:100%;
+      object-fit:contain; background:#f8fafc;
+      border-radius:6px; display:block;
+    }
+    .si-cap { font-size:7.5px; color:var(--text-light); text-align:center; flex-shrink:0; }
+
+    .divrow { height:1px; background:var(--border); flex-shrink:0; margin:7px 0; }
+
+    .pname { font-size:13px; font-weight:700; color:var(--text-dark); line-height:1.3; }
+    .psub  { font-size:10px; color:var(--text-light); margin-top:1px; }
+    .pdesc { font-size:10.5px; color:var(--text-mid); line-height:1.6; }
+    .pdiv  { height:1px; background:var(--border); flex-shrink:0; }
+
+    .badge { font-size:8px; font-weight:600; letter-spacing:.8px; text-transform:uppercase; padding:1px 6px; border-radius:4px; display:inline-block; margin-right:3px; }
+    .bm { background:var(--primary-light); color:var(--primary); }
+    .bt { background:var(--accent-light);  color:var(--accent);  }
+
+    .slabel { font-size:9.5px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; color:var(--text-dark); margin-bottom:4px; margin-top:1px; flex-shrink:0; padding-bottom:2px; border-bottom:1.5px solid var(--border); }
+
+    ul.fl { list-style:none; padding:0; }
+    ul.fl li { font-size:10px; color:var(--text-mid); padding:1.5px 0 1.5px 12px; position:relative; }
+    ul.fl li::before { content:'•'; position:absolute; left:0; color:var(--primary); font-weight:700; }
+    ul.fl li.s { padding-left:19px; color:#6b7280; font-size:9.5px; }
+    ul.fl li.s::before { content:'–'; left:9px; color:#9ca3af; }
+
+    .award { display:flex; align-items:center; gap:6px; background:linear-gradient(90deg,#fef9c3,#fffbeb); border:1px solid #fcd34d; border-radius:5px; padding:3px 9px; font-size:9.5px; font-weight:600; color:#78350f; flex-shrink:0; }
+
+    .metrics { display:flex; gap:4px; flex-wrap:wrap; flex-shrink:0; }
+    .mc { background:var(--tag-bg); border-radius:5px; padding:2px 7px; text-align:center; }
+    .mv { font-size:10.5px; font-weight:700; color:var(--primary); }
+    .ml { font-size:7.5px; color:var(--text-light); }
+
+    .tags { display:flex; flex-wrap:wrap; gap:3px; flex-shrink:0; }
+    .tag { font-size:8.5px; background:var(--tag-bg); color:var(--text-mid); border-radius:3px; padding:1px 5px; font-weight:500; }
+    .tb { background:var(--primary-light); color:var(--primary); }
+    .tp { background:var(--accent-light);  color:var(--accent);  }
+    .tg { background:#ecfdf5; color:#065f46; }
+    .to { background:#fff7ed; color:#9a3412; }
+
+    .callout { border-left:3px solid var(--primary); background:var(--primary-light); padding:4px 8px; border-radius:0 5px 5px 0; flex-shrink:0; }
+    .callout.ac { border-color:var(--accent); background:var(--accent-light); }
+    .ct { font-size:9px; font-weight:700; color:var(--primary); margin-bottom:1px; }
+    .callout.ac .ct { color:var(--accent); }
+    .cb { font-size:9px; color:var(--text-mid); line-height:1.4; }
+
+    .tbl { width:100%; border-collapse:collapse; font-size:9px; }
+    .tbl th { background:var(--primary-light); color:var(--primary); font-weight:700; padding:3px 6px; text-align:left; }
+    .tbl td { padding:2.5px 6px; border-bottom:1px solid var(--border); color:var(--text-mid); }
+    .tbl tr:last-child td { border-bottom:none; }
+    .hv { font-weight:700; color:var(--primary); }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════ PAGE 1: COVER ═══════════ -->
+<div class="page" style="padding:0;">
+  <img src="img/background2_cover.webp"
+       style="width:100%;height:100%;object-fit:cover;display:block;">
+  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;">
+    <div style="font-family:'Inter',sans-serif;font-size:42px;font-weight:700;color:#fff;letter-spacing:6px;text-transform:uppercase;line-height:1;">JIYUN KANG</div>
+    <div style="font-family:'Inter',sans-serif;font-size:16px;font-weight:300;color:rgba(255,255,255,0.85);letter-spacing:4px;text-transform:uppercase;">Portfolio</div>
+  </div>
+  <div style="position:absolute; bottom:28px; left:0; right:0; display:flex; justify-content:center;">
+    <a href="https://jiyun-kang12.github.io/portfolio/" target="_blank"
+       style="display:inline-block; padding:5px 16px; background:#000; border:1.5px solid #fff; border-radius:20px; color:#fff; font-size:10px; font-weight:500; text-decoration:none; letter-spacing:0.5px; font-family:'Inter',sans-serif;">
+      Homepage Link
+    </a>
+  </div>
+</div>
+
+
+<!-- ═══════════ PAGE 2: PROJECT 01 — Real-Time Monitoring Dashboard 1/2 ═══════════ -->
+<div class="page">
+  <div class="cp">
+    <div class="ph">
+      <div><span class="ph-t">Project 01</span><span class="ph-s">AI-Based Real-Time Learning Concentration Monitoring Platform — 1/2</span></div>
+      <div class="ph-r">Mar 2026 · 18 days · Team of 2 · 92% contribution</div>
+    </div>
+
+    <div class="srow t45" style="flex:1.2;">
+      <div class="st">
+        <div>
+          <span class="badge bm">Main Project</span>
+          <div class="pname" style="margin-top:3px;">Real-Time Learner Monitoring & Dashboard System</div>
+          <div class="psub">5-channel live data collection · Multi-role dashboard · WebSocket streaming · Session reporting</div>
+        </div>
+        <div class="pdiv"></div>
+        <div class="pdesc">Designed and built an end-to-end data monitoring system that collects <b>5 simultaneous behavioral signals</b> from learners in real time and streams them to an instructor dashboard at 0.1-second intervals — bridging the data gap that makes online instruction hard to adjust on the fly.</div>
+        <div>
+          <div class="slabel">Data Collection Layer — 5 Concurrent Signal Channels</div>
+          <ul class="fl">
+            <li><b>Facial expression</b>: RandomForest on 52 MediaPipe blendshapes → 5-class emotion label</li>
+            <li><b>Gaze direction</b>: Iris landmark-based eye-tracking via FaceLandmarker (horizontal · vertical)</li>
+            <li><b>Head posture</b>: 4×4 rotation matrix → yaw / pitch deviation from neutral</li>
+            <li><b>Blink / drowsiness</b>: Eye Aspect Ratio (EAR) computed per frame</li>
+            <li><b>Phone usage</b>: YOLOv11s object detection on webcam frames sent to GPU server</li>
+            <li class="s">→ All 5 channels merged server-side into a unified per-learner data record every 100 ms</li>
+          </ul>
+        </div>
+        <div class="metrics">
+          <div class="mc"><div class="mv">0.1 s</div><div class="ml">Streaming interval</div></div>
+          <div class="mc"><div class="mv">5</div><div class="ml">Data channels</div></div>
+          <div class="mc"><div class="mv">3 roles</div><div class="ml">Learner · Instructor · Manager</div></div>
+          <div class="mc"><div class="mv">92%</div><div class="ml">Contribution</div></div>
+        </div>
+      </div>
+      <div class="si">
+        <img src="img/project5_flow.webp" alt="Service Data Flow">
+        <div class="si-cap">End-to-end data flow — webcam capture → AI inference → dashboard → session report</div>
+      </div>
+    </div>
+
+    <div class="divrow"></div>
+
+    <div class="srow t45" style="flex:1;">
+      <div class="st">
+        <div class="slabel">Data Pipeline Architecture — Collection → Processing → Broadcast</div>
+        <ul class="fl">
+          <li>Browser-side MediaPipe extracts raw signals → packaged as JSON and sent via WebSocket every 100 ms</li>
+          <li>FastAPI server aggregates signals, computes concentration & fatigue scores → broadcasts to instructor</li>
+          <li>PostgreSQL ThreadedConnectionPool: concurrent multi-learner writes without contention</li>
+          <li>Session close → aggregate query on PostgreSQL → Gemini LLM generates improvement report</li>
+        </ul>
+      </div>
+      <div class="st">
+        <div class="tags">
+          <span class="tag tb">Real-Time Data Streaming</span><span class="tag tb">WebSocket</span>
+          <span class="tag tb">MediaPipe</span><span class="tag tb">YOLOv11s</span>
+          <span class="tag tg">FastAPI</span><span class="tag tg">PostgreSQL</span>
+          <span class="tag to">React 19</span><span class="tag to">Recharts</span>
+          <span class="tag">GCP</span><span class="tag">Google Colab GPU</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="fn">Jiyun Kang · Data Coordinator Portfolio</span>
+    <span class="fc">github.com/jiyun-kang12 · jiyun-kang12.github.io/portfolio/</span>
+  </div>
+</div>
+
+
+<!-- ═══════════ PAGE 3: PROJECT 01 — KPI Design & Automated Reporting 2/2 ═══════════ -->
+<div class="page">
+  <div class="cp">
+    <div class="ph">
+      <div><span class="ph-t">Project 01</span><span class="ph-s">KPI Definition · Live Dashboard Design · Automated Session Report — 2/2</span></div>
+    </div>
+
+    <div class="srow t50" style="flex:1.1;">
+      <div class="st">
+        <div class="slabel">KPI Design — Defining "Concentration" and "Fatigue" as Measurable Scores</div>
+        <ul class="fl">
+          <li><b>Concentration score</b>: focus = gaze × 0.60 + head × 0.40 − shoulder × 0.10</li>
+          <li class="s">EMA smoothing (α = 0.05) + 20–25 frame state confirmation to suppress signal noise</li>
+          <li><b>Fatigue score</b>: fatigue = EAR × 0.25 + elapsed time × 0.35 + gaze fixation × 0.25 + head movement × 0.15</li>
+          <li class="s">Separates "focused but fatigued" from simple distraction — enables nuanced instructor action</li>
+          <li>Two independent KPIs let instructors distinguish <b>who needs a break</b> vs. <b>who is disengaged</b></li>
+        </ul>
+        <div class="slabel" style="margin-top:4px;">Instructor Dashboard — Live Data Visualization</div>
+        <ul class="fl">
+          <li>Per-learner status cards: color-coded state labels (Focused / Distracted / Drowsy / Phone) for instant scan</li>
+          <li>Category filter: surface only learners who need intervention — minimizes cognitive load during class</li>
+          <li>Real-time line chart: concentration trend across the session timeline (Recharts)</li>
+        </ul>
+      </div>
+      <div class="si">
+        <img src="img/project5_monitoring.webp" alt="Instructor Dashboard">
+        <div class="si-cap">Live instructor dashboard — per-learner concentration cards + category filter</div>
+      </div>
+    </div>
+
+    <div class="divrow"></div>
+
+    <div class="srow t50" style="flex:1;">
+      <div class="st">
+        <div class="slabel">Alert Thresholds & Automated Session Report</div>
+        <ul class="fl">
+          <li>Phone detection alert: 30-second cooldown — fires only on confirmed YOLOv11s detection</li>
+          <li>Drowsiness alert: 1-minute cooldown — triggers when EAR falls below threshold for sustained frames</li>
+          <li>Session-end report: PostgreSQL aggregates → Gemini LLM generates natural-language improvement summary</li>
+          <li class="s">Report includes: concentration trend chart · emotion distribution radar · LLM-written teaching recommendations</li>
+          <li class="s">→ Raw session data is automatically transformed into an <b>actionable report</b> without manual analysis</li>
+        </ul>
+        <div class="callout" style="margin-top:4px;">
+          <div class="ct">Data Coordinator Highlight</div>
+          <div class="cb">Defined all monitoring KPIs from scratch, built the data collection pipeline, designed the real-time dashboard layout, and automated post-session reporting — covering the full data lifecycle from capture to insight delivery.</div>
+        </div>
+      </div>
+      <div class="si" style="flex-direction:row; gap:8px;">
+        <div style="flex:1; display:flex; flex-direction:column; gap:4px; min-width:0;">
+          <img src="img/project5_alert.webp" alt="Alert" style="flex:1; min-height:0; object-fit:contain; background:#f8fafc; border-radius:6px;">
+          <div class="si-cap">Real-time phone-detection alert (30 s cooldown)</div>
+        </div>
+        <div style="flex:1; display:flex; flex-direction:column; gap:4px; min-width:0;">
+          <img src="img/project5_report.webp" alt="Session Report" style="flex:1; min-height:0; object-fit:contain; background:#f8fafc; border-radius:6px;">
+          <div class="si-cap">Automated session report — LLM-generated teaching insights</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="fn">Jiyun Kang · Data Coordinator Portfolio</span>
+    <span class="fc">github.com/jiyun-kang12 · jiyun-kang12.github.io/portfolio/</span>
+  </div>
+</div>
+
+
+<!-- ═══════════ PAGE 4: PROJECT 06 — EDA & Predictive Modeling ═══════════ -->
+<div class="page">
+  <div class="cp">
+    <div class="ph">
+      <div><span class="ph-t">Project 06</span><span class="ph-s">MOOC Learner Dropout Prediction — Data Analysis & Metric Design</span></div>
+      <div class="ph-r">May 2025 · 1 month · Team of 4</div>
+    </div>
+
+    <div class="srow t45" style="flex:1.1;">
+      <div class="st">
+        <div>
+          <span class="badge bt">Data Analysis</span>
+          <div class="pname" style="margin-top:3px;">MOOC Dropout Prediction — EDA to Production Model</div>
+          <div class="psub">4-table data integration · Feature engineering · Recall-first evaluation · XGBoost optimization</div>
+        </div>
+        <div class="pdiv"></div>
+        <div class="pdesc">Addressed the chronic 85–90% dropout problem in MOOC platforms through a machine learning pipeline built on the OULAD dataset. The project required <b>domain-driven data definition, multi-table integration, feature engineering, and business-aligned metric selection</b> — core data coordination competencies.</div>
+        <div>
+          <div class="slabel">Data Integration — 4-Table Merge & Target Variable Definition</div>
+          <ul class="fl">
+            <li>Merged 4 OULAD tables: StudentInfo · StudentRegistration · StudentAssessment · StudentVle</li>
+            <li>Target variable: Withdrawn + <b>Fail → labeled as dropout (1)</b></li>
+            <li class="s">Rationale: a learner who completes a course but fails to meet learning goals also represents platform churn — aligned with business impact, not just technical completion status</li>
+          </ul>
+        </div>
+        <div>
+          <div class="slabel">Feature Engineering — Translating Raw Logs into Behavioral Signals</div>
+          <ul class="fl">
+            <li><b>sum_click</b>: total engagement volume — "how much did the learner interact?"</li>
+            <li><b>avg_score</b>: assessment performance trend — "how is achievement progressing?"</li>
+            <li><b>last_click_week</b>: recency of last activity — "when did disengagement begin?"</li>
+            <li class="s">→ Raw event logs transformed into interpretable behavioral features for both model input and stakeholder reporting</li>
+          </ul>
+        </div>
+      </div>
+      <div class="si">
+        <img src="img/data_visualization.webp" alt="Dropout Visualization">
+        <div class="si-cap">Dropout rate by course presentation — EDA reveals semester-1 attrition patterns</div>
+      </div>
+    </div>
+
+    <div class="divrow"></div>
+
+    <div class="srow t45" style="flex:1;">
+      <div class="st">
+        <div class="slabel">Evaluation Metric Design — Recall-First Based on Business Cost Analysis</div>
+        <ul class="fl">
+          <li><b>False Negative</b> (missed dropout): learner gets no intervention → actual churn = high cost</li>
+          <li><b>False Positive</b> (unnecessary outreach): wasted resource, minor inconvenience = low cost</li>
+          <li class="s">→ Prioritizing Recall over Accuracy: a deliberate data-driven decision grounded in business impact, not model performance alone</li>
+          <li>XGBoost final model: threshold tuned downward to maximize Recall; 7 models benchmarked before selection</li>
+        </ul>
+        <div class="tags" style="margin-top:5px;">
+          <span class="tag tb">EDA & Data Visualization</span><span class="tag tb">Feature Engineering</span>
+          <span class="tag tb">XGBoost · CatBoost · LightGBM</span>
+          <span class="tag tp">Recall Optimization</span><span class="tag tp">Metric Design</span>
+          <span class="tag tg">Pandas · NumPy</span><span class="tag tg">Matplotlib · Seaborn</span>
+        </div>
+      </div>
+      <div class="si" style="flex-direction:row; gap:8px;">
+        <div style="flex:1; display:flex; flex-direction:column; gap:4px; min-width:0;">
+          <img src="img/model_compare.webp" alt="Model Comparison" style="flex:1; min-height:0; object-fit:contain; background:#f8fafc; border-radius:6px;">
+          <div class="si-cap">7-model benchmark — Accuracy · Recall · F1 comparison</div>
+        </div>
+        <div style="flex:1; display:flex; flex-direction:column; gap:4px; min-width:0;">
+          <img src="img/xg_roc.webp" alt="ROC Curve" style="flex:1; min-height:0; object-fit:contain; background:#f8fafc; border-radius:6px;">
+          <div class="si-cap">XGBoost ROC curve — threshold tuned for Recall</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="fn">Jiyun Kang · Data Coordinator Portfolio</span>
+    <span class="fc">github.com/jiyun-kang12 · jiyun-kang12.github.io/portfolio/</span>
+  </div>
+</div>
+
+
+<!-- ═══════════ PAGE 5: PROJECT 02 — Detection Dashboard & Reporting ═══════════ -->
+<div class="page">
+  <div class="cp">
+    <div class="ph">
+      <div><span class="ph-t">Project 02</span><span class="ph-s">DDP — Deepfake Detection Pro · Multi-Modal Data Dashboard & Reporting</span></div>
+      <div class="ph-r">Feb 2026 · 22 days · Team of 5 · 27.1% contribution (69/255 commits)</div>
+    </div>
+
+    <div class="srow t45" style="flex:1.2;">
+      <div class="st">
+        <div>
+          <span class="badge bm">Main</span>
+          <div class="pname" style="margin-top:3px;">DDP — Deepfake Detection Dashboard & Auto-Report System</div>
+          <div class="psub">4-modal parallel analysis · Automated PNG report generation · Async data queue · Activity tracking</div>
+        </div>
+        <div class="pdiv"></div>
+        <div class="pdesc">Built the analysis result dashboard and automated reporting pipeline for a deepfake detection platform that processes video through <b>4 parallel AI modalities</b>. Detection results are aggregated, visualized, and delivered as structured reports — with user activity data tracked for a reward leaderboard.</div>
+        <div>
+          <div class="slabel">Analysis Result Dashboard — Multi-Modal Data Aggregation</div>
+          <ul class="fl">
+            <li>4 detection channels run in parallel: Wavelet frequency · rPPG blood flow · STT voice · UNITE Transformer</li>
+            <li>Per-channel confidence scores aggregated → unified deepfake probability displayed on result dashboard</li>
+            <li>Fast Mode: 3-modal parallel → results available within seconds; Deep Mode: UNITE for precision cases</li>
+            <li class="s">→ Dashboard surfaces confidence level and per-modal breakdown so users can trace the detection rationale</li>
+          </ul>
+        </div>
+        <div>
+          <div class="slabel">Automated Report Generation — Wavelet Histogram PNG Pipeline</div>
+          <ul class="fl">
+            <li>Wavelet-CLIP model generates frequency analysis histogram → auto-rendered as PNG report</li>
+            <li>Report uploaded to AWS S3 → URL returned to frontend for immediate dashboard display</li>
+            <li class="s">→ Analysis output goes directly from model inference to a shareable visual report without manual steps</li>
+          </ul>
+        </div>
+      </div>
+      <div class="si">
+        <img src="img/ddp_system_architecture.webp" alt="DDP Architecture">
+        <div class="si-cap">System architecture — Taskiq+Redis async queue, WebSocket result push, S3 report storage</div>
+      </div>
+    </div>
+
+    <div class="divrow"></div>
+
+    <div class="srow t50" style="flex:1;">
+      <div class="st">
+        <div class="slabel">Async Data Queue & User Activity Tracking</div>
+        <ul class="fl">
+          <li>Taskiq + Redis: heavy AI inference jobs queued asynchronously — UI remains responsive during processing</li>
+          <li>WebSocket push notification: result delivered to client the moment inference completes</li>
+          <li>User activity data tracked: report submissions → points awarded → badge tier progression → leaderboard ranking</li>
+          <li class="s">→ Community contribution data flows from submission → reward calculation → real-time leaderboard update</li>
+        </ul>
+        <div class="tags" style="margin-top:4px;">
+          <span class="tag tb">Dashboard Design</span><span class="tag tb">Auto Report Generation</span>
+          <span class="tag tg">FastAPI · Taskiq · Redis</span><span class="tag tg">PostgreSQL · AWS S3</span>
+          <span class="tag to">React Native · TypeScript</span>
+          <span class="tag tp">Async Queue</span><span class="tag tp">Activity Data Tracking</span>
+        </div>
+      </div>
+      <div class="si" style="flex-direction:row; gap:8px;">
+        <div style="flex:1; display:flex; flex-direction:column; gap:4px; min-width:0;">
+          <img src="img/ddp_functions.webp" alt="Detection Mode" style="flex:1; min-height:0; object-fit:contain; background:#f8fafc; border-radius:6px;">
+          <div class="si-cap">Fast / Deep mode selection — analysis depth by use case</div>
+        </div>
+        <div style="flex:1; display:flex; flex-direction:column; gap:4px; min-width:0;">
+          <img src="img/ddp_analyze.webp" alt="Result Dashboard" style="flex:1; min-height:0; object-fit:contain; background:#f8fafc; border-radius:6px;">
+          <div class="si-cap">Detection result dashboard — per-modal confidence breakdown</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="fn">Jiyun Kang · Data Coordinator Portfolio</span>
+    <span class="fc">github.com/jiyun-kang12 · jiyun-kang12.github.io/portfolio/</span>
+  </div>
+</div>
+
+
+<!-- ═══════════ PAGE 6: PROJECT 03 — Dataset Construction 1/2 ═══════════ -->
+<div class="page">
+  <div class="cp">
+    <div class="ph">
+      <div><span class="ph-t">Project 03</span><span class="ph-s">Automotive Design AI Platform — Large-Scale Dataset Construction & Management — 1/2</span></div>
+      <div class="ph-r">Jul–Sep 2025 · 3 months · Team of 5</div>
+    </div>
+
+    <div class="srow t45" style="flex:1.2;">
+      <div class="st">
+        <div class="award"><span>🏆</span>SK Networks Family AI Camp 13th — Excellence Award</div>
+        <div>
+          <span class="badge bm">Main</span>
+          <div class="pname" style="margin-top:3px;">Automotive Design Prototype Image Generation Platform</div>
+          <div class="psub">17 GB image dataset · Auto-labeling pipeline · Multi-modal data construction · sLLM fine-tuning data</div>
+        </div>
+        <div class="pdiv"></div>
+        <div class="pdesc">Built the training data pipeline for a brand-specific AI platform. Responsible for <b>constructing, labeling, and structuring a 17 GB automotive image dataset</b> using an automated captioning pipeline, which then fed both image generation and language model fine-tuning.</div>
+        <div>
+          <div class="slabel">Auto-Labeling Pipeline — InternVL3 Captioning on 1,988 Images</div>
+          <ul class="fl">
+            <li>InternVL3-8B (17 GB) deployed to extract design features from each automotive image automatically</li>
+            <li>Prompt designed to capture: body shape · proportion · surface curvature · lighting · grille · wheel · color · futuristic elements</li>
+            <li class="s">→ Replaced manual labeling with a structured extraction pipeline — consistent vocabulary across all 1,988 images</li>
+            <li>Output: JSONL format → 3 Q&A triples per chunk → fine-tuning dataset for sLLM (kanana-1.5-8b)</li>
+          </ul>
+        </div>
+        <div>
+          <div class="slabel">Dataset Architecture — Multi-Modal Structure</div>
+          <ul class="fl">
+            <li>Image data (1,988 automotive photos) + design philosophy documents + VoC data + trend reports</li>
+            <li>Each image record: raw image + auto-generated caption + structured metadata + Q&A pairs</li>
+            <li class="s">→ Single dataset powers both image generation (FLUX LoRA) and language model fine-tuning (sLLM)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="si">
+        <img src="img/system_archi.webp" alt="System Architecture">
+        <div class="si-cap">System pipeline — dataset feeds both sLLM fine-tuning and FLUX LoRA image generation</div>
+      </div>
+    </div>
+
+    <div class="divrow"></div>
+
+    <div class="srow t50" style="flex:1;">
+      <div class="st">
+        <div class="slabel">Data Quality Strategy — Consistent Extraction Across Large-Scale Corpus</div>
+        <ul class="fl">
+          <li>Standardized prompt template ensures uniform feature vocabulary regardless of image variation</li>
+          <li>Batch processing with API stability safeguards (500-item insert batches with error retry)</li>
+          <li>Output validation: JSONL schema checked before ingestion into fine-tuning pipeline</li>
+        </ul>
+        <div class="tags" style="margin-top:5px;">
+          <span class="tag tb">Dataset Construction</span><span class="tag tb">Auto-Labeling</span>
+          <span class="tag tb">InternVL3 · FLUX.1-Kontext</span>
+          <span class="tag tg">FastAPI · Django</span>
+          <span class="tag to">React</span>
+          <span class="tag">Runpod GPU</span><span class="tag">Docker</span><span class="tag">vLLM</span>
+        </div>
+      </div>
+      <div class="si">
+        <img src="img/captioning_image.webp" alt="Auto-Captioning">
+        <div class="si-cap">InternVL3 auto-captioning — design features extracted and structured per image</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="fn">Jiyun Kang · Data Coordinator Portfolio</span>
+    <span class="fc">github.com/jiyun-kang12 · jiyun-kang12.github.io/portfolio/</span>
+  </div>
+</div>
+
+
+<!-- ═══════════ PAGE 7: PROJECT 03 — Performance Metrics & Data Pipeline 2/2 ═══════════ -->
+<div class="page">
+  <div class="cp">
+    <div class="ph">
+      <div><span class="ph-t">Project 03</span><span class="ph-s">Model Performance Tracking · RAG Data Pipeline · Generation Evaluation — 2/2</span></div>
+    </div>
+
+    <div class="srow t50" style="flex:1.1;">
+      <div class="st">
+        <div class="slabel">Model Performance Tracking — Before vs. After Fine-Tuning</div>
+        <table class="tbl">
+          <thead><tr><th>Model</th><th>Metric</th><th>Baseline</th><th>Fine-Tuned</th><th>Change</th></tr></thead>
+          <tbody>
+            <tr><td>FLUX LoRA</td><td>FID Score ↓</td><td>66.35</td><td class="hv">52.42</td><td class="hv">▼ 21%</td></tr>
+            <tr><td>FLUX LoRA</td><td>Brand Identity Score (GPT eval, /5)</td><td>4.18</td><td class="hv">4.27</td><td class="hv">▲ 0.09</td></tr>
+            <tr><td>kanana-1.5-8b</td><td>BERTScore-F1</td><td>0.7344</td><td class="hv">0.8884</td><td class="hv">▲ 21%</td></tr>
+            <tr><td>kanana-1.5-8b</td><td>Cosine Similarity</td><td>0.9004</td><td class="hv">0.9526</td><td class="hv">▲ 5.8%</td></tr>
+          </tbody>
+        </table>
+        <div class="slabel" style="margin-top:6px;">RAG Knowledge Pipeline — Brand Document Retrieval</div>
+        <ul class="fl">
+          <li>Knowledge base: 4 academic papers + 12 news articles + internal design documents → Qdrant vector DB</li>
+          <li>HyDE query rewriting improves retrieval relevance for design-domain queries</li>
+          <li>Reranker re-orders retrieved chunks before passing to LLM → reduces hallucination risk</li>
+        </ul>
+      </div>
+      <div class="si">
+        <img src="img/rage.webp" alt="RAG Pipeline">
+        <div class="si-cap">RAG data pipeline — document ingestion → vector search → reranker → LLM response</div>
+      </div>
+    </div>
+
+    <div class="divrow"></div>
+
+    <div class="srow t50" style="flex:1;">
+      <div class="st">
+        <div class="slabel">Generation Data Pipeline — Checklist → HITL → 3D/4D Conversion</div>
+        <ul class="fl">
+          <li>Design checklist structures user intent into a consistent prompt → FLUX LoRA generates candidate images</li>
+          <li>Human-in-the-Loop: designer reviews generated output before committing to 3D/4D conversion stage</li>
+          <li>ComfyUI workflow: approved image → 3D mesh → 4D animation in a single integrated pipeline</li>
+          <li class="s">→ Each stage gate ensures only validated data advances through the pipeline — prevents downstream waste</li>
+        </ul>
+      </div>
+      <div class="si">
+        <img src="img/image_pipeline.webp" alt="Image Generation Pipeline">
+        <div class="si-cap">Generation pipeline — FLUX LoRA → HITL review → 3D/4D conversion</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="fn">Jiyun Kang · Data Coordinator Portfolio</span>
+    <span class="fc">github.com/jiyun-kang12 · jiyun-kang12.github.io/portfolio/</span>
+  </div>
+</div>
+
+
+<!-- ═══════════ PAGE 8: PROJECT 04 — Behavioral Data & Gamification Metrics ═══════════ -->
+<div class="page">
+  <div class="cp">
+    <div class="ph">
+      <div><span class="ph-t">Project 04</span><span class="ph-s">AI Settlement Coordinator — User Behavioral Data & Gamification Metrics</span></div>
+      <div class="ph-r">Jul–Sep 2025 · 3 months · Team of 5 · Planning lead + full frontend</div>
+    </div>
+
+    <div class="srow t45" style="flex:1.2;">
+      <div class="st">
+        <div class="award"><span>🏆</span>7th K-Digital Training Hackathon — Minister of Employment & Labor Award</div>
+        <div>
+          <span class="badge bm">Main</span>
+          <div class="pname" style="margin-top:3px;">AI Settlement Coordinator — Behavioral Tracking & Engagement Metrics</div>
+          <div class="psub">Mission completion data · Badge & point system · RAG-based recommendation · Multi-agent data routing</div>
+        </div>
+        <div class="pdiv"></div>
+        <div class="pdesc">Designed the user activity data architecture for a rural settlement support platform — tracking mission completions, community interactions, and behavioral signals to drive <b>personalized mission recommendations and engagement analytics</b> for 40–64 year-old returnee migrants.</div>
+        <div>
+          <div class="slabel">User Activity Data Model — 3-Type Mission Tracking</div>
+          <ul class="fl">
+            <li><b>Exploration missions</b>: emotional reconnection activities → completion logged as "sense of belonging" signal</li>
+            <li><b>Community missions</b>: local interaction events → participation data feeds social network metrics</li>
+            <li><b>Career missions</b>: professional skill application → completion data feeds credibility score</li>
+            <li class="s">→ Each mission type generates a distinct behavioral signal that feeds downstream recommendation and badge systems</li>
+          </ul>
+        </div>
+        <div>
+          <div class="slabel">Engagement Metrics — Badge, Point & Leaderboard Data</div>
+          <ul class="fl">
+            <li>Points awarded per mission completion → accumulated total drives badge tier progression (4 levels)</li>
+            <li>Badge data visualizes credibility · expertise · activity history → displayed as user's trust profile</li>
+            <li>Point balance redeemable for local services → engagement data extends beyond the app into real-world value</li>
+          </ul>
+        </div>
+      </div>
+      <div class="si">
+        <img src="img/hometownon1.webp" alt="App Overview">
+        <div class="si-cap">App overview — mission feed · community · AI chatbot · activity dashboard</div>
+      </div>
+    </div>
+
+    <div class="divrow"></div>
+
+    <div class="srow t40" style="flex:1;">
+      <div class="st">
+        <div class="slabel">RAG-Based Recommendation & Multi-Agent Data Routing</div>
+        <ul class="fl">
+          <li>User profile data (mission history + location + interests) → RAG retrieves relevant missions to surface in feed</li>
+          <li>Multi-agent chatbot: intent classifier routes user queries to specialized agents (mission / community / info)</li>
+          <li class="s">→ Each agent accesses a distinct data domain — prevents cross-contamination of query context</li>
+        </ul>
+        <div class="tags" style="margin-top:4px;">
+          <span class="tag tb">Behavioral Data Tracking</span><span class="tag tb">Engagement Metrics</span>
+          <span class="tag tp">RAG Recommendation</span><span class="tag tp">Multi-Agent Routing</span>
+          <span class="tag tg">FastAPI · MySQL</span>
+          <span class="tag to">React Native · Expo</span>
+        </div>
+      </div>
+      <div class="si" style="flex-direction:row; gap:8px;">
+        <div style="flex:1; display:flex; flex-direction:column; gap:4px; min-width:0;">
+          <img src="img/hometownon2.webp" alt="Mission Types" style="flex:1; min-height:0; object-fit:contain; background:#f8fafc; border-radius:6px;">
+          <div class="si-cap">3-type mission data model (Exploration · Community · Career)</div>
+        </div>
+        <div style="flex:1; display:flex; flex-direction:column; gap:4px; min-width:0;">
+          <img src="img/chatbot.webp" alt="Multi-Agent Chatbot" style="flex:1; min-height:0; object-fit:contain; background:#f8fafc; border-radius:6px;">
+          <div class="si-cap">Multi-agent chatbot — per-domain data routing</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="fn">Jiyun Kang · Data Coordinator Portfolio</span>
+    <span class="fc">github.com/jiyun-kang12 · jiyun-kang12.github.io/portfolio/</span>
+  </div>
+</div>
+
+
+<!-- ═══════════ PAGE 9: PROJECT 05 — Knowledge Data Pipeline & Quality Evaluation ═══════════ -->
+<div class="page">
+  <div class="cp">
+    <div class="ph">
+      <div><span class="ph-t">Project 05</span><span class="ph-s">Copyright Info Chatbot — Knowledge Data Pipeline & Retrieval Quality Evaluation</span></div>
+      <div class="ph-r">Jun 2025 · 1 month · Team of 4</div>
+    </div>
+
+    <div class="srow t45" style="flex:1.1;">
+      <div class="st">
+        <div>
+          <span class="badge bt">Project</span>
+          <div class="pname" style="margin-top:3px;">Copyright Chatbot — Data Collection to Quality-Evaluated RAG</div>
+          <div class="psub">Government PDF parsing · Platform FAQ crawling · ChromaDB · Faithfulness 0.867</div>
+        </div>
+        <div class="pdiv"></div>
+        <div class="pdesc">Built the full knowledge data pipeline for a copyright information chatbot — from <b>raw document collection and structured ingestion to vector database construction and retrieval quality evaluation</b>. The pipeline ensures answers are grounded in authoritative, verifiable sources.</div>
+        <div>
+          <div class="slabel">Data Collection Pipeline — Primary Source Only</div>
+          <ul class="fl">
+            <li><b>Government PDFs</b>: PyMuPDF page-level block extraction → 5-type metadata auto-tagging</li>
+            <li class="s">Metadata fields: platform · law_scope · doc_type · source · topic — enables filtered retrieval</li>
+            <li><b>Platform FAQs</b>: Selenium dynamic crawling → JSON/CSV structured output (YouTube · Instagram · Naver)</li>
+            <li class="s">→ All data sourced from official, citable documents — no secondary interpretations ingested</li>
+            <li>Batch insertion: 500-item chunks with API rate-limit handling → stable large-scale ingestion into ChromaDB</li>
+          </ul>
+        </div>
+        <div>
+          <div class="slabel">Retrieval Quality Evaluation — 4-Metric RAG Assessment</div>
+          <ul class="fl">
+            <li>Faithfulness prioritized: copyright misinformation carries real legal risk → answer must cite source accurately</li>
+            <li>Evaluated using RAGAS framework across 4 dimensions</li>
+          </ul>
+        </div>
+      </div>
+      <div class="si">
+        <img src="img/project3_langgraph.webp" alt="Pipeline Evolution">
+        <div class="si-cap">Pipeline evolution — simple retriever → 3-stage intent-routed RAG</div>
+      </div>
+    </div>
+
+    <div class="divrow"></div>
+
+    <div class="srow t50" style="flex:1;">
+      <div class="st">
+        <div class="slabel">8-Node Data Processing Pipeline — HyDE → Routing → RAG / Tool / Fallback</div>
+        <ul class="fl">
+          <li>extract_name → <b>HyDE</b> (hypothetical doc embedding for query rewriting) → <b>check_route</b> (RAG / Tool / LLM)</li>
+          <li>retrieve → call_tool_llm → tool_runner → process_tool_result → synthesize → fallback</li>
+          <li class="s">→ Data flows through typed nodes — each node has a single responsibility, making the pipeline auditable and debuggable</li>
+        </ul>
+        <div class="metrics" style="margin-top:5px;">
+          <div class="mc"><div class="mv">0.867</div><div class="ml">Faithfulness</div></div>
+          <div class="mc"><div class="mv">0.800</div><div class="ml">Context Recall</div></div>
+          <div class="mc"><div class="mv">0.800</div><div class="ml">Context Precision</div></div>
+          <div class="mc"><div class="mv">0.637</div><div class="ml">Answer Relevancy</div></div>
+        </div>
+        <div class="tags" style="margin-top:4px;">
+          <span class="tag tb">Data Collection Pipeline</span><span class="tag tb">Knowledge Base Construction</span>
+          <span class="tag tp">LangGraph · LangChain · ChromaDB · HyDE</span>
+          <span class="tag">Selenium · PyMuPDF</span><span class="tag">RAGAS Evaluation</span>
+        </div>
+      </div>
+      <div class="si">
+        <img src="img/project3_pipeline.webp" alt="8-Node Pipeline">
+        <div class="si-cap">8-node pipeline — typed data flow from query intake to synthesized response</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="fn">Jiyun Kang · Data Coordinator Portfolio</span>
+    <span class="fc">github.com/jiyun-kang12 · jiyun-kang12.github.io/portfolio/</span>
+  </div>
+</div>
+
+
+<!-- ═══════════ PAGE 10: DATA COORDINATOR SKILLS OVERVIEW ═══════════ -->
+<div class="page">
+  <div class="cp">
+    <div class="ph">
+      <div><span class="ph-t">Data Coordinator Skills</span><span class="ph-s">Monitoring · Dashboard · Pipeline · Metrics · Reporting</span></div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; flex:1; min-height:0; overflow:hidden;">
+
+      <!-- Col 1 -->
+      <div style="display:flex;flex-direction:column;gap:9px;overflow:hidden;">
+        <div>
+          <div style="font-size:11px;font-weight:700;padding-bottom:3px;border-bottom:1.5px solid var(--border);margin-bottom:5px;">Real-Time Data Monitoring</div>
+          <div style="display:flex;gap:5px;padding:2.5px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9.5px;font-weight:600;min-width:110px;">Live Data Streaming</div><div style="font-size:9px;color:var(--text-mid);">WebSocket 0.1 s interval — 5-channel concurrent signal collection from browser</div></div>
+          <div style="display:flex;gap:5px;padding:2.5px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9.5px;font-weight:600;min-width:110px;">Multi-Role Access</div><div style="font-size:9px;color:var(--text-mid);">Learner · Instructor · Manager — each role sees a different data view on the same stream</div></div>
+          <div style="display:flex;gap:5px;padding:2.5px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9.5px;font-weight:600;min-width:110px;">Alert Threshold Design</div><div style="font-size:9px;color:var(--text-mid);">Cooldown-based alerts (30 s / 1 min) — prevents alert fatigue while ensuring timely intervention</div></div>
+          <div style="display:flex;gap:5px;padding:2.5px 0;"><div style="font-size:9.5px;font-weight:600;min-width:110px;">Async Queue Monitoring</div><div style="font-size:9px;color:var(--text-mid);">Taskiq + Redis — job status tracked and result pushed via WebSocket on completion</div></div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;padding-bottom:3px;border-bottom:1.5px solid var(--border);margin-bottom:5px;">Dashboard Design</div>
+          <div style="display:flex;gap:5px;padding:2.5px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9.5px;font-weight:600;min-width:110px;">Cognitive Load Design</div><div style="font-size:9px;color:var(--text-mid);">Status labels over raw numbers — instructors identify issues in under 1 second</div></div>
+          <div style="display:flex;gap:5px;padding:2.5px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9.5px;font-weight:600;min-width:110px;">Data Visualization</div><div style="font-size:9px;color:var(--text-mid);">Recharts: time-series line chart · radar chart · confidence bar — adapted to data type</div></div>
+          <div style="display:flex;gap:5px;padding:2.5px 0;"><div style="font-size:9.5px;font-weight:600;min-width:110px;">Filter & Drill-Down</div><div style="font-size:9px;color:var(--text-mid);">Category filter (Focused / Distracted / Drowsy / Phone) surfaces relevant subset instantly</div></div>
+        </div>
+      </div>
+
+      <!-- Col 2 -->
+      <div style="display:flex;flex-direction:column;gap:9px;overflow:hidden;">
+        <div>
+          <div style="font-size:11px;font-weight:700;padding-bottom:3px;border-bottom:1.5px solid var(--border);margin-bottom:5px;">Data Pipeline Construction</div>
+          <div style="display:flex;gap:5px;padding:2.5px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9.5px;font-weight:600;min-width:110px;">Collection Automation</div><div style="font-size:9px;color:var(--text-mid);">PDF parsing (PyMuPDF) + dynamic crawling (Selenium) → structured JSON/JSONL output</div></div>
+          <div style="display:flex;gap:5px;padding:2.5px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9.5px;font-weight:600;min-width:110px;">Auto-Labeling</div><div style="font-size:9px;color:var(--text-mid);">InternVL3 on 1,988 images — consistent feature extraction at scale without manual labeling</div></div>
+          <div style="display:flex;gap:5px;padding:2.5px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9.5px;font-weight:600;min-width:110px;">Vector DB Ingestion</div><div style="font-size:9px;color:var(--text-mid);">ChromaDB / Qdrant — batch insert with metadata tagging for filtered semantic retrieval</div></div>
+          <div style="display:flex;gap:5px;padding:2.5px 0;"><div style="font-size:9.5px;font-weight:600;min-width:110px;">Stage-Gate Pipeline</div><div style="font-size:9px;color:var(--text-mid);">HITL review gates between generation and 3D/4D conversion — only validated data advances</div></div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;padding-bottom:3px;border-bottom:1.5px solid var(--border);margin-bottom:5px;">Metrics Definition & Evaluation</div>
+          <div style="display:flex;gap:5px;padding:2.5px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9.5px;font-weight:600;min-width:110px;">KPI Design</div><div style="font-size:9px;color:var(--text-mid);">Defined focus + fatigue as two independent scores from raw multi-signal data</div></div>
+          <div style="display:flex;gap:5px;padding:2.5px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9.5px;font-weight:600;min-width:110px;">Business-Aligned Metric</div><div style="font-size:9px;color:var(--text-mid);">Recall-first for dropout prediction — FN cost > FP cost in educational context</div></div>
+          <div style="display:flex;gap:5px;padding:2.5px 0;"><div style="font-size:9.5px;font-weight:600;min-width:110px;">Retrieval Quality</div><div style="font-size:9px;color:var(--text-mid);">RAGAS 4-metric evaluation — Faithfulness 0.867, Context Recall 0.800</div></div>
+        </div>
+      </div>
+
+      <!-- Col 3 -->
+      <div style="display:flex;flex-direction:column;gap:9px;overflow:hidden;">
+        <div>
+          <div style="font-size:11px;font-weight:700;padding-bottom:3px;border-bottom:1.5px solid var(--border);margin-bottom:5px;">Automated Reporting</div>
+          <div style="display:flex;gap:5px;padding:2.5px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9.5px;font-weight:600;min-width:110px;">Session Auto-Report</div><div style="font-size:9px;color:var(--text-mid);">PostgreSQL aggregate → Gemini LLM → natural-language teaching improvement report on session end</div></div>
+          <div style="display:flex;gap:5px;padding:2.5px 0;border-bottom:1px solid #f3f4f6;"><div style="font-size:9.5px;font-weight:600;min-width:110px;">Visual Report Gen</div><div style="font-size:9px;color:var(--text-mid);">Wavelet histogram auto-rendered as PNG → S3 upload → dashboard link, zero manual steps</div></div>
+          <div style="display:flex;gap:5px;padding:2.5px 0;"><div style="font-size:9.5px;font-weight:600;min-width:110px;">Feature Engineering</div><div style="font-size:9px;color:var(--text-mid);">Raw OULAD logs → sum_click · avg_score · last_click_week — interpretable behavioral features</div></div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;padding-bottom:3px;border-bottom:1.5px solid var(--border);margin-bottom:5px;">Awards & Impact</div>
+          <div style="background:linear-gradient(90deg,#fef9c3,#fffbeb);border:1px solid #fcd34d;border-radius:5px;padding:5px 10px;margin-bottom:6px;">
+            <div style="font-size:10px;font-weight:700;color:#78350f;">🏆 Minister of Employment & Labor Award</div>
+            <div style="font-size:9px;color:#92400e;">7th K-Digital Training Hackathon · AI Settlement Coordinator · Behavioral data design</div>
+          </div>
+          <div style="background:linear-gradient(90deg,#fef9c3,#fffbeb);border:1px solid #fcd34d;border-radius:5px;padding:5px 10px;">
+            <div style="font-size:10px;font-weight:700;color:#78350f;">🏆 SK Networks Excellence Award</div>
+            <div style="font-size:9px;color:#92400e;">AI Camp 13th · 17 GB dataset pipeline · FID Score ▼21% via data-driven fine-tuning</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="fn">Jiyun Kang · Data Coordinator Portfolio</span>
+    <span class="fc">github.com/jiyun-kang12 · jiyun-kang12.github.io/portfolio/</span>
+  </div>
+</div>
+
+</body>
+</html>

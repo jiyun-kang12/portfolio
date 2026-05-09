@@ -1951,6 +1951,7 @@ footer .credits a {
   display: flex;
   justify-content: center;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
 /* 커스텀 체크박스 칩 */
@@ -2018,4 +2019,197 @@ footer .credits a {
 .filter-chip input:checked + .chip-inner .chip-check::after {
   opacity: 1;
   border-color: #222;
+}
+
+/* ══════════════════════════════════════════════════════
+   모바일 반응형 (≤ 767px)
+══════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+
+  /* ── 히어로 섹션 ── */
+  .intro .intro-title {
+    font-size: 2.8rem;
+  }
+  .intro .intro-subtitle {
+    font-size: 1.1rem;
+  }
+
+  /* ── 포트폴리오 섹션 전체 ── */
+  .portfolio-hero {
+    padding: 90px 0 60px;
+  }
+
+  /* 모든 포트폴리오 col → 풀 너비, 동일 패딩 */
+  .portfolio-hero .portfolio-entry > [class*="col-"] {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .portfolio-hero .portfolio-entry {
+    margin-bottom: 4rem;
+    flex-direction: column !important;
+  }
+
+  /* 역방향: 이미지 위, 텍스트 아래 */
+  .portfolio-entry-reverse {
+    flex-direction: column !important;
+  }
+
+  /* 텍스트 정렬 통일 — 모두 왼쪽 */
+  .portfolio-entry [class*="col-"],
+  .portfolio-entry .text-right {
+    text-align: left !important;
+  }
+
+  .hero-label,
+  .hero-title,
+  .hero-highlights,
+  .hero-actions {
+    text-align: left !important;
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .hero-highlights {
+    padding-left: 0 !important;
+    list-style-position: outside !important;
+  }
+
+  /* hero-title 크기 */
+  .hero-title {
+    font-size: 1.3rem !important;
+    margin-top: 0.8rem;
+  }
+
+  .hero-label {
+    font-size: 0.8rem;
+    margin-top: 1.2rem;
+  }
+
+  .hero-highlights li {
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  /* ── 갤러리 (3장 나란히) ── */
+  .hero-gallery {
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    overflow: hidden !important;
+    gap: 3px !important;
+    width: 100% !important;
+  }
+
+  .hero-gallery .hero-img,
+  .hero-gallery video.hero-img,
+  #portfolio .portfolio-entry .hero-preview-gallery .hero-gallery .hero-img {
+    flex: 1 1 0% !important;
+    width: 0% !important;
+    min-width: 0 !important;
+    height: 130px !important;
+    max-height: 130px !important;
+    margin-left: 0 !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    border-radius: 4px;
+  }
+
+  .hero-gallery .hero-img:first-child {
+    margin-left: 0 !important;
+  }
+
+  /* ── 단일 이미지/영상 ── */
+  .hero-preview {
+    width: 100% !important;
+  }
+
+  .hero-img-large,
+  #portfolio .portfolio-entry .hero-preview .hero-img {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* project5 영상 */
+  .p5-video {
+    width: 80% !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+
+  /* 버튼 */
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .hero-actions .btn {
+    margin-right: 0 !important;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.82rem;
+  }
+
+  /* ── Paper Review / Blog 카드 ── */
+  .portfolio-mf .col-md-4,
+  .blog-mf .col-md-4 {
+    margin-bottom: 1.5rem !important;
+  }
+
+  .card-blog .card-img {
+    height: 180px;
+  }
+
+  /* ── About ── */
+  .about-card {
+    padding: 2rem 1rem;
+    border-radius: 20px;
+  }
+
+  .about-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-board-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-role {
+    font-size: 1.1rem;
+  }
+
+  /* ── 섹션 패딩 ── */
+  .sect-pt4 {
+    padding-top: 3rem;
+  }
+}
+
+/* ── 아주 작은 화면 (≤ 400px) ── */
+@media (max-width: 400px) {
+  .intro .intro-title { font-size: 2.2rem; }
+  .hero-title { font-size: 1.1rem !important; }
+  .hero-highlights li { font-size: 0.76rem; }
+  .hero-gallery .hero-img,
+  .hero-gallery video.hero-img,
+  #portfolio .portfolio-entry .hero-preview-gallery .hero-gallery .hero-img {
+    height: 100px !important;
+    max-height: 100px !important;
+  }
+}
+
+/* ── 아주 작은 화면 (≤ 400px) ── */
+@media (max-width: 400px) {
+  .intro .intro-title {
+    font-size: 2.2rem;
+  }
+  .hero-title {
+    font-size: 1.2rem;
+  }
+  .hero-highlights li {
+    font-size: 0.8rem;
+  }
+  .about-card {
+    padding: 1.5rem 0.8rem;
+  }
 }
