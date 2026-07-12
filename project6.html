@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="utf-8">
+  <title>Jiyun's Devfolio — 서울의 유령 노선</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <!-- Favicons -->
+  <link href="img/jiyun_logo.webp" rel="icon">
+  <link href="img/jiyun_logo.webp" rel="apple-touch-icon">
+
+  <!-- Bootstrap CSS -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Highlight.js -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/csharp.min.js"></script>
+  <script>hljs.highlightAll();</script>
+
+  <!-- Libraries -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <style>
+    pre code {
+      background-color: #1e1e1e;
+      color: #ffffff;
+      border-radius: 6px;
+      padding: 14px;
+      display: block;
+      overflow-x: auto;
+      border: none;
+    }
+    pre { margin: 0 0 16px 0; }
+
+    .article-content .portfolio-section h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-top: 14px;
+      margin-bottom: 8px;
+      color: #1f2937;
+    }
+
+    .article-content .portfolio-section img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .article-content .portfolio-section h2.little-title {
+      margin-top: 28px;
+    }
+    .article-content .portfolio-section h2.little-title:first-child {
+      margin-top: 0;
+    }
+
+    .post-thumb img {
+      width: 100%;
+      object-fit: contain;
+    }
+
+    .img-placeholder {
+      background: #f1f5f9;
+      border: 2px dashed #cbd5e1;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 6px;
+      padding: 30px;
+      margin: 12px 0;
+      color: #94a3b8;
+      text-align: center;
+    }
+    .img-placeholder span { font-size: 13px; font-weight: 600; }
+    .img-placeholder small { font-size: 11px; }
+
+    .milestone-week {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+    }
+    .milestone-week h6 {
+      font-weight: 700;
+      color: #2563eb;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+    .milestone-week ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .milestone-week ul li {
+      font-size: 13px;
+      color: #374151;
+      margin-bottom: 3px;
+    }
+
+    .problem-card {
+      background: #fef9f0;
+      border-left: 3px solid #f59e0b;
+      border-radius: 0 8px 8px 0;
+      padding: 10px 14px;
+      margin-bottom: 10px;
+    }
+    .problem-card .prob-title { font-weight: 700; font-size: 13px; color: #92400e; margin-bottom: 4px; }
+    .problem-card .prob-body { font-size: 12.5px; color: #374151; }
+
+    .solve-card {
+      background: #f0fdf4;
+      border-left: 3px solid #22c55e;
+      border-radius: 0 8px 8px 0;
+      padding: 10px 14px;
+      margin-bottom: 10px;
+    }
+    .solve-card .solve-title { font-weight: 700; font-size: 13px; color: #15803d; margin-bottom: 4px; }
+    .solve-card .solve-body { font-size: 12.5px; color: #374151; }
+
+    .article-content .portfolio-section table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 20px;
+      font-size: 13px;
+    }
+    .article-content .portfolio-section table th,
+    .article-content .portfolio-section table td {
+      border: 1px solid #e5e7eb;
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    .article-content .portfolio-section table th {
+      background: #f8fafc;
+      font-weight: 700;
+      color: #1f2937;
+      white-space: nowrap;
+    }
+
+    .quest-quote {
+      background: #f5f3ff;
+      border-left: 3px solid #7c3aed;
+      border-radius: 0 8px 8px 0;
+      padding: 10px 14px;
+      margin: 10px 0;
+      font-size: 13px;
+      color: #4c1d95;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    .quest-block {
+      background: #fafafa;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin-bottom: 20px;
+    }
+    .quest-block h4:first-child { margin-top: 0; }
+    .quest-block h5 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #6d28d9;
+      margin-top: 14px;
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+
+<body id="page-top" style="padding-top: 80px;">
+
+  <!-- Nav -->
+  <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll" href="index.html">Jiyun's DevFolio</a>
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
+        aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link js-scroll active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll active" href="index.html#portfolio">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll" href="index.html#portfolio-grid">Paper Review</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll" href="index.html#blog">Blog</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll" href="index.html#about">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 본문 -->
+  <section class="blog-wrapper sect-pt4" id="blog">
+    <div class="container">
+      <div class="row">
+        <!-- 왼쪽 메인 콘텐츠 -->
+        <div class="col-md-8">
+          <div class="post-box">
+
+            <!-- 대표 이미지 -->
+            <div class="post-thumb">
+              <img src="img/game_mainpage.webp" alt="서울의 유령 노선 메인 화면">
+            </div>
+
+            <div class="post-meta">
+              <h1 class="article-title">서울의 유령 노선 (Seoul's Ghost Line)</h1>
+              <ul>
+                <li><span class="ion-ios-person"></span> <a>강지윤</a></li>
+                <li><span class="ion-pricetag"></span> <a>Game Dev · Unity · 3D Environment Art</a></li>
+                <li><span class="ion-calendar"></span> <a>2026.05.17 ~ 2026.06.28 (약 6주)</a></li>
+              </ul>
+            </div>
+
+            <div class="article-content">
+              <div class="portfolio-section">
+
+                <!-- 프로젝트 개요 -->
+                <h2 class="little-title">📌 프로젝트 목표</h2>
+                <p>제 1회 서울 플레이업 AI 게임 챌린지 출품작으로, 서울역·청계천 등 실제 서울 공간에 남아 있는 과거의 흔적을 탐색하며 사라진 장소와 잊혀진 사람들의 기억을 복원하는 <strong>3D 스토리 기반 퀘스트 탐험 게임</strong>입니다. 도시 공간을 단순 배경이 아닌, 역사적 사건과 평범한 사람들의 삶이 쌓인 서사적 무대로 재현하는 것을 기획 의도로 삼았습니다.</p>
+                <p>2인 팀 "서울을 빚다"로 참가하여 약 6주간 개발했습니다.</p>
+
+                <!-- 기획 의도 -->
+                <h2 class="little-title">📌 기획 의도</h2>
+                <p>서울의 많은 장소들은 개발과 변화 속에서 모습이 바뀌었지만, 그곳을 지나간 사람들의 삶과 기억은 완전히 사라지지 않았습니다.</p>
+                <p>《서울의 유령 노선》은 현재의 서울을 걷는 플레이어가 평소에는 지나치기 쉬운 단서들을 발견하고, 그 단서를 통해 장소 안에 남아 있는 역사와 사람들의 이야기를 복원하도록 설계된 게임입니다. 이 게임에서 다루는 기억은 거대한 사건만이 아니라, 역사 속에서 이름을 잃거나 가난 속에서 하루를 버텨야 했던 평범한 사람들의 기억입니다.</p>
+                <blockquote class="quest-quote">서울은 단순한 도시 공간이 아니라, 수많은 사람들의 삶과 기억이 쌓여 만들어진 장소입니다.</blockquote>
+
+                <h4>게임 기본 정보</h4>
+                <table>
+                  <tr><th>게임명</th><td>서울의 유령 노선</td></tr>
+                  <tr><th>장르</th><td>스토리 기반 퀘스트 탐험 게임</td></tr>
+                  <tr><th>플레이 방식</th><td>단서 탐색, NPC 대화, 미니 퍼즐 해결</td></tr>
+                  <tr><th>주요 배경</th><td>서울역, 청계천</td></tr>
+                  <tr><th>핵심 경험</th><td>현재 공간에 남아 있는 과거의 기억 복원</td></tr>
+                  <tr><th>주요 테마</th><td>서울의 역사, 도시의 기억, 잊혀진 사람들의 삶</td></tr>
+                </table>
+
+                <h4>게임의 핵심 플레이</h4>
+                <p>플레이어는 현재의 서울 공간 안에서 다음과 같은 흐름으로 게임을 진행합니다. 공간 자체를 바꾸는 것이 아니라, 단서를 통해 그 장소가 가진 과거의 의미를 이해하게 되는 것이 핵심입니다.</p>
+                <ol>
+                  <li>현재 공간 탐색</li>
+                  <li>과거의 흔적 발견</li>
+                  <li>NPC와 대화</li>
+                  <li>단서 수집 및 조사</li>
+                  <li>미니 퍼즐 해결</li>
+                  <li>잃어버린 기억 복원</li>
+                </ol>
+
+                <!-- 주요 장소 및 퀘스트 -->
+                <h2 class="little-title">📌 주요 장소 및 퀘스트</h2>
+                <p>각 장소는 <strong>현재의 공간에 남아 있는 과거의 기억</strong>을 중심으로 구성됩니다. 플레이어는 장소별 NPC의 기억을 복원하는 퀘스트를 수행하며, 서울이라는 도시가 어떤 사람들의 삶과 기억 위에 세워졌는지를 체험하게 됩니다.</p>
+
+                <div class="quest-block">
+                  <h4>① 서울역 편</h4>
+                  <h5>장소 소개</h5>
+                  <p>서울역은 많은 사람들이 서울에 처음 도착하거나 떠났던 공간입니다. 현재의 서울역과 구서울역이 공존하는 이곳에는 과거 서울로 올라온 사람들의 기대, 불안, 상실의 흔적이 남아 있습니다. 본 퀘스트에서 서울역은 일제강점기의 역사적 배경과 연결되며, 당시 많은 사람들이 창씨개명으로 인해 본래의 한국 이름 대신 일본식 이름을 사용해야 했던 사실을 다룹니다.</p>
+
+                  <h5>메인 퀘스트: 잃어버린 이름표</h5>
+                  <p>서울역에서 만나는 NPC는 서울에 기대를 품고 올라온 상경 노동자입니다. 그는 경성역에 도착했지만, 끝내 자신의 본래 이름으로 불리지 못한 인물입니다.</p>
+                  <blockquote class="quest-quote">그는 경성역에 도착했지만, 끝내 자신의 이름으로 불리지 못했습니다.<br>서울역에 숨겨진 단서들을 찾아 그가 잃어버린 이름과 기억을 되찾도록 도와주어야 합니다.</blockquote>
+
+                  <h5>단서 안내</h5>
+                  <table>
+                    <tr><th>단서</th><th>의미</th></tr>
+                    <tr><td>낡은 이름표</td><td>일본식 이름으로 불려야 했던 현실을 보여주는 단서</td></tr>
+                    <tr><td>찢어진 편지 조각</td><td>가족이 불러주던 본래 이름의 흔적을 담고 있는 단서</td></tr>
+                    <tr><td>월급봉투</td><td>노동자로 살아가야 했던 개인의 삶과 시대적 상황을 드러내는 단서</td></tr>
+                  </table>
+
+                  <h5>퀘스트 의도</h5>
+                  <p>서울역 퀘스트는 일제강점기 창씨개명이라는 역사적 배경을 직접 설명하는 데 그치지 않고, 이름을 빼앗긴 한 개인의 기억을 따라가도록 구성되어 있습니다. 이를 통해 플레이어는 서울역이라는 공간을 단순한 교통시설이 아니라, 누군가의 삶이 시작되고 흔들렸던 장소로 다시 바라보게 됩니다.</p>
+                </div>
+
+                <div class="quest-block">
+                  <h4>② 청계천 편</h4>
+                  <h5>장소 소개</h5>
+                  <p>청계천은 현재 시민들이 산책하고 머무는 공간이지만, 과거에는 다양한 상인과 사람들의 생활이 이어지던 장소였습니다. 청계천 다리인 모전교의 모전(毛廛)은 <strong>과일을 팔던 가게</strong>라는 뜻으로, 주변에 과일 가게들이 많았던 상업 공간의 흔적이 다리 이름에도 남아 있습니다. 본 퀘스트는 과일 가게 상인의 기억을 중심으로 구성되지만, 동시에 그 주변에서 가난과 굶주림을 겪던 아이의 이야기를 함께 담고 있습니다.</p>
+
+                  <h5>메인 퀘스트: 모전교, 잊혀진 상인의 기억</h5>
+                  <p>청계천에서 만나는 NPC는 모전교 근처에서 과일을 팔던 상인입니다. 그는 자신이 물건을 팔았다는 사실은 기억하지만, 무엇을 팔았는지는 기억하지 못합니다.</p>
+                  <blockquote class="quest-quote">그는 청계천 곁에서 장사를 했지만, 끝내 자신이 무엇을 팔았는지 기억하지 못했습니다.<br>청계천 모전교 주변에 숨겨진 단서들을 찾아 그가 잊어버린 기억을 찾도록 도와주어야 합니다.</blockquote>
+
+                  <h5>단서 안내</h5>
+                  <table>
+                    <tr><th>단서</th><th>의미</th></tr>
+                    <tr><td>먼지 쌓인 모전교 교명석</td><td>다리 이름의 유래를 통해 이곳이 과일 가게와 관련된 장소였음을 알려주는 단서</td></tr>
+                    <tr><td>과일 바구니와 숨겨진 쪽지</td><td>상인이 팔던 물건이 과일이었으며, 그 과일이 누군가를 위해 남겨진 것이었음을 보여주는 단서</td></tr>
+                    <tr><td>녹슨 손저울</td><td>과일을 달아 팔던 상인의 장사 기억을 확인하게 하는 단서</td></tr>
+                  </table>
+
+                  <h5>퀘스트 의도</h5>
+                  <p>청계천 퀘스트는 모전교 주변의 과일 가게라는 장소적 배경을 바탕으로, 그 안에 존재했던 가난한 아이들의 삶을 함께 보여줍니다. 이 이야기는 청계천을 단순한 산책로나 관광 공간이 아니라, 누군가의 생계와 굶주림, 그리고 작은 연민이 함께 남아 있던 장소로 다시 바라보게 합니다.</p>
+                </div>
+
+                <!-- 주요 게임 시스템 -->
+                <h2 class="little-title">📌 주요 게임 시스템</h2>
+                <table>
+                  <tr><th>시스템</th><th>설명</th></tr>
+                  <tr><td>탐색 및 맵 UI</td><td>플레이어는 현재 서울의 공간을 자유롭게 이동하며 단서를 찾고, 맵을 통해 위치를 확인합니다.</td></tr>
+                  <tr><td>대화 시스템</td><td>NPC와의 대화를 통해 퀘스트가 진행되며, 대사는 단서 발견 및 진행 상황에 따라 변화합니다.</td></tr>
+                  <tr><td>단서 및 미니 퍼즐</td><td>단서는 장소의 역사적 배경과 NPC의 기억을 연결하는 핵심 장치이며, 퍼즐을 통해 정보를 확인합니다.</td></tr>
+                  <tr><td>퀘스트 진행</td><td>장소별 메인 퀘스트를 중심으로 진행되며, 단서를 모두 확인하면 잃어버린 기억이 복원됩니다.</td></tr>
+                </table>
+
+                <div class="milestone-week">
+                  <h6>탐색 및 맵 UI 시스템 — 기억 공명</h6>
+                  <ul>
+                    <li>과거의 기억과의 공명을 통해 기억 조각들의 대략적인 위치와 방향을 제공</li>
+                    <li><code>M</code>키로 기억 공명 UI 진입 → "기억 공명" 버튼 클릭 → 파동이 현 위치를 중심으로 퍼지며 다른 기억 조각들의 상대적 방향과 위치가 드러남</li>
+                  </ul>
+                </div>
+                <div class="milestone-week">
+                  <h6>NPC 대화 시스템</h6>
+                  <ul>
+                    <li>VARCO Voice 음성과 카메라 시점 전환을 통해 생동감 있는 대화 현장을 재현</li>
+                    <li><code>E</code>키로 NPC와 상호작용 → 1인칭 카메라 시점 전환 → 음성 재생</li>
+                  </ul>
+                </div>
+                <div class="milestone-week">
+                  <h6>단서 및 미니 퍼즐 시스템</h6>
+                  <ul>
+                    <li>각 단서에 알맞은 형태의 미니 퍼즐을 통해 실제로 과거를 복원하고 있다는 몰입감 제공</li>
+                    <li><code>E</code>키로 단서와 상호작용 → 미니 퍼즐 UI 진입 → 특정 행위를 통해 과거의 기억 복원</li>
+                  </ul>
+                </div>
+                <div class="milestone-week">
+                  <h6>퀘스트 진행 시스템</h6>
+                  <ul>
+                    <li>해당 지역의 역사적 사건을 기반으로 잊혀진 과거의 삶을 자연스럽게 엿볼 수 있도록 유도</li>
+                    <li><code>J</code>키로 퀘스트 UI 진입 → NPC 대화로 메인 퀘스트 해금 → 관련 단서의 미니 퍼즐을 모두 풀면 클리어</li>
+                  </ul>
+                </div>
+
+                <!-- VARCO 활용 -->
+                <h2 class="little-title">📌 VARCO 활용</h2>
+                <ul>
+                  <li><strong>VARCO 3D</strong> — 열차, 역사(驛舍) 건물, 가로 시설물 등 씬을 구성하는 대부분의 3D 에셋을 VARCO 3D 라이브러리에서 확보해 제작 기간 단축</li>
+                  <li><strong>VARCO Sound</strong> — 청계천 물소리, 서울역 군중 소리, 유령역 저음 배경음, 열차 문 개폐음 등 공간별 몰입 사운드 제작. 단서 발견·퀘스트 완료 효과음 등 상황별 피드백 사운드까지 함께 구성</li>
+                  <li><strong>VARCO Voice</strong> — 서울역·청계천 NPC의 대사를 텍스트 투 스피치로 제작하고, 재생 시간에 맞춘 립싱크로 대화 시스템에 연결</li>
+                </ul>
+
+                <!-- 향후 개발 계획 -->
+                <h2 class="little-title">📌 향후 개발 계획 (2차 제작 기간)</h2>
+                <p>7월 13일부터 8주간 다음 순서로 2차 개발을 진행합니다. VARCO Voice 기반 NPC 음성과 립싱크, 조명·최적화 작업은 마지막 2주에 집중 배치해 완성도를 높일 예정입니다.</p>
+                <ol>
+                  <li>공통 시스템 구축</li>
+                  <li>씬 연결</li>
+                  <li>서울역·청계천 퀘스트 제작</li>
+                  <li>연출 및 음성 적용</li>
+                  <li>최적화 및 QA</li>
+                </ol>
+
+                <h2 class="little-title">📌 My Main Contributions</h2>
+                <ul>
+                  <li><strong>서울역·열차 내부·청계천 3대 씬 공간 구성 및 에셋 배치</strong> — 게임의 3대 핵심 배경 공간 구축</li>
+                  <li><strong>프로젝트 초기 세팅</strong> — .gitignore, VS Code 연동, Input System, Volume Profile 구성 및 샘플 씬 구성</li>
+                  <li><strong>VARCO 기반 3D 에셋 파이프라인 구축</strong> — VARCO(3D/Sound/Voice 생성) 활용, varco_image_to_3d.py 스크립트로 이미지 기반 3D 에셋 생성 파이프라인 구축</li>
+                  <li><strong>환경/캐릭터 관련 C# 스크립트 유지보수</strong> — WaterFlowController.cs URP 리팩터링, PlayerMovement.cs 안전성 보완</li>
+                </ul>
+
+                <!-- 핵심 기능 -->
+                <h2 class="little-title">📌 핵심 기능</h2>
+                <ul>
+                  <li><strong>3개 주요 씬 구성</strong> — 타이틀, 서울역, 열차 내부, 청계천</li>
+                  <li><strong>퀘스트 루프</strong> — 단서 탐색 → NPC 대화 → 미니 퍼즐 해결 → 기억 복원으로 이어지는 구조</li>
+                  <li><strong>시네마틱 연출</strong> — 고품질 씬 전환 연출을 통한 몰입감 강화</li>
+                  <li><strong>환경 시뮬레이션</strong> — 차량 트래픽(CarTrafficAgent), 수경(WaterFlowController) 등 도시 공간의 생동감 구현</li>
+                </ul>
+
+                <h4>① 서울역 씬</h4>
+                <ul>
+                  <li>가로수·벤치 등 조경 에셋 배치</li>
+                  <li>Train / Urban Street 에셋의 임포트 설정 정비</li>
+                </ul>
+
+                <h4>② 열차 내부(Train Indoor) 씬</h4>
+                <ul>
+                  <li>카페, 오피스 빌딩, 편의점 등 도시 건물 에셋 배치</li>
+                </ul>
+
+                <h4>③ 청계천 씬</h4>
+                <ul>
+                  <li>전통 석재 플랫폼 등 배경 에셋 및 수목 프리팹 추가</li>
+                  <li>WaterFlowController 기반 수면 흐름 애니메이션 적용</li>
+                </ul>
+
+                <h2 class="little-title">📌 기술 스택</h2>
+                <ul>
+                  <li><strong>엔진</strong> — Unity (C#), URP(Universal Render Pipeline)</li>
+                  <li><strong>AI 활용</strong> — VARCO(3D/Sound/Voice 생성), varco_image_to_3d.py 이미지 기반 3D 에셋 파이프라인</li>
+                  <li><strong>협업</strong> — Git 기반 버전 관리 (2인 팀)</li>
+                </ul>
+
+                <!-- 문제 해결 -->
+                <h2 class="little-title">📌 문제 해결 경험</h2>
+
+                <h4>문제 1. URP 전환 이후 수면 셰이더 오작동</h4>
+                <div class="problem-card">
+                  <div class="prob-title">상황</div>
+                  <div class="prob-body">청계천 씬 작업 중, 기존 WaterFlowController가 레거시 파이프라인의 _MainTex/_BumpMap 속성을 직접 참조하고 있어 URP/Lit 머티리얼에서 수면 흐름 애니메이션이 정상적으로 반영되지 않음.</div>
+                </div>
+
+                <pre><code class="language-csharp">
+// HasProperty 체크로 _BaseMap 우선 사용, 미지원 시 _MainTex로 폴백
+string texProperty = mat.HasProperty("_BaseMap") ? "_BaseMap" : "_MainTex";
+
+// 런타임에 공유 머티리얼이 아닌 인스턴스 머티리얼 사용 (다른 오브젝트 영향 차단)
+Material instanceMat = renderer.material;
+
+// 오프셋 값을 매 프레임 1로 모듈러 연산 → 장시간 플레이 시 float 정밀도 손실 방지
+offset.x = (offset.x + flowSpeed * Time.deltaTime) % 1f;
+instanceMat.SetTextureOffset(texProperty, offset);
+                </code></pre>
+
+                <div class="solve-card">
+                  <div class="solve-title">해결</div>
+                  <div class="solve-body">HasProperty 체크로 _BaseMap 우선 사용, 미지원 시 _MainTex로 폴백하도록 속성 해석 로직 재설계. 런타임에 공유 머티리얼이 아닌 인스턴스 머티리얼을 사용하도록 변경해 다른 오브젝트에 영향 없도록 격리. 오프셋 값을 매 프레임 1로 모듈러 연산해 장시간 플레이 시 float 정밀도 손실 방지. → URP 환경에서 수면 흐름 효과 정상 작동, 장시간 세션에서도 안정적으로 유지.</div>
+                </div>
+
+                <h4>문제 2. 플레이어 이동 스크립트의 NullReferenceException 위험</h4>
+                <div class="problem-card">
+                  <div class="prob-title">상황</div>
+                  <div class="prob-body">PlayerMovement.cs가 CharacterController가 없거나 런타임 중 파괴된 경우를 가정하지 않아, 접근 시 크래시 위험 존재.</div>
+                </div>
+
+                <pre><code class="language-csharp">
+void Start()
+{
+    controller = GetComponent&lt;CharacterController&gt;();
+    if (controller == null)
+    {
+        Debug.LogError("CharacterController가 없습니다. PlayerMovement를 비활성화합니다.");
+        enabled = false;
+        return;
+    }
+}
+
+void Update()
+{
+    if (controller == null) return;
+    // 이동 로직
+}
+                </code></pre>
+
+                <div class="solve-card">
+                  <div class="solve-title">해결</div>
+                  <div class="solve-body">Start()에서 컴포넌트 부재 시 에러 로그를 남기고 스크립트를 비활성화. Update()에서도 매 프레임 null 체크를 추가해 안전하게 조기 반환. → 씬 구성 실수나 런타임 중 컴포넌트 제거로 인한 크래시를 사전에 방지.</div>
+                </div>
+
+              </div><!-- /portfolio-section -->
+            </div><!-- /article-content -->
+          </div><!-- /post-box -->
+        </div><!-- /col-md-8 -->
+
+        <!-- 오른쪽 사이드바 -->
+        <div class="col-md-4">
+
+          <div class="widget-sidebar">
+            <h5 class="sidebar-title">Summary</h5>
+            <div class="sidebar-content">
+              <ul class="list-sidebar">
+                <li><a href="#">서울역·청계천 등 실제 서울 공간의 기억을 복원하는 3D 스토리 퀘스트 탐험 게임</a></li>
+                <li><a href="#">창씨개명(서울역), 모전교 상인의 기억(청계천) 등 역사적 배경 기반 퀘스트 기획</a></li>
+                <li><a href="#">서울역·열차 내부·청계천 3대 씬 공간 구성 및 에셋 배치 전담</a></li>
+                <li><a href="#">VARCO 기반 이미지→3D 에셋 생성 파이프라인 구축</a></li>
+                <li><a href="#">URP 전환에 따른 WaterFlowController 리팩터링, 인스턴스 머티리얼 격리</a></li>
+                <li><a href="#">PlayerMovement null 방어 로직으로 런타임 크래시 방지</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="widget-sidebar">
+            <h5 class="sidebar-title">Information</h5>
+            <div class="sidebar-content">
+              <ul class="list-sidebar">
+                <li><a href="#">대회: 제 1회 서울 플레이업 AI 게임 챌린지</a></li>
+                <li><a href="#">개발 기간: 2026.05.17 ~ 2026.06.28 (약 6주)</a></li>
+                <li><a href="#">팀 구성: 2명 (Team "서울을 빚다")</a></li>
+                <li>
+                  <a href="#">기술 스택: Unity (C#) · URP · VARCO(3D/Sound/Voice 생성) · Git</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="widget-sidebar widget-tags">
+            <h5 class="sidebar-title">Tags</h5>
+            <div class="sidebar-content">
+              <ul>
+                <li><a href="#">Unity</a></li>
+                <li><a href="#">URP</a></li>
+                <li><a href="#">3D Environment Art</a></li>
+                <li><a href="#">Game Design</a></li>
+                <li><a href="#">Narrative Design</a></li>
+                <li><a href="#">VARCO</a></li>
+                <li><a href="#">Shader</a></li>
+              </ul>
+            </div>
+          </div>
+
+        </div><!-- /col-md-4 -->
+      </div><!-- /row -->
+    </div><!-- /container -->
+  </section>
+
+  <!-- Footer -->
+  <section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(img/overlay-bg.jpg)">
+    <div class="overlay-mf"></div>
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="copyright-box">
+              <p class="copyright">&copy; Copyright <strong>Jiyun Kang</strong>. All Rights Reserved</p>
+              <div class="credits">Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <div id="preloader"></div>
+
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/popper/popper.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/counterup/jquery.waypoints.min.js"></script>
+  <script src="lib/counterup/jquery.counterup.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="lib/lightbox/js/lightbox.min.js"></script>
+  <script src="lib/typed/typed.min.js"></script>
+  <script src="contactform/contactform.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
